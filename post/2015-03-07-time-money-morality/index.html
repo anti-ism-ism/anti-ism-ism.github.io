@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><head>
+    <meta name="google-site-verification" content="9vIieCe-Qpd78QOmBl63rGtIVbhY6sYyuxX3j8XWBA4" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="I [heart] paradox">
+    
+    <meta name="keyword"  content="Complexity">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Time = Money: The Morality of Being Accurate.-Fred Hasselman Blogs Sometimes</title>
+
+    <link rel="canonical" href="/post/2015-03-07-time-money-morality/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+</head>
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">anti-ism-ism</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/hibar">HIBAR</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/life">Life</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/note">Note</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/r">R</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/tech">Tech</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/time-series-analysis">Time Series Analysis</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/tips">Tips</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/accidental-mathematician">accidental mathematician</a>
+                    </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/banner2.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                       
+                       <a class="tag" href="/tags/hibar" title="HIBAR">
+                           HIBAR
+                        </a>
+                        
+                       <a class="tag" href="/tags/3pr" title="3PR">
+                           3PR
+                        </a>
+                        
+                       <a class="tag" href="/tags/ordered-categorical" title="Ordered Categorical">
+                           Ordered Categorical
+                        </a>
+                        
+                    </div>
+                    <h1>Time = Money: The Morality of Being Accurate.</h1>
+                    <h2 class="subheading"></h2>
+                    <span  class="meta">Posted by anti-ism-ism on Saturday, March 7, 2015
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+        		
+                        <header>
+                        <h2>TOC</h2>
+                        </header>
+                        
+        		
+        		
+
+<div id="a-post-publication-peer-review-3pr-of" class="section level1">
+<h1>A Post-Publication Peer-Review (3PR) of:</h1>
+<p><em>Time, Money, and Morality</em> by Gino, F., &amp; Mogilner, C. (online, 2013). Time, Money, and Morality. <em>Psychological Science</em>. <a href="http://pss.sagepub.com/lookup/doi/10.1177/0956797613506438">DOI: 10.1177/0956797613506438</a></p>
+<hr />
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The <em>Time, Money, and Morality</em> article has been HIBAR-ed on Twitter and the Blogosphere (e.g., by <a href="http://rolfzwaan.blogspot.nl/2013/12/time-money-and-morality-and-p-hacking.html">Rolf Zwaan</a> and <a href="http://www1.psych.purdue.edu/~gfrancis/Publications/TimeMoneyMorality/">Greg Francis</a> ) and the discussion seems to revolve around the validity of the inferences based p-values close to 0.05 (e.g., they raise suspicions of p-hacking).</p>
+<p>In short, the article reports of 4 Experiments testing 2 core postulates:<br />
+* Postulate 1: Priming <code>Money</code> activates self-interest and increases unethical behaviour * Postulate 2: Priming <code>Time</code> activates self-reflection and decreases unethical behaviour</p>
+<p>Unethical behaviour is operationalised as taking the opportunity to cheat on a task.<br />
+Priming methods vary across experiments, so do the tasks that allow for an opportunity to cheat.<br />
+In Experiment 1 the two postulates are tested, Experiments 2-4 concern an assessment of the role of self-reflection on cheating behaviour and is operationalised differently across experiments.</p>
+<div id="hold-on-to-your-p-curves-for-a-moment-back-to-the-basics" class="section level3">
+<h3>Hold on to your P-curves for a moment… Back to the basics!</h3>
+<p>In this <strong>P</strong>ost-<strong>P</strong>ublication <strong>P</strong>eer-<strong>R</strong>eview (3PR) I demonstrate that there is indeed some cause for concern about the way these results are presented and interpreted. Was it p-hacking? … I don’t know and maybe I don’t even care. To me this is an example of <strong>sloppy science</strong>, p-hacked or not, these results were <em>allowed</em> to be published by expert peers. It is more relevant to discuss the broken system of quality control that should have picked up on at least some of the following issues:</p>
+<ol style="list-style-type: decimal">
+<li>Important information is missing:</li>
+</ol>
+<ul>
+<li>in general (e.g., number of subjects per condition, sample size determination)<br />
+</li>
+<li>selectively across experiments (e.g., participants per cell, reporting of effect sizes)<br />
+</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>The analyses used on frequency data are inappropriate<br />
+</li>
+<li>Invalid or biased inferences and oddities:<br />
+</li>
+</ol>
+<ul>
+<li>No adjustments for multiple comparisons<br />
+</li>
+<li>“Marginal significance” shifts ad hoc between <code>0.1 &gt; p &gt; 0.05</code><br />
+</li>
+<li>Obvious intervening/mediator variable is omitted: Accuracy of performance<br />
+</li>
+<li>No explanation of (conflicting) results across experiments (e.g., variation in amount of cheating)</li>
+<li>No explanation for failing of random assignment to design levels (<strong>none</strong> of the experiments have equal N samples)</li>
+</ul>
+<p>The article under scrutiny is by no means exceptional with respect to such issues, moreover, the way frequency / proportion data are analysed in psychological science is generally awkward and most of the time completely wrong.</p>
+<p>I will 3PR the data based on the information in the article and comment on the results:</p>
+<ol style="list-style-type: upper-roman">
+<li>Analysis of Proportion / frequency data<br />
+</li>
+<li>Analysis of Extent of Cheating data<br />
+</li>
+<li>HAPPE-ing: __H__ypothesing __A__fter __P__ost __P__ublication __E__valuation</li>
+</ol>
+<p>The R code used to generate the results (and this page) is available in <a href="http://fredhasselman.com/main/wp-content/creations/markdown/HIBAR_timemoneymorality_fin.Rmd">this Markdown</a> file, and <a href="http://fredhasselman.com/?p=303">this post</a> explains how to post to a WordPress blog.</p>
+</div>
+</div>
+<div id="i.-analysis-of-proportion-frequency-data" class="section level1">
+<h1>I. Analysis of proportion / frequency data</h1>
+<p>Some concerns can be raised about the significant differences between various conditions in proportion <code>Cheating</code> reported in the 4 experiments.<br />
+First and foremost, no corrections for multiple comparisons are conducted, should one do so, just 2 significant proportion differences remain:<br />
+<code>Money</code> vs. <code>Time</code> in experiment 1 &amp; 4. In Experiment 3, the sample difference <code>No Mirror: Money - Time</code> was marginally significant in the 2^nd significant digit (original: <code>p = 0.015</code>, adjusted <span class="math inline">\(\alpha\)</span> = 0.013, Bonferroni).</p>
+<p>Second, no continuity correction is applied, these proportions are calculated from discrete numbers (participants). If a continuity correction is applied, 2-3 significant differences remain, depending on the <span class="math inline">\(\alpha\)</span>-level chosen:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Exp.</th>
+<th align="left">Contrast</th>
+<th align="right">Published</th>
+<th align="center">Continuity corrected</th>
+<th align="center">Bonferroni adjusted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="left">Money-Time</td>
+<td align="right"><strong>&lt;.001</strong></td>
+<td align="center"><strong>410^{-4}</strong></td>
+<td align="center"><strong>&lt; 0.0167</strong></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="left">Money-Ctrl</td>
+<td align="right"><strong>&lt;.05</strong></td>
+<td align="center">0.0894</td>
+<td align="center">&gt; 0.0167</td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="left">Time-Ctrl</td>
+<td align="right"><strong>&lt;.05</strong></td>
+<td align="center">0.0836</td>
+<td align="center">&gt; 0.0167</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="left">Int: Money-Time</td>
+<td align="right"><strong>&lt;.01</strong></td>
+<td align="center">0.1493</td>
+<td align="center"><em>~ 0.0125</em></td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="left">Per: Money-Time</td>
+<td align="right">&gt;.05</td>
+<td align="center">1</td>
+<td align="center">&gt; 0.0125</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="left">Money: Int-Per</td>
+<td align="right"><strong>&lt;.03</strong></td>
+<td align="center">0.0856</td>
+<td align="center">&gt; 0.0125</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="left">Time: Int-Per</td>
+<td align="right">&gt;.05</td>
+<td align="center">1</td>
+<td align="center">&gt; 0.0125</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="left">Mir: Money-Time</td>
+<td align="right">&gt;.05</td>
+<td align="center">0.7996</td>
+<td align="center">&gt; 0.0125</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="left">NoM: Money-Time</td>
+<td align="right"><strong>&lt;.003</strong></td>
+<td align="center"><strong>0.0293</strong></td>
+<td align="center"><em>~ 0.0125</em></td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="left">Money: Mir-NoM</td>
+<td align="right">&gt;.05</td>
+<td align="center">0.0537</td>
+<td align="center">&gt; 0.0125</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="left">Time: Mir-NoM</td>
+<td align="right">&gt;.05</td>
+<td align="center">1</td>
+<td align="center">&gt; 0.0125</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="left">Money-Time</td>
+<td align="right"><strong>&lt;.001</strong></td>
+<td align="center"><strong>10^{-4}</strong></td>
+<td align="center"><strong>&lt; 0.0167</strong></td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="left">Money-Ctrl</td>
+<td align="right"><strong>&lt;.05</strong></td>
+<td align="center">0.0522</td>
+<td align="center">&gt; 0.0167</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="left">Time-Ctrl</td>
+<td align="right"><strong>&lt;.05</strong></td>
+<td align="center">0.0752</td>
+<td align="center">&gt; 0.0167</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left"><strong>Number sig. results</strong></td>
+<td align="right"><strong>9</strong></td>
+<td align="center"><strong>3</strong></td>
+<td align="center"><em>Original:</em> <strong>4</strong>, <em>Continuity:</em> <strong>2</strong></td>
+</tr>
+</tbody>
+</table>
+<p>This calls for a more appropriate analysis of frequency data:</p>
+<ol style="list-style-type: decimal">
+<li>Log-linear analysis of observed cell frequencies<br />
+</li>
+<li>Exact odds ratios of 2x2 sub-tables to test hypotheses using Effect Size CIs</li>
+</ol>
+<p>(<code>Cheating</code> can be considered a dichotomous response, so logistic regression could also be used, see III. HAPPE-ing)</p>
+<blockquote>
+<p><strong>Note:</strong><br />
+Experiment 2 &amp; 3 do not list <em>n</em> per condition, the most likely values for <em>n</em> (1. closest to an integer value; 2. as equal as possible; 3. Add to total N) are assumed:</p>
+<p><em>Experiment 2</em></p>
+</blockquote>
+<blockquote>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Prime</th>
+<th align="center">Assessment</th>
+<th align="left">Ncond * %Cheat = Ncheat (deviation)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Money</td>
+<td align="center">Personality</td>
+<td align="left">36 <code>*</code> 0.2778 <code>=</code> 10.0008 (810^{-4})</td>
+</tr>
+<tr class="even">
+<td align="center">Time</td>
+<td align="center">Personality</td>
+<td align="left">35 <code>*</code> 0.2857 <code>=</code> 9.9995 (510^{-4})</td>
+</tr>
+<tr class="odd">
+<td align="center">Money</td>
+<td align="center">Intelligence</td>
+<td align="left">38 <code>*</code> 0.5 <code>=</code> 19 (0)</td>
+</tr>
+<tr class="even">
+<td align="center">Time</td>
+<td align="center">Intelligence</td>
+<td align="left">33 <code>*</code> 0.303 <code>=</code> 9.999 (1010^{-4})</td>
+</tr>
+</tbody>
+</table>
+<p><em>Experiment 3</em></p>
+</blockquote>
+<blockquote>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Prime</th>
+<th align="center">Assessment</th>
+<th align="left">Ncond * %Cheat = Ncheat (deviation)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Money</td>
+<td align="center">Mirror</td>
+<td align="left">31 <code>*</code> 0.387 <code>=</code> 11.997 (0.003)</td>
+</tr>
+<tr class="even">
+<td align="center">Time</td>
+<td align="center">Mirror</td>
+<td align="left">28 <code>*</code> 0.321 <code>=</code> 8.988 (0.012)</td>
+</tr>
+<tr class="odd">
+<td align="center">Money</td>
+<td align="center">No Mirror</td>
+<td align="left">30 <code>*</code> 0.667 <code>=</code> 20.01 (0.01)</td>
+</tr>
+<tr class="even">
+<td align="center">Time</td>
+<td align="center">No Mirror</td>
+<td align="left">31 <code>*</code> 0.355 <code>=</code> 11.005 (0.005)</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="log-linear-analysis-of-observed-cell-frequencies" class="section level2">
+<h2>1. log-linear analysis of observed cell frequencies</h2>
+<p>Log-linear analysis, or poisson regression using the generalised linear model, can be used to test whether relationships exist among the variables in a multi-way contingency table. Here I analyse the number of participants in each cell of the design: The observed frequencies take the role of the dependent variable and the levels of the design factors such as <code>Mediator</code>, <code>Prime</code> and <code>Cheating</code> are considered the levels of independent variables (another option would have been a logistic / probit regression with <code>Cheating</code> as the dependent binary / proportion variable).</p>
+<p>Two types of result given for each experiment:</p>
+<p><em>First</em>, a table listing deviance tests for the full (saturated) model. The analysis starts with the NULL model (all frequencies are equal) in the first row. Each subsequent row lists what happens to the deviance (of the model in the previous row) when a factor is added. A significant drop in deviance means adding the factor to the model contributes to predicting the difference between expected and observed frequencies. For hints of corroboration of the hypotheses reported in the paper, significant interactions between a design factor and <code>Cheating</code> are necessary.</p>
+<p><em>Second</em>, a mosaic plot is displayed, this is a graphical representation of the conditional cell frequencies. The mosaic plot also indicates which residual frequencies (observed - expected) are significantly below (red) or above (blue) the expected frequencies (residuals are interpretable as a Z-score). The coloured cells contribute most to a high and possibly significant <span class="math inline">\(\chi^2\)</span> value.</p>
+<blockquote>
+<p><strong>Note:</strong> The significance of the change in deviance can depend on the order in which factors are added to the model and is not the same as a significant beta weight in a regression model.</p>
+</blockquote>
+<pre><code>&gt; [1] &quot;Experiment 1&quot;</code></pre>
+<pre><code>&gt; Analysis of Deviance Table
+&gt; 
+&gt; Model: poisson, link: log
+&gt; 
+&gt; Response: Count
+&gt; 
+&gt; Terms added sequentially (first to last)
+&gt; 
+&gt; 
+&gt;                Df Deviance Resid. Df Resid. Dev  Pr(&gt;Chi)    
+&gt; NULL                               5     24.767              
+&gt; Cheating        1   9.3328         4     15.434 0.0022509 ** 
+&gt; Prime           2   0.0205         2     15.414 0.9898129    
+&gt; Cheating:Prime  2  15.4136         0      0.000 0.0004497 ***
+&gt; ---
+&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><img src="/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-1.png" width="672" /></p>
+<pre><code>&gt; [1] &quot;Experiment 2&quot;</code></pre>
+<pre><code>&gt; Analysis of Deviance Table
+&gt; 
+&gt; Model: poisson, link: log
+&gt; 
+&gt; Response: Count
+&gt; 
+&gt; Terms added sequentially (first to last)
+&gt; 
+&gt; 
+&gt;                     Df Deviance Resid. Df Resid. Dev  Pr(&gt;Chi)    
+&gt; NULL                                    7    19.6365              
+&gt; Cheating             1  13.8608         6     5.7757 0.0001969 ***
+&gt; Prime                1   0.2536         5     5.5221 0.6145539    
+&gt; Test                 1   0.0000         4     5.5221 1.0000000    
+&gt; Cheating:Prime       1   1.5057         3     4.0164 0.2197998    
+&gt; Cheating:Test        1   2.5348         2     1.4816 0.1113599    
+&gt; Prime:Test           1   0.0307         1     1.4509 0.8609311    
+&gt; Cheating:Prime:Test  1   1.4509         0     0.0000 0.2283780    
+&gt; ---
+&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><img src="/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-2.png" width="672" /></p>
+<pre><code>&gt; [1] &quot;Experiment 3&quot;</code></pre>
+<pre><code>&gt; Analysis of Deviance Table
+&gt; 
+&gt; Model: poisson, link: log
+&gt; 
+&gt; Response: Count
+&gt; 
+&gt; Terms added sequentially (first to last)
+&gt; 
+&gt; 
+&gt;                     Df Deviance Resid. Df Resid. Dev Pr(&gt;Chi)  
+&gt; NULL                                    7    11.4971           
+&gt; Cheating             1   2.1397         6     9.3574  0.14353  
+&gt; Prime                1   0.0333         5     9.3241  0.85513  
+&gt; Test                 1   0.0333         4     9.2907  0.85513  
+&gt; Cheating:Prime       1   4.2369         3     5.0538  0.03955 *
+&gt; Cheating:Test        1   2.8451         2     2.2086  0.09165 .
+&gt; Prime:Test           1   0.4973         1     1.7113  0.48069  
+&gt; Cheating:Prime:Test  1   1.7113         0     0.0000  0.19081  
+&gt; ---
+&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><img src="/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-3.png" width="672" /></p>
+<pre><code>&gt; [1] &quot;Experiment 4&quot;</code></pre>
+<pre><code>&gt; Analysis of Deviance Table
+&gt; 
+&gt; Model: poisson, link: log
+&gt; 
+&gt; Response: Count
+&gt; 
+&gt; Terms added sequentially (first to last)
+&gt; 
+&gt; 
+&gt;                Df Deviance Resid. Df Resid. Dev  Pr(&gt;Chi)    
+&gt; NULL                               5     21.269              
+&gt; Cheating        1   4.2195         4     17.049 0.0399621 *  
+&gt; Prime           2   0.2876         2     16.762 0.8660723    
+&gt; Cheating:Prime  2  16.7615         0      0.000 0.0002292 ***
+&gt; ---
+&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><img src="/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-4.png" width="672" /></p>
+<p><strong>Conclusion log-linear analysis:</strong><br />
+This alternative, and in my opinion more appropriate analysis is in agreement with the results after correction for multiple comparisons and continuity:<br />
+- The mosaic plots show that there may be some unexpected factors driving the “effects” reported in the paper: * In experiment 1 &amp; 4 it is not so much the observed frequency of people that <em>did</em> cheat, but the number of participants that <em>did not</em> cheat that deviate from the expected frequencies based on table margins.<br />
+* The <code>Money</code> prime caused <em>less</em> people to <strong>NOT</strong> cheat, whereas the <code>Time</code> prime caused <em>more</em> people to <strong>NOT</strong> cheat - If there is a difference in amount of <code>Cheating</code> between samples, it is likely a “main effect” between the <code>Time</code> and <code>Money</code> prime (<code>Cheating:Prime</code> interaction), it is found to cause a significant drop in deviance in Experiments 1, 3 and 4. - Experiment 2 stands out, because observed differences in <code>Cheating</code> are unlikely due to chance, but none of the other factors contribute to explain differences between expected and observed frequencies.</p>
+<p>The point about the mosaic plots is not just semantics or methodologists’ nit-picking. What it tells us is that, e.g. in the mosaic plot Table.1.1, among the observed frequencies of <code>CheatYES</code>, the cell <code>Money</code> does not stand out much from <code>Time</code> and <code>Control</code> from what may be expected by chance, for <code>CheatNO</code> on the other hand, the cell <code>Money</code> does stand out as different.</p>
+</div>
+<div id="exact-odds-ratios-of-2x2-subtables-to-test-hypotheses-using-effect-size-cis" class="section level2">
+<h2>2. Exact odds ratios of 2x2 subtables to test hypotheses using Effect Size CIs</h2>
+<p><strong>Effect Size Confidence Intervals:</strong><br />
+To get a clearer idea about the significance between cell differences I calculate confidence intervals around the effect size associated with contingency tables. The CIs in Figure 1 below are based on the exact Odds Ratio (using the non-central hypergeomteric distribution) for a 2x2 sub-table of the full design obtained from <code>Fisher's Exact Test</code>, testing against $ H_0: OR = 1 $.</p>
+<pre><code>&gt; [1] &quot;Figure 1. Exact log Odds Ratio&#39;s of 2x2 tables comparing frequency of Cheating between independent samples in each experiment.&quot;</code></pre>
+<p><img src="/post/2015-03-07-Time-Money-Morality_files/figure-html/ChiCIs-1.png" width="960" /></p>
+<blockquote>
+<p><strong>Note:</strong><br />
+Here, the Confidence Levels have been adjusted to account for the fact that 3 (EXP1&amp;4) and 4 (EXP2&amp;3) subtables of the full design were compared (<code>1-(0.05 / #tests)</code>). The exact p-value from Fisher’s exact test reported in the Figure was multiplied by the number of comparisons in each experiment.</p>
+</blockquote>
+<div id="conclusion-proportion-data" class="section level3">
+<h3>Conclusion Proportion data</h3>
+<ul>
+<li>If there is an effect, it exists as a “main-effect” difference between the <code>Money</code> and <code>Time</code> primed samples in Experiment 1 and 4.<br />
+</li>
+<li>Experiment 3 <code>No Mirror: Money - Time</code> is a marginal case.</li>
+<li>Experiment 2 did not yield any substantial effects.<br />
+</li>
+<li>4-5 out of 7 statistical inferences in the paper that are made based on proportion data should be considered invalid.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="ii.-analysis-of-extent-of-cheating" class="section level1">
+<h1>II. Analysis of extent of cheating</h1>
+<p>The extent of <code>Cheating</code> concerns the difference between actual accuracy (which is not provided as a result) and reported accuracy by a participant.<br />
+Experiment 1-3 report analyses of extent of <code>Cheating</code> including means and SD’s. Sample size assumptions for Experiments 2 and 3 are the same as above.</p>
+<div id="compare-cohens-d-cis" class="section level3">
+<h3>Compare Cohen’s d CIs</h3>
+<p>I created CIs around the effect sizes based on the means and SD reported for Experiment 1-3 using the <code>R</code> package <code>MBESS</code>.</p>
+<pre><code>&gt; [1] &quot;Figure 2. Cohen&#39;s d with exact CIs comparing extent of Cheating between independent samples in experiment 1-3.&quot;</code></pre>
+<p><img src="/post/2015-03-07-Time-Money-Morality_files/figure-html/ExtCIs-1.png" width="960" /></p>
+</div>
+<div id="conclusion-extent-of-cheating" class="section level3">
+<h3>Conclusion Extent of Cheating</h3>
+<p>The pattern is the same as the previous analyses: - Experiment 1 shows a clear effect between <code>Money</code> and <code>Time</code> samples<br />
+- Experiment 3 <code>No Mirror: Money - Time</code> is again a close call</p>
+</div>
+</div>
+<div id="iii.-happe-ing-hypothesising-after-post-publication-evaluation" class="section level1">
+<h1>III. HAPPE-ing (Hypothesising After Post-Publication Evaluation)</h1>
+<p>Should reviewers have noticed these issues with data analysis?</p>
+<p><strong>Yes, they should have!</strong></p>
+<p>Even without re-analysing the published data as I have done here, the conclusions by the authors can be questioned based on a comparison of very elementary results:</p>
+<blockquote>
+<p>Across four experiments, using different primes and a variety of measures and tasks, we consistently<br />
+found that shifting people’s attention to time <strong>decreases dishonesty</strong>. Priming time makes people reflect<br />
+on who they are, and this self-reflection <strong>reduces their likelihood of behaving dishonestly</strong>.</p>
+</blockquote>
+<p>The clue is to compare the results across the 4 experiments and evaluate whether it is valid to infer that the core postulates have been corroborated. The designs and materials are slightly different each time, but if variation in outcomes (e.g., proportion cheating behaviour) varies systematically with one or more of the experimental differences, there may be another variable at work here.</p>
+<p>One result that begs explanation is the drop in proportion <code>Cheating</code> in all the samples of Experiment 2 when compared to the other experiments. What is special about the procedure and methods? Regrettably more than 1 potential intervening factor changes with respect to Experiment 1.</p>
+<p>A second odd omission in the interpretation of the results is the level of accuracy achieved by participants. In Experiments 1-3, the urge to cheat must have been <em>less</em> when a participant had achieved 90% accuracy. Experiment 4 is somewhat different in that the cheating opportunity concerns one “bottleneck” problem that is difficult to solve, but has to be correct in order to make other more easily solvable problems count in adding to the final reward. Here, accuracy could have an opposite effect in which less accurate participants cheat less. If 0 or only 1 extra item past the “bottleneck” item were solved, a participant might be less inclined to cheat than a participant who solved every problem except for the “bottleneck” item.</p>
+<div id="what-is-mediating-what" class="section level2">
+<h2>What is mediating what?</h2>
+<p>The figure below shows the interaction between the maximal financial incentive that could be awarded and the proportion cheating for each prime and experimental condition (indicating whether a mediator variable was manipulated in addition to being exposed to a prime). Note that the <code>Intelligence</code> and the <code>No Mirror</code> condition of Experiments 2 and 3 respectively are considered similar to Experiment 1 and 4, that is, they reflect a condition in which <code>Self-reflection</code> was not induced by any other means than priming:</p>
+<p><img src="/post/2015-03-07-Time-Money-Morality_files/figure-html/Exp2_Reward-1.png" width="1152" style="display: block; margin: auto auto auto 0;" /></p>
+<p>This relationship can be tested in a generalised linear model, of course being fully aware that this is <em>exploratory HAPPE-ing</em>. I assume the samples from each experiment are independent and use the number of cheaters vs. no cheaters as the dependent binomial variable. The model contains only those effects for which data are available (e.g., no interactions with both <code>Prime</code> and <code>Mediator</code>)</p>
+<blockquote>
+<p><strong>Note:</strong><br />
+A generalised linear mixed model (GLMM) with sample ID as a random effect gives similar results.</p>
+</blockquote>
+<pre><code>&gt; 
+&gt; Call:
+&gt; glm(formula = cbind(CheatYES, CheatNO) ~ Reward + Prime + Mediator + 
+&gt;     Reward * Prime + Reward * Mediator, family = binomial, data = reward)
+&gt; 
+&gt; Deviance Residuals: 
+&gt;     Min       1Q   Median       3Q      Max  
+&gt; -1.1534  -0.6946  -0.1216   0.2508   1.9564  
+&gt; 
+&gt; Coefficients:
+&gt;                                Estimate Std. Error z value Pr(&gt;|z|)   
+&gt; (Intercept)                    -0.44952    0.21947  -2.048  0.04054 * 
+&gt; Reward                          0.01107    0.02186   0.506  0.61253   
+&gt; PrimeNone                       0.58682    0.39730   1.477  0.13967   
+&gt; PrimeMoney                      0.60398    0.28243   2.139  0.03247 * 
+&gt; MediatorSelf-reflection        -0.81281    0.31474  -2.583  0.00981 **
+&gt; Reward:PrimeNone                0.01672    0.03593   0.465  0.64158   
+&gt; Reward:PrimeMoney               0.06976    0.03270   2.133  0.03291 * 
+&gt; Reward:MediatorSelf-reflection -0.01894    0.04340  -0.436  0.66257   
+&gt; ---
+&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+&gt; 
+&gt; (Dispersion parameter for binomial family taken to be 1)
+&gt; 
+&gt;     Null deviance: 76.292  on 13  degrees of freedom
+&gt; Residual deviance: 11.035  on  6  degrees of freedom
+&gt; AIC: 82.478
+&gt; 
+&gt; Number of Fisher Scoring iterations: 4</code></pre>
+<pre><code>&gt; [1] &quot;Null-model deviance test: p &lt; 1.33525644154704e-11&quot;</code></pre>
+<p>In the table above the model <code>Intercept</code> corresponds to the odds of <code>Cheating</code> compared to the Null-model when the predictors have the values: <code>Prime</code> = <code>Time</code>, <code>Mediator</code> = <code>None</code> and <code>Reward</code> = 0. Compared to the overall probability of observing <code>Cheating</code> behaviour, it thus seems that when the <code>Time</code> prime is presented without an induction of <code>Self-reflection</code> and a financial reward incentive, the odds of <code>Cheating</code> drop.</p>
+<p>This appears to be a corroboration of the second postulate, but note that in this analysis (just as in the previous analyses), there is no real difference between the <code>Time</code> prime and prime = <code>None</code>. The standard errors around these parameters are quite high. A clearer picture emerges when the Intercept is defined as <code>Prime</code> = <code>None</code>, <code>Mediator</code> = <code>None</code> and <code>Reward</code> = 0 and the Odds Ratios are compared (exponentiation of the parameter estimates):</p>
+<pre><code>&gt; [1] &quot;Odds Ratios compared to Prime = None, with profile likelihood CI.95&quot;</code></pre>
+<pre><code>&gt;                                  OR 2.5 % 97.5 %
+&gt; (Intercept)                    1.15  0.60   2.21
+&gt; Reward                         1.03  0.97   1.09
+&gt; PrimeTime                      0.56  0.25   1.21
+&gt; PrimeMoney                     1.02  0.47   2.21
+&gt; MediatorSelf-reflection        0.44  0.24   0.81
+&gt; Reward:PrimeTime               0.98  0.92   1.05
+&gt; Reward:PrimeMoney              1.05  0.98   1.14
+&gt; Reward:MediatorSelf-reflection 0.98  0.90   1.07</code></pre>
+<p>The odds ratios in the table above are multiplicative changes to the <code>Probability of Cheating</code> = 1 when the predictor increases by 1 unit. So an OR &lt; 1 will decrease the odds of observing <code>Cheating</code> behaviour and an OR &gt; 1 will increase it. The 95% CIs are based on the profile likelihood and show that in most cases the effect covers a range below and above 1. The range for the effect of <code>Self-Reflection</code> is always below 1.</p>
+<p>One can interpret the modelled relationship between these variables as follows:<br />
+* There is a weak positive association between the <code>Maximal Financial Reward</code> and the <code>Probability of Cheating</code><br />
+* The association changes with the value of <code>Prime</code>, becoming stronger when <code>Money</code> is primed, weaker when <code>Time</code> is primed<br />
+* The induction of <code>Self-reflection</code> does not cause the association to change, it changes the intercept, the base-line <code>Probability of Cheating</code> at <code>Reward</code> = 0</p>
+<p>A graphical representation of the model predictions more clearly reveals this relationship:</p>
+<p><img src="/post/2015-03-07-Time-Money-Morality_files/figure-html/Exp2_GLM3-1.png" width="960" style="display: block; margin: auto auto auto 0;" /></p>
+</div>
+<div id="conclusions-discussion-and-further-happe-ing" class="section level2">
+<h2>Conclusions, Discussion and further HAPPE-ing</h2>
+<ol style="list-style-type: decimal">
+<li>The significant results between <code>Time</code> and <code>Money</code> in Experiments 1 and 4 probably arise due to the increase in <code>Probability of Cheating</code> when there is a financial reward and <code>Money</code> is primed.<br />
+</li>
+</ol>
+<ul>
+<li>It is unlikely there are any other “real” differences in these data except for the induction of <code>Self-reflection</code>: Model predictions show it decreases the <code>Probability of Cheating</code> by the same amount for different primes</li>
+<li>Note that there were no actual data points for <code>None</code> + <code>Self-reflection</code><br />
+</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>The missing predictors in the <code>Probability of Cheating</code> analysis are the actual and reported <em>accuracy</em> of the performance (amount of correctly solved problems and money received respectively). These values cannot be inferred from the extent of cheating analyses. It seems reasonable to assume in most experiments there was less incentive to engage in <code>Cheating</code> by participants who were more accurate.</li>
+</ol>
+<ul>
+<li>This brings up the question of whether the effects are driven by some sort of Speed-Accuracy instruction: Naturally, <code>Time = Money</code>, but taking the time to solve the problems may lead to higher accuracy and less incentive to cheat, likewise a focus on getting as many answers as possible may introduce errors and promote cheating.</li>
+</ul>
+<p>In science there is a moral obligation to do the best one can to be as accurate as possible and usually this means it is wise to be as modest as possible about ones’ scientific claims. I am not an expert in this field, but the sheer amount of questions that can be raised about the validity of the inferences made in this paper makes one wonder who the peers were that achieved consensus about the credibility of this research and what their area of expertise was.</p>
+<p>I am not saying this is irrelevant, or poor research; the two effects that survive the scrutiny of <strong>3PR</strong> are certainly interesting. I am just a little worried this paper says more about the morality of contemporary scientific publishing than the scientific study of moral behaviour.</p>
+</div>
+</div>
+<div id="some-notes-about-this-file" class="section level1">
+<h1>Some notes about this file:</h1>
+<ul>
+<li>This file was created using <a href="https://support.rstudio.com/hc/en-us/articles/200552086-Using-R-Markdown">Markdown</a> in <a href="http://www.rstudio.com">RStudio</a>: Unless otherwise indicated in the code blocks (e.g., by <strong>require</strong>), the basic R packages are used.</li>
+<li>All the analyses are based on results reported in the <a href="http://pss.sagepub.com/lookup/doi/10.1177/0956797613506438">publication</a>.</li>
+<li>The one true gospel on statistical inference does not exist and more than one approach to analyse these data may be defensible.</li>
+<li>Therefore: Please be aware these comments and suggestions reflect my own preferences and standards in these matters. If you feel I should change some of my preferences and/or standards please let me know, because I review and adjust them on a regular basis.</li>
+</ul>
+</div>
+
+        
+                
+        
+              <hr>
+              <ul class="pager">
+                  
+                  <li class="previous">
+                      <a href="/post/2015-05-05-osc-r-esci-tutorial/" data-toggle="tooltip" data-placement="top" title="R Effect Size CI tutorial">&larr; Previous Post</a>
+                  </li>
+                  
+                  
+                  <li class="next">
+                      <a href="/search/placeholder/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                  </li>
+                  
+              </ul>
+  
+              
+<div id="disqus-comment"></div>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "anti-ism-ism" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bitcoin" title="Bitcoin">
+                        Bitcoin
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/blockchain" title="Blockchain">
+                        Blockchain
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cryptocurrency" title="Cryptocurrency">
+                        Cryptocurrency
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/digital-signature" title="Digital Signature">
+                        Digital Signature
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/istio" title="Istio">
+                        Istio
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kubernetes" title="Kubernetes">
+                        Kubernetes
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/microservice" title="Microservice">
+                        Microservice
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/security" title="Security">
+                        Security
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tips" title="Tips">
+                        Tips
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href="" rel="alternate" type="application/rss+xml" title="anti-ism-ism" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:namlessah.derf@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/FredHasselman">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/FredHasselman">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/fred-hasselman-3867b215/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; anti-ism-ism , 2015
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

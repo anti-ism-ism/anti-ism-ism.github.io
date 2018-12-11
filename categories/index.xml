@@ -11,11 +11,74 @@
     
     
     <item>
+      <title>HIBAR</title>
+      <link>/categories/hibar/</link>
+      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
+      
+      <guid>/categories/hibar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Life</title>
+      <link>/categories/life/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/life/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Note</title>
+      <link>/categories/note/</link>
+      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/note/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>/categories/r/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
       <guid>/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tech</title>
+      <link>/categories/tech/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time Series Analysis</title>
+      <link>/categories/time-series-analysis/</link>
+      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
+      
+      <guid>/categories/time-series-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tips</title>
+      <link>/categories/tips/</link>
+      <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>accidental mathematician</title>
+      <link>/categories/accidental-mathematician/</link>
+      <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
+      
+      <guid>/categories/accidental-mathematician/</guid>
       <description></description>
     </item>
     
