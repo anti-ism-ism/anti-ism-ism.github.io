@@ -1,0 +1,324 @@
+---
+title: Testing assumptions of the data-generating process underlying Experience Sampling
+header:
+  image: ontology.png
+tags: ["Ergodicity", "Structural Decomposition", "Homogeneity", "Stationarity","Anomalous Diffusion"]
+categories:
+- R
+- Time Series Analysis
+date: 2017-05-19T09:50:02-07:00
+comments: true
+output: 
+   blogdown::html_page:
+     toc: true 
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=FALSE, highlight = TRUE, comment=">", message=FALSE,echo=TRUE,warning=FALSE,tidy=FALSE,strip.white=FALSE, size = "small")
+
+library(ggplot2)
+library(animation)
+library(rgl)
+library(plyr)
+library(dplyr)
+library(xts)
+df.ts  <- read.csv("http://fredhasselman.com/data/ESMdata.csv")
+# Change numbers to numeric
+df.ts[,c(1,3:6,10:86)] <- colwise(as.numeric)(df.ts[c(1,3:6,10:86)])
+# remove NA
+df.ts <- df.ts[!is.na(df.ts$mood_down),]
+```
+
+## Anomalous diffusion: Individual particle tracking vs. Ensemble averages 
+
+A recent article by Bos et al. (2017)^[Bos, F. M., Snippe, E., de Vos, S., Hartmann, J. A., Simons, C. J., van der Krieke, L., & Wichers, M. (2017). Can We Jump from Cross-Sectional to Dynamic Interpretations of Networks? Implications for the Network Perspective in Psychiatry. *Psychotherapy and Psychosomatics, 86(3)*, 175-177] in which the authors compared network measures derived from cross-sectional (between-individual) and within-individual data sparked [some discussion on facebook.](https://www.facebook.com/groups/PsychologicalDynamics/permalink/1915536272037759/)
+
+The authors conclude that the outcomes of network analyses based on time-ordered ensemble averages are not the same as the outcomes based on the time evolution of individual trajectories. 
+
+I argued this result is to be expected, because I think the data-generating process underlying time and trial series of human physiology and performance should be considered a *non-ergodic process* and the particular analyses used to construct the graphical model (the Gaussian Graphical Model) assume ergodic processes. Simply put, the ergodic assumption is that the space-averaged behaviour of some variable observed in an ensemle will be the same as the time-averaged behaviour observed in an individual (... in the limit of infite time and space). If it is violated, this is a problem for such models, because it implies the statistical properties of the process change over time and one cannot depend (fullly) on universal laws of probability to predict or infer properties and behaviour of a system.
+
+This post originated as a short tutorial on analysing stationarity and other properties of time series, the current text is an expansion of the page kindly tweeted by Eiko Fried:
+
+`r htmltools::HTML("{{< tweet 865679242939465728 >}}")`
+
+
+### Particles are individuals too!
+
+I often use the Complex Sysems argument to suggest measurements should be considered non-ergodic (many interactions between processes across multiple scales that are mostly multiplicative instead of additive), however, it turns out that studies of individual particle tracking (both biological and physical 'particles') also have to deal with *ergodicity-breaking*, *ageing* and *non-stationarity*. This behaviour is called *anomalous diffusion*, which turns out to be more common in nature than the classical *normal diffusion* processes studied by Brown, Einstein and many other prominent scientists.
+
+The following quotes are from the article [**Anomalous diffusion models and their properties: non-stationarity, non-ergodicity, and ageing at the centenary of single particle tracking**](http://pubs.rsc.org/en/Content/ArticleLanding/2014/CP/C4CP03465A#!divAbstract) which provides an excellent review and perspective.^[Metzler, R., Jeon, J. H., Cherstvy, A. G., & Barkai, E. (2014). Anomalous diffusion models and their properties: non-stationarity, non-ergodicity, and ageing at the centenary of single particle tracking. *Physical Chemistry Chemical Physics, 16(44)*, 24128-24164.] The authors list the conditions for normal diffusion, they should sound familiar because these assunmptions are the same as for most statistical analyses used in the social and life sciences:
+
+> The conditions assumed by Einstein in his derivation of the diffusion equation are (i) the independence of individual particles, (ii) the existence of a sufficiently small time scale beyond which individual displacements are statistically independent, and (iii) the property that the particle displacements during this time scale correspond to a typical mean free path distributed symmetrically in positive or negative directions.
+
+So, we need:
+
+* _Independence_ of indivdual measurement objects in a sample
+* _Memorylessness_ regarding any interactions between individuals and their environment. The after-effects of interactions should be short-lived and not affect behaviour in the long run (no long-range correlations).
+* _Randomly distributed_ deviations from central tendency (Gaussian error distribution).
+
+What happens when we violate these assumptions?
+
+> In anomalous diffusion processes, at least one of these fundamental assumptions is violated, and the strong convergence to the Gaussian according to the central limit theorem broken. In particular, by departing from one or more of the assumptions (i)–(iii), we find that there exist many different generalisations of the Einstein–Smoluchowski diffusion picture.
+
+Ok, but what does that mean?  
+
+> The fact that we consider this large range of anomalous diffusion processes is the __non-universal nature of anomalous diffusion__ itself. Once we leave the realm of Brownian motion, we lose the confines of the central limit theorem forcing the processes to converge to the Gaussian behaviour predicted by Einstein.
+>
+> [...]
+>
+> Quite commonly such analyses of time series from experiment or simulations are performed in terms of time averaged observables, in particular, the time averaged MSD [_Mean squared displecement = Mean squared 'error'_]. We point out that the physical interpretation of the obtained behaviour of such time averages in terms of the __typically available ensemble approaches may be treacherous__ : many of the anomalous diffusion processes discussed herein lead to a __disparity between the ensemble and the time averaged observable__, for instance, between the ensemble and time averaged MSDs [...] even in the limit of long measurement times. Moreover, it turns out that individual results for time averages [...] appear to be __irreproducible__, despite long measurement times.
+
+To summarise, when non-ergodicity, non-stationarity and ageing play a role in the timeseries measurements of variables of interest, one cannot rely on ensemble statistics to yield valid inferences, in fact they should be considered **treacherous**, and individual time series averages are **irreproducible**.
+
+What follows are some tests that have been developped (in different scientific disciplines) to check assumptions of non-stationarity (and more).
+
+
+`r htmltools::HTML("{{% alert note %}}")`
+This is by no means an exhaustive account of tests (or even a strategy that I would use myself, but that is for another post).
+`r htmltools::HTML("{{% /alert %}}")`
+
+
+## A timeseries of daily mood: *down*
+
+Unzip and load these interesting [ESM data](https://files.osf.io/v1/resources/j4fg8/providers/osfstorage/584e6cc1b83f6901f7ad2d30?direct=true&action=download) provided by:
+
+> Kossakowski, J. J., Groot, P. C., Haslbeck, J. M., Borsboom, D., & Wichers, M. (2016, December 12). Data from “Critical Slowing Down as a Personalized Early Warning Signal for Depression.” Retrieved from osf.io/j4fg8
+
+
+There is a timecode in the dataset indicating when the participant was promted to nswer some questions. 
+Here, we use it to create a time series object and plot it.
+```{r}
+library(lubridate)
+beep <- dmy_hms(paste0(df.ts$date," ",df.ts$beeptime,":00"),tz = "Europe/Amsterdam")
+y <- xts(df.ts$mood_down, order.by = beep)
+plot(y, main = "Time series of variable 'mood_down'")
+```
+
+## Test for **level** and **trend** stationarity
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE}
+# Load some Time Series libraries
+library(nonlinearTseries)
+library(randtests)
+library(tseries)
+library(TSA)
+```
+
+
+```{r,collapse=TRUE, message=FALSE, warning=FALSE, collapse=FALSE, tidy=FALSE}
+# BARTELS RANK TEST [rank version of von NEUMANN's Ratio Test for Randomness]
+# H0: randomness
+# H1: nonrandomness
+randtests::bartels.rank.test(df.ts$mood_down, alternative = "two.sided")
+
+# H0: randomness
+# H1: trend
+randtests::bartels.rank.test(df.ts$mood_down, alternative = "left.sided")
+
+# H0: randomness
+# H1: systematic oscillation
+randtests::bartels.rank.test(df.ts$mood_down, alternative = "right.sided")
+
+
+# COX-STUART SIGN TEST 
+# H0: randomness
+# H1: upward or downward trend
+randtests::cox.stuart.test(na.exclude(df.ts$mood_down), alternative = "two.sided")
+
+# H0: randomness
+# H1: upward trend
+randtests::cox.stuart.test(na.exclude(df.ts$mood_down), alternative = "right.sided")
+
+# H0: randomness
+# H1: downward trend
+randtests::cox.stuart.test(na.exclude(df.ts$mood_down), alternative = "left.sided")
+
+
+# KWIATKOWSKI-PHILLIPS-SCHMIDT-SHIN UNIT ROOT TEST ['reversed' DICKY-FULLER TEST] 
+# H0: level stationarity
+# H1: unit root [not level stationary]
+tseries::kpss.test(na.exclude(df.ts$mood_down), lshort = TRUE, null = "Level")
+
+# H0: trend stationarity 
+# H1: not trend stationary
+tseries::kpss.test(na.exclude(df.ts$mood_down), lshort = TRUE, null = "Trend")
+```
+
+
+## Test for **AR**, **ARCH** or an optimal **ARIMA** process
+
+First inspect the partial autocorrelation function to get an idea of the AR order.
+
+```{r, collapse=TRUE}
+par(mfrow=c(1,2))
+acf(df.ts$mood_down, na.action = na.pass)
+pacf(df.ts$mood_down, na.action = na.pass)
+```
+
+One could conclude there's at least $AR(3)$ involved, however there are also possible long-range correlations in these data. I am not an initiate of the **how-to-interpret-`(P)ACF`-to-`ARfiMA`-orders-cult**, so let's do some tests!
+
+```{r}
+# KEENAN 1-DEGREE TEST OF NONLINEARITY
+# H0: time series follows some AR process
+# H1: time series cannot be considered some AR process
+TSA::Keenan.test(na.exclude(df.ts$mood_down))
+```
+
+
+Not an **AR** process, how about **ARCH** or a best fitting **ARiMA**?
+```{r}
+# MCLEOD-LI TEST FOR CONDITIONAL HETEROSCEDASTICITY
+# H0: time series follows some AR process
+# H1: time series cannot be considered some ARCH process
+TSA::McLeod.Li.test(y = df.ts$mood_down, plot = TRUE, omit.initial = TRUE)
+
+# MCLEOD-LI TEST FOR CONDITIONAL HETEROSCEDASTICITY
+# H0: time series follows some AR process
+# H1: time series cannot be considered some ARiMA process
+TSA::McLeod.Li.test(object = forecast::auto.arima(df.ts$mood_down), plot = TRUE, omit.initial = TRUE)
+```
+
+This test finds no convincing evidence of the timeseries being either **ARCH** or **ARiMA**.
+
+
+## Structural decomposition
+
+It is also possible to decompose the time series in different sources of variation.
+Let's calculate the average frequency between beeps (in hours), and use that as a guess for any periodicity that may occur in the timeseries.
+
+```{r, message=FALSE, warning=FALSE}
+(beepMean <- mean(time_length(diff(beep), unit = "hours")))
+```
+
+
+```{r,fig.height=10}
+ts0 <- ts(df.ts$mood_down, frequency = round(beepMean))
+fit<-StructTS(ts0, type="BSM")
+par(mfrow = c(4, 1)) # to give appropriate aspect ratio for next plot.
+plot(cbind(fitted(fit), resids=resid(fit)), main= "Basic Structural Model for 'mood_down'")
+```
+
+There is a lot going on here, the residuals and level fluctuations show we probably should not assume a linear ergodic stochastic change process.
+
+# Conclusions
+
+This timeseries is:
+
+* Not level stationary
+* Not random
+* Not oscillatory
+* Not generated by some **AR** process
+* Not **ARCH** or generated by a best fitting **ARiMA** process
+* Contains long range correlations in `PACF`, e.g. lags 6, 9, 13, 25 and beyond (remember it is 25 * 4 hours!)
+* Upward Trend (which is stationary)
+
+This is likely a violation of the strong ergodic condition / strong memorylessness property: 
+
+`r htmltools::HTML("{{% alert warning %}}")`
+The statistical properties of a between-individual cross-sectional sample of the same theoretical process will be very different from a within-individual sample in a non-trivial way if the process can be considered to be some form of anomalous diffusion.
+`r htmltools::HTML("{{% /alert %}}")`
+
+
+So, **do not** use any analytic techniques that depend on the ESM data and underlying process to be stationary and ergodic if these tests indicate the assumptions are violated.
+
+
+## **NEXT: Dynamics in state space**
+
+What can we do to study non-ergodic processes?
+
+Again from the anomalous diffussion article:
+
+> We note that non-ergodicity [...] is not restricted to the spatial diffusion of particles, but similar principles hold for certain processes revealing non-exponential dynamics, such as the blinking behaviour of individual quantum dots or laser cooling. To physically interpret such measurements **we need to understand the time averages of individual time series**. As we will see, this requires information beyond the conventional ensemble averages for a variety of anomalous diffusion processes.
+
+This resonates with some great advice from Peter Molenaar in Todd Roses's book [The End of Average](http://www.toddrose.com/endofaverage/): 
+
+> "first analyse, then aggregate"
+
+When I find the time I'll post some examples of how to represent and quantify state space dynamics of individual time series. 
+
+For now, the plots below should make clear the occurrence of state stransitions is not distributed according to a uniform or Gaussian pdf.
+
+```{r, fig.width=10}
+library(ggTimeSeries)
+
+df.ts2 = data.frame(
+  Signal = round(head(df.ts$mood_down, -1),0),
+  NextSignal = round(tail(df.ts$mood_down, -1),0),
+  Weight = 1,
+  Label = "mood_down",
+  Size  = 0,
+  Time = factor(round(seq(1,150, length.out = max(index(head(beep,-1))))))
+)
+
+N = length(df.ts2$Signal)
+
+set.seed(123)
+dfcat <- round(runif(N,min=-3,max=3))
+dfcat2 <- data.frame(
+  Signal = round(head(dfcat, -1),0),
+  NextSignal = round(tail(dfcat, -1),0),
+  Weight = 1,
+  Label = "random_uniform",
+  Size=0,
+  Time = factor(round(seq(1,150, length.out = max(index(head(beep,-2))))))
+)
+
+dftot <- rbind(dfcat2,df.ts2)
+
+ggplot(dftot, aes(xbucket = Signal, 
+                   ybucket = NextSignal, 
+                   fill = factor(NextSignal), 
+                   weight = Weight) )+
+  stat_marimekko(color = 'black', xlabelyposition = -0.1) + 
+  scale_y_continuous("Relative frequency") +
+  scale_x_continuous("Current value") +
+  scale_fill_discrete("Next value") +
+  facet_wrap(~Label) +
+  ggtitle(label = "State tranisitions: Random numbers vs. 'I feel down'",subtitle = paste("box dimensions represent relative frequencies of",N,"values")) +
+  theme(axis.text.x =  element_blank(), 
+    axis.ticks.x = element_blank(), 
+    strip.background = element_rect(fill="grey90"),
+    strip.text = element_text(face = "bold"),
+    plot.background = element_blank(), 
+    panel.border = element_blank(), 
+    panel.background = element_blank(), 
+    panel.grid = element_blank()) 
+```
+
+If we consider the values $-3$ to $3$ to span the possibe states the 'system' can be in, then a crude way to study the dynamics of the states is to look at a lag-1 *return plot*.
+
+```{r statespace, eval=FALSE}
+library(gganimate)
+
+tmp   <- as.data.frame(table(df.ts2$Signal,df.ts2$NextSignal))
+
+# Set the size to frequency of occurrence of each combination of values
+for(c in seq_along(tmp$Freq)){
+  ID <- (df.ts2$Signal%in%tmp$Var1[c])&(df.ts2$NextSignal%in%tmp$Var2[c])
+  if(sum(ID)>0){
+    df.ts2$Size[ID] <- tmp$Freq[c]
+  }
+}
+
+ga <- ggplot(df.ts2,aes(x=Signal,y=NextSignal, frame = Time)) +
+  geom_path(colour = "grey80") +
+  geom_point(aes(size=Size)) +
+  scale_y_continuous("Next value") +
+  scale_x_continuous("Current value") +
+  scale_size_continuous("Frequency of\n pair (Curren,Next)") + 
+  ggtitle(label = "Window", subtitle = "Return plot") +
+  theme_bw() + coord_equal()
+
+gganimate(ga, interval=.2, "returnplot.gif")
+```
+
+
+`r htmltools::HTML('{{< figure src = "/img/returnplot.gif" >}}')`
+
+
+It is appears to be the case the system is *attracted* to specific states. Perhaps the dynamics can be described as transitions between more or less stable states, or stable temporal patterns of recurring states.
+
+to be continued ...
+
+天
