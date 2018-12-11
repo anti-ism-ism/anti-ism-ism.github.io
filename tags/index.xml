@@ -21,65 +21,11 @@
     </item>
     
     <item>
-      <title>API Gateway</title>
-      <link>/tags/api-gateway/</link>
-      <pubDate>Wed, 11 Apr 2018 09:32:00 +0000</pubDate>
-      
-      <guid>/tags/api-gateway/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Anomalous Diffusion</title>
       <link>/tags/anomalous-diffusion/</link>
       <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
       <guid>/tags/anomalous-diffusion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bitcoin</title>
-      <link>/tags/bitcoin/</link>
-      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/bitcoin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blockchain</title>
-      <link>/tags/blockchain/</link>
-      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/blockchain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cryptocurrency</title>
-      <link>/tags/cryptocurrency/</link>
-      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/cryptocurrency/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Digital Signature</title>
-      <link>/tags/digital-signature/</link>
-      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/digital-signature/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>/tags/docker/</link>
-      <pubDate>Tue, 13 Mar 2018 18:00:00 +0000</pubDate>
-      
-      <guid>/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -111,15 +57,6 @@
     </item>
     
     <item>
-      <title>Helm</title>
-      <link>/tags/helm/</link>
-      <pubDate>Mon, 16 Apr 2018 15:00:00 +0000</pubDate>
-      
-      <guid>/tags/helm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Homogeneity</title>
       <link>/tags/homogeneity/</link>
       <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
@@ -129,56 +66,11 @@
     </item>
     
     <item>
-      <title>Istio</title>
-      <link>/tags/istio/</link>
-      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/istio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>/tags/kubernetes/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microservice</title>
-      <link>/tags/microservice/</link>
-      <pubDate>Wed, 23 May 2018 18:00:00 +0000</pubDate>
-      
-      <guid>/tags/microservice/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Ordered Categorical</title>
       <link>/tags/ordered-categorical/</link>
       <pubDate>Sat, 07 Mar 2015 12:00:00 +0000</pubDate>
       
       <guid>/tags/ordered-categorical/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Security</title>
-      <link>/tags/security/</link>
-      <pubDate>Wed, 23 May 2018 18:00:00 +0000</pubDate>
-      
-      <guid>/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Service Mesh</title>
-      <link>/tags/service-mesh/</link>
-      <pubDate>Wed, 11 Apr 2018 09:32:00 +0000</pubDate>
-      
-      <guid>/tags/service-mesh/</guid>
       <description></description>
     </item>
     
@@ -201,38 +93,11 @@
     </item>
     
     <item>
-      <title>Tips</title>
-      <link>/tags/tips/</link>
-      <pubDate>Tue, 13 Mar 2018 18:00:00 +0000</pubDate>
-      
-      <guid>/tags/tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Travel</title>
-      <link>/tags/travel/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/travel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Tutorial</title>
       <link>/tags/tutorial/</link>
       <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
       <guid>/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vim</title>
-      <link>/tags/vim/</link>
-      <pubDate>Fri, 09 Feb 2018 11:00:00 +0000</pubDate>
-      
-      <guid>/tags/vim/</guid>
       <description></description>
     </item>
     
@@ -273,38 +138,11 @@
     </item>
     
     <item>
-      <title>nginmesh</title>
-      <link>/tags/nginmesh/</link>
-      <pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
-      
-      <guid>/tags/nginmesh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>pandigital function</title>
       <link>/tags/pandigital-function/</link>
       <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
       
       <guid>/tags/pandigital-function/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>service Mesh</title>
-      <link>/tags/service-mesh/</link>
-      <pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
-      
-      <guid>/tags/service-mesh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ubuntu</title>
-      <link>/tags/ubuntu/</link>
-      <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/ubuntu/</guid>
       <description></description>
     </item>
     
