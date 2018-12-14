@@ -1,17 +1,6 @@
 
 
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 /*************************************************
  *  Hugo Academic: an academic theme for Hugo.
  *  Designed by @GeorgeCushen.
@@ -39,7 +28,7 @@ body {
   font-size: 1rem;
   line-height: inherit;
   color: inherit;
-  background-color: #fff;
+  background-color: <no value>;
   margin-top: 70px; /* Offset body content by navbar height. */
   padding-top: 0;
   counter-reset: captions;
@@ -114,14 +103,14 @@ h4, h5, h6 {
 
 a,
 h3.article-title a:hover {
-  color: #2962ff;
+  color: <no value>;
   text-decoration: none;
   transition: color 0.6s ease;
 }
 
 a:hover,
 a:focus {
-  color: #2962ff;
+  color: <no value>;
 }
 
 img,
@@ -256,7 +245,7 @@ small,
 .search-results {
   transform: scale(0);
   -webkit-transform: scale(0);
-  background-color: #fff;
+  background-color: <no value>;
   bottom: 0;
   left: 0;
   right: 0;
@@ -299,7 +288,7 @@ small,
   position: -webkit-sticky;
   position: sticky;
   top: 70px;  /* Navbar height. */
-  background-color: #fff;
+  background-color: <no value>;
   padding-top: 2rem;
   padding-bottom: 1rem;
 }
@@ -377,8 +366,8 @@ small,
 }
 
 .form-control:focus {
-  border-color: #2962ff;
-  box-shadow: 0 0 0 .2rem #768fff;
+  border-color: <no value>;
+  box-shadow: 0 0 0 .2rem <no value>;
 }
 
 /*************************************************
@@ -386,7 +375,7 @@ small,
  **************************************************/
 
 .modal-content {
-  background: #fff;
+  background: <no value>;
 }
 
 .modal-title {
@@ -486,7 +475,7 @@ a[data-fancybox] img {
 }
 
 .home-section {
-  background-color: rgb(255, 255, 255);
+  background-color: <no value>;
   padding: 110px 0 110px 0;
   animation: intro 0.3s both;
   animation-delay: 0.15s;
@@ -497,15 +486,15 @@ a[data-fancybox] img {
 }
 
 .home-section:nth-of-type(even) {
-  background-color: rgb(247, 247, 247);
+  background-color: <no value>;
 }
 
 .dark .home-section {
-  background-color: hsla(231, 15%, 18%, 1);
+  background-color: <no value>;
 }
 
 .dark .home-section:nth-of-type(even) {
-  background-color: hsla(231, 15%, 16%, 1);
+  background-color: <no value>;
 }
 
 @media screen and (max-width: 768px) {
@@ -599,7 +588,7 @@ a[data-fancybox] img {
 .featurette-icon {
   display: block;
   width: 100%;
-  color: #2962ff;
+  color: <no value>;
   font-size: 3rem;
   text-align: center;
 }
@@ -911,7 +900,7 @@ article .article-metadata {
 }
 
 .article-metadata a:hover {
-  color: #2962ff;
+  color: <no value>;
 }
 
 .middot-divider {
@@ -1160,11 +1149,11 @@ article .article-metadata {
 
 .experience .m-2 .border,
 .experience .col.border-right {
-  border-color: #2962ff !important;
+  border-color: <no value> !important;
 }
 
 .experience .m-2 .border.exp-fill {
-  background-color: #2962ff !important;
+  background-color: <no value> !important;
 }
 
 /*************************************************
@@ -1454,13 +1443,13 @@ a.badge:hover {
  **************************************************/
 
 .btn-primary {
-  border-color: #2962ff;
-  background: #2962ff;
+  border-color: <no value>;
+  background: <no value>;
 }
 
 .btn-outline-primary {
-  border-color: #2962ff;
-  color: #2962ff;
+  border-color: <no value>;
+  color: <no value>;
 }
 
 .btn-primary:hover,
@@ -1468,7 +1457,7 @@ a.badge:hover {
 .btn-primary.active,
 .btn-primary:visited,
 .open > .dropdown-toggle.btn-primary {
-  background: #2962ff;
+  background: <no value>;
 }
 
 .btn-outline-light:hover,
@@ -1481,8 +1470,8 @@ a.badge:hover {
 .btn-outline-primary:not(:disabled):not(.disabled):active,
 .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: #2962ff;
-  border-color: #2962ff;
+  background-color: <no value>;
+  border-color: <no value>;
 }
 
 .dark .btn-outline-primary:not(:disabled):not(.disabled).active,
@@ -1493,8 +1482,8 @@ a.badge:hover {
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #2962ff;
-  border-color: #2962ff;
+  background-color: <no value>;
+  border-color: <no value>;
 }
 
 .dark .btn-outline-primary:hover {
@@ -1521,18 +1510,18 @@ a.badge:hover {
 
 .btn-toolbar .btn.btn-primary:hover,
 .btn-toolbar .btn.btn-primary:focus {
-  background-color: #768fff !important;
+  background-color: <no value> !important;
 }
 
 .btn-toolbar .btn.btn-primary:active,
 .btn-toolbar .btn.btn-primary.active {
-  background-color: #0039cb !important;
+  background-color: <no value> !important;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 .2rem #768fff;
+  box-shadow: 0 0 0 .2rem <no value>;
 }
 
 /*************************************************
@@ -1544,7 +1533,7 @@ a.badge:hover {
 }
 
 .navbar-light {
-  background: #fff !important;
+  background: <no value> !important;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(0,0,0,.11)
 }
 
@@ -1553,7 +1542,7 @@ a.badge:hover {
 }
 
 .navbar-toggler {
-  color: #34495e !important;
+  color: <no value> !important;
 }
 
 .navbar-light .navbar-toggler:focus,
@@ -1572,24 +1561,24 @@ nav#navbar-main li.nav-item {
   white-space: nowrap;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
-  color: #34495e;
+  color: <no value>;
   font-weight: 600;
 }
 
 .navbar-light .navbar-nav>.nav-item>.nav-link:focus {
-  color: #34495e;
+  color: <no value>;
   background-color: transparent;
 }
 
 .navbar-light .navbar-nav>.nav-item>.nav-link:hover {
-  color: #2962ff;
+  color: <no value>;
   background-color: transparent;
 }
 
 .navbar-light .navbar-nav>li.nav-item>a.active,
 .navbar-light .navbar-nav>li.nav-item>a.active:focus,
 .navbar-light .navbar-nav>li.nav-item>a.active:hover {
-  color: #2962ff;
+  color: <no value>;
   font-weight: 700;
   background-color: transparent !important; /* Override Bootstrap. */
 }
@@ -1607,11 +1596,11 @@ nav#navbar-main li.nav-item {
 }
 
 .navbar-light .navbar-toggler .icon-bar {
-  background-color: #34495e !important;
+  background-color: <no value> !important;
 }
 
 .dropdown-menu {
-  background-color: #fff !important;
+  background-color: <no value> !important;
 }
 
 .dropdown-menu > li > a {
@@ -1620,23 +1609,23 @@ nav#navbar-main li.nav-item {
   clear: both;
   font-weight: 400;
   line-height: 1.42857143;
-  color: #34495e;
+  color: <no value>;
   white-space: nowrap;
 }
 
 .dropdown-menu>li>a:focus,
 .dropdown-menu>li>a:hover {
-  color: #2962ff;
+  color: <no value>;
   text-decoration: none;
-  background-color: #fff;
+  background-color: <no value>;
 }
 
 .dropdown-menu > .active,
 .dropdown-menu > .active:focus,
 .dropdown-menu > .active:hover {
-  color: #fff;
+  color: <no value>;
   text-decoration: none;
-  background-color: #2962ff;
+  background-color: <no value>;
   outline: 0;
 }
 
@@ -1644,19 +1633,19 @@ nav#navbar-main li.nav-item {
 .navbar-light .navbar-nav>.open>a:focus,
 .navbar-light .navbar-nav>.open>a:hover,
 .navbar-light .navbar-nav>.open>a:visited {
-  color: #34495e !important;
-  background-color: #fff !important;
+  color: <no value> !important;
+  background-color: <no value> !important;
 }
 
 .navbar-light .navbar-brand {
   font-weight: bold;
   font-size: 1.2em;
-  color: #2b2b2b;
+  color: <no value>;
 }
 
 .navbar-light .navbar-brand:focus,
 .navbar-light .navbar-brand:hover {
-  color: #2b2b2b;
+  color: <no value>;
   background-color: transparent;
 }
 
@@ -1698,7 +1687,7 @@ nav#navbar-main li.nav-item {
     clear: both;
     font-weight: 400;
     line-height: 1.42857143;
-    color: #34495e;
+    color: <no value>;
     white-space: nowrap;
   }
 
@@ -1714,7 +1703,7 @@ nav#navbar-main li.nav-item {
   .navbar-light .navbar-nav .open .dropdown-menu > li > a {
     padding: 5px 15px 5px 25px;
     line-height: 20px;
-    color: #34495e;
+    color: <no value>;
   }
 
   .navbar-light .navbar-nav .open .dropdown-menu > li > a:focus,
@@ -1726,7 +1715,7 @@ nav#navbar-main li.nav-item {
   .navbar-light .navbar-nav .open .dropdown-menu >.nav-item> .active,
   .navbar-light .navbar-nav .open .dropdown-menu >.nav-item> .active:focus,
   .navbar-light .navbar-nav .open .dropdown-menu >.nav-item> .active:hover {
-    color: #2962ff;
+    color: <no value>;
     background-color: transparent;
   }
 
@@ -1890,8 +1879,8 @@ div.alert a {
 }
 
 .docs-search .form-control:focus {
-  border-color: #2962ff;
-  box-shadow: 0 0 0 3px #768fff;
+  border-color: <no value>;
+  box-shadow: 0 0 0 3px <no value>;
 }
 
 /* Docs sidebar. */
@@ -1956,7 +1945,7 @@ div.alert a {
 .docs-sidebar .nav>.active:hover>a,
 .docs-sidebar .nav>.active>a {
   font-weight: bold;
-  color: #2962ff;
+  color: <no value>;
   background-color: transparent;
 }
 
@@ -1965,7 +1954,7 @@ div.alert a {
 .docs-toggle {
   line-height: 1;
   font-size: 1.2rem;
-  color: #2962ff;
+  color: <no value>;
   background-color: transparent;
 }
 
@@ -2082,7 +2071,7 @@ ul.toc-top {
 
 #TableOfContents li a:hover,
 .toc-top li a:hover {
-  color: #2962ff;
+  color: <no value>;
   text-decoration: none;
 }
 
@@ -2090,12 +2079,12 @@ ul.toc-top {
 
 .anchorjs-link {
   font-weight: 400;
-  color: #0039cb;
+  color: <no value>;
   transition: color .16s linear;
 }
 
 .anchorjs-link:hover {
-  color: #2962ff;
+  color: <no value>;
   text-decoration: none;
 }
 
@@ -2111,7 +2100,7 @@ body.dark,
 .dark .form-control,
 .dark .form-control:focus {
   color: rgb(248, 248, 242);
-  background: rgb(40, 42, 54);
+  background: <no value>;
 }
 
 .dark .form-control {
@@ -2120,8 +2109,8 @@ body.dark,
 
 .dark .form-control:focus {
   background-color: rgb(68, 71, 90);
-  border-color: #2962ff;
-  box-shadow: 0 0 0 .2rem #0039cb;
+  border-color: <no value>;
+  box-shadow: 0 0 0 .2rem <no value>;
 }
 
 .dark h1,
@@ -2153,7 +2142,7 @@ body.dark,
 }
 
 .dark ul.share li a {
-  background-color: #2962ff;
+  background-color: <no value>;
 }
 
 .dark table table {
@@ -2206,7 +2195,7 @@ body.dark,
 }
 
 .dark .card h4 a {
-  color: #2962ff;
+  color: <no value>;
   border-bottom: solid 1px transparent;
 }
 
