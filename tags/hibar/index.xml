@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HIBAR on anti-ism-ism</title>
+    <link>/tags/hibar/</link>
+    <description>Recent content in HIBAR on anti-ism-ism</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018 Fred Hasselman</copyright>
+    <lastBuildDate>Tue, 05 May 2015 12:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/hibar/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R Effect Size CI tutorial</title>
+      <link>/post/2015-05-05-osc-r-esci-tutorial/</link>
+      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
+      
+      <guid>/post/2015-05-05-osc-r-esci-tutorial/</guid>
+      <description>Using R to Compute Effect Size Confidence Intervals This is a demonstration of using R in the context of hypothesis testing by means of Effect Size Confidence Intervals. In other words, we’ll calculate confidence intervals based on the distribution of a test statistic under the assumption that \(H_0\) is false, the noncentral distribution of a test statistic.
+Discrete distributions: Count data and proportions  Discrete CI ≠ Approximately Continuous CI Noncentral CIs around the Odds Ratio of Fisher’s Exact Test Example: Time, Money, and Morality  Continuous distributions: Standardised sample means  Standardised, but on which measure of dispersion?</description>
+    </item>
+    
+    <item>
+      <title>Time = Money: The Morality of Being Accurate.</title>
+      <link>/post/2015-03-07-time-money-morality/</link>
+      <pubDate>Sat, 07 Mar 2015 12:00:00 +0000</pubDate>
+      
+      <guid>/post/2015-03-07-time-money-morality/</guid>
+      <description>A Post-Publication Peer-Review (3PR) of: Time, Money, and Morality by Gino, F., &amp;amp; Mogilner, C. (online, 2013). Time, Money, and Morality. Psychological Science. DOI: 10.1177/0956797613506438
+ Introduction The Time, Money, and Morality article has been HIBAR-ed on Twitter and the Blogosphere (e.g., by Rolf Zwaan and Greg Francis ) and the discussion seems to revolve around the validity of the inferences based p-values close to 0.05 (e.g., they raise suspicions of p-hacking).</description>
+    </item>
+    
+  </channel>
+</rss>

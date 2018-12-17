@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.2.0">
+  <meta name="generator" content="Hugo 0.52" />
+  <meta name="author" content="Fred Hasselman">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="Anomalous diffusion: Individual particle tracking vs. Ensemble averages Particles are individuals too!  A timeseries of daily mood: down Test for level and trend stationarity Test for AR, ARCH or an optimal ARIMA process Structural decomposition Conclusions NEXT: Dynamics in state space    Anomalous diffusion: Individual particle tracking vs. Ensemble averages A recent article by Bos et al. (2017)1 in which the authors compared network measures derived from cross-sectional (between-individual) and within-individual data sparked some discussion on facebook.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="anti-ism-ism">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="anti-ism-ism">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@FredHasselman">
+  <meta property="twitter:creator" content="@FredHasselman">
+  
+  <meta property="og:site_name" content="anti-ism-ism">
+  <meta property="og:url" content="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/">
+  <meta property="og:title" content="Testing assumptions of the data-generating process underlying Experience Sampling | anti-ism-ism">
+  <meta property="og:description" content="Anomalous diffusion: Individual particle tracking vs. Ensemble averages Particles are individuals too!  A timeseries of daily mood: down Test for level and trend stationarity Test for AR, ARCH or an optimal ARIMA process Structural decomposition Conclusions NEXT: Dynamics in state space    Anomalous diffusion: Individual particle tracking vs. Ensemble averages A recent article by Bos et al. (2017)1 in which the authors compared network measures derived from cross-sectional (between-individual) and within-individual data sparked some discussion on facebook."><meta property="og:image" content="/img/headers/ontology.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2017-05-19T09:50:02-07:00">
+  
+  <meta property="article:modified_time" content="2017-05-19T09:50:02-07:00">
+  
+
+  
+
+  
+
+  <title>Testing assumptions of the data-generating process underlying Experience Sampling | anti-ism-ism</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">anti-ism-ism</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+<div class="article-header">
+  
+  
+  <img src="/img/headers/ontology.png" class="article-banner" itemprop="image" alt="">
+  
+
+  
+</div>
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Testing assumptions of the data-generating process underlying Experience Sampling</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Fred Hasselman">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2017-05-19 09:50:02 -0700 -0700" itemprop="datePublished">
+    <time datetime="2017-05-19 09:50:02 -0700 -0700" itemprop="dateModified">
+      May 19, 2017
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Fred Hasselman">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    11 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/r/">R</a>, 
+    
+    <a href="/categories/time-series-analysis/">Time Series Analysis</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Testing%20assumptions%20of%20the%20data-generating%20process%20underlying%20Experience%20Sampling&amp;url=%2fpost%2f2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2f2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2f2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling%2f&amp;title=Testing%20assumptions%20of%20the%20data-generating%20process%20underlying%20Experience%20Sampling"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2f2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling%2f&amp;title=Testing%20assumptions%20of%20the%20data-generating%20process%20underlying%20Experience%20Sampling"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Testing%20assumptions%20of%20the%20data-generating%20process%20underlying%20Experience%20Sampling&amp;body=%2fpost%2f2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#anomalous-diffusion-individual-particle-tracking-vs.ensemble-averages">Anomalous diffusion: Individual particle tracking vs. Ensemble averages</a><ul>
+<li><a href="#particles-are-individuals-too">Particles are individuals too!</a></li>
+</ul></li>
+<li><a href="#a-timeseries-of-daily-mood-down">A timeseries of daily mood: <em>down</em></a></li>
+<li><a href="#test-for-level-and-trend-stationarity">Test for <strong>level</strong> and <strong>trend</strong> stationarity</a></li>
+<li><a href="#test-for-ar-arch-or-an-optimal-arima-process">Test for <strong>AR</strong>, <strong>ARCH</strong> or an optimal <strong>ARIMA</strong> process</a></li>
+<li><a href="#structural-decomposition">Structural decomposition</a></li>
+<li><a href="#conclusions">Conclusions</a><ul>
+<li><a href="#next-dynamics-in-state-space"><strong>NEXT: Dynamics in state space</strong></a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="anomalous-diffusion-individual-particle-tracking-vs.ensemble-averages" class="section level2">
+<h2>Anomalous diffusion: Individual particle tracking vs. Ensemble averages</h2>
+<p>A recent article by Bos et al. (2017)<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> in which the authors compared network measures derived from cross-sectional (between-individual) and within-individual data sparked <a href="https://www.facebook.com/groups/PsychologicalDynamics/permalink/1915536272037759/">some discussion on facebook.</a></p>
+<p>The authors conclude that the outcomes of network analyses based on time-ordered ensemble averages are not the same as the outcomes based on the time evolution of individual trajectories.</p>
+<p>I argued this result is to be expected, because I think the data-generating process underlying time and trial series of human physiology and performance should be considered a <em>non-ergodic process</em> and the particular analyses used to construct the graphical model (the Gaussian Graphical Model) assume ergodic processes. Simply put, the ergodic assumption is that the space-averaged behaviour of some variable observed in an ensemle will be the same as the time-averaged behaviour observed in an individual (… in the limit of infite time and space). If it is violated, this is a problem for such models, because it implies the statistical properties of the process change over time and one cannot depend (fullly) on universal laws of probability to predict or infer properties and behaviour of a system.</p>
+<p>This post originated as a short tutorial on analysing stationarity and other properties of time series, the current text is an expansion of the page kindly tweeted by Eiko Fried:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Added to the tutorials section of psych-networks. If you have any other tutorials that would fit please let me know<a href="https://t.co/zgJutWpOs8">https://t.co/zgJutWpOs8</a></p>&mdash; Eiko Fried (@EikoFried) <a href="https://twitter.com/EikoFried/status/865679242939465728?ref_src=twsrc%5Etfw">May 19, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<div id="particles-are-individuals-too" class="section level3">
+<h3>Particles are individuals too!</h3>
+<p>I often use the Complex Sysems argument to suggest measurements should be considered non-ergodic (many interactions between processes across multiple scales that are mostly multiplicative instead of additive), however, it turns out that studies of individual particle tracking (both biological and physical ‘particles’) also have to deal with <em>ergodicity-breaking</em>, <em>ageing</em> and <em>non-stationarity</em>. This behaviour is called <em>anomalous diffusion</em>, which turns out to be more common in nature than the classical <em>normal diffusion</em> processes studied by Brown, Einstein and many other prominent scientists.</p>
+<p>The following quotes are from the article <a href="http://pubs.rsc.org/en/Content/ArticleLanding/2014/CP/C4CP03465A#!divAbstract"><strong>Anomalous diffusion models and their properties: non-stationarity, non-ergodicity, and ageing at the centenary of single particle tracking</strong></a> which provides an excellent review and perspective.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> The authors list the conditions for normal diffusion, they should sound familiar because these assunmptions are the same as for most statistical analyses used in the social and life sciences:</p>
+<blockquote>
+<p>The conditions assumed by Einstein in his derivation of the diffusion equation are (i) the independence of individual particles, (ii) the existence of a sufficiently small time scale beyond which individual displacements are statistically independent, and (iii) the property that the particle displacements during this time scale correspond to a typical mean free path distributed symmetrically in positive or negative directions.</p>
+</blockquote>
+<p>So, we need:</p>
+<ul>
+<li><em>Independence</em> of indivdual measurement objects in a sample</li>
+<li><em>Memorylessness</em> regarding any interactions between individuals and their environment. The after-effects of interactions should be short-lived and not affect behaviour in the long run (no long-range correlations).</li>
+<li><em>Randomly distributed</em> deviations from central tendency (Gaussian error distribution).</li>
+</ul>
+<p>What happens when we violate these assumptions?</p>
+<blockquote>
+<p>In anomalous diffusion processes, at least one of these fundamental assumptions is violated, and the strong convergence to the Gaussian according to the central limit theorem broken. In particular, by departing from one or more of the assumptions (i)–(iii), we find that there exist many different generalisations of the Einstein–Smoluchowski diffusion picture.</p>
+</blockquote>
+<p>Ok, but what does that mean?</p>
+<blockquote>
+<p>The fact that we consider this large range of anomalous diffusion processes is the <strong>non-universal nature of anomalous diffusion</strong> itself. Once we leave the realm of Brownian motion, we lose the confines of the central limit theorem forcing the processes to converge to the Gaussian behaviour predicted by Einstein.</p>
+<p>[…]</p>
+<p>Quite commonly such analyses of time series from experiment or simulations are performed in terms of time averaged observables, in particular, the time averaged MSD [<em>Mean squared displecement = Mean squared ‘error’</em>]. We point out that the physical interpretation of the obtained behaviour of such time averages in terms of the <strong>typically available ensemble approaches may be treacherous</strong> : many of the anomalous diffusion processes discussed herein lead to a <strong>disparity between the ensemble and the time averaged observable</strong>, for instance, between the ensemble and time averaged MSDs […] even in the limit of long measurement times. Moreover, it turns out that individual results for time averages […] appear to be <strong>irreproducible</strong>, despite long measurement times.</p>
+</blockquote>
+<p>To summarise, when non-ergodicity, non-stationarity and ageing play a role in the timeseries measurements of variables of interest, one cannot rely on ensemble statistics to yield valid inferences, in fact they should be considered <strong>treacherous</strong>, and individual time series averages are <strong>irreproducible</strong>.</p>
+<p>What follows are some tests that have been developped (in different scientific disciplines) to check assumptions of non-stationarity (and more).</p>
+<div class="alert alert-note">
+  <p>This is by no means an exhaustive account of tests (or even a strategy that I would use myself, but that is for another post).</p>
+
+</div>
+
+</div>
+</div>
+<div id="a-timeseries-of-daily-mood-down" class="section level2">
+<h2>A timeseries of daily mood: <em>down</em></h2>
+<p>Unzip and load these interesting <a href="https://files.osf.io/v1/resources/j4fg8/providers/osfstorage/584e6cc1b83f6901f7ad2d30?direct=true&amp;action=download">ESM data</a> provided by:</p>
+<blockquote>
+<p>Kossakowski, J. J., Groot, P. C., Haslbeck, J. M., Borsboom, D., &amp; Wichers, M. (2016, December 12). Data from “Critical Slowing Down as a Personalized Early Warning Signal for Depression.” Retrieved from osf.io/j4fg8</p>
+</blockquote>
+<p>There is a timecode in the dataset indicating when the participant was promted to nswer some questions. Here, we use it to create a time series object and plot it.</p>
+<pre class="r"><code>library(lubridate)
+beep &lt;- dmy_hms(paste0(df.ts$date,&quot; &quot;,df.ts$beeptime,&quot;:00&quot;),tz = &quot;Europe/Amsterdam&quot;)
+y &lt;- xts(df.ts$mood_down, order.by = beep)
+plot(y, main = &quot;Time series of variable &#39;mood_down&#39;&quot;)</code></pre>
+<p><img src="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="test-for-level-and-trend-stationarity" class="section level2">
+<h2>Test for <strong>level</strong> and <strong>trend</strong> stationarity</h2>
+<pre class="r"><code># Load some Time Series libraries
+library(nonlinearTseries)
+library(randtests)
+library(tseries)
+library(TSA)</code></pre>
+<pre class="r"><code># BARTELS RANK TEST [rank version of von NEUMANN&#39;s Ratio Test for Randomness]
+# H0: randomness
+# H1: nonrandomness
+randtests::bartels.rank.test(df.ts$mood_down, alternative = &quot;two.sided&quot;)</code></pre>
+<pre><code>&gt; 
+&gt;   Bartels Ratio Test
+&gt; 
+&gt; data:  df.ts$mood_down
+&gt; statistic = -16.606, n = 1474, p-value &lt; 2.2e-16
+&gt; alternative hypothesis: nonrandomness</code></pre>
+<pre class="r"><code>
+# H0: randomness
+# H1: trend
+randtests::bartels.rank.test(df.ts$mood_down, alternative = &quot;left.sided&quot;)</code></pre>
+<pre><code>&gt; 
+&gt;   Bartels Ratio Test
+&gt; 
+&gt; data:  df.ts$mood_down
+&gt; statistic = -16.606, n = 1474, p-value &lt; 2.2e-16
+&gt; alternative hypothesis: trend</code></pre>
+<pre class="r"><code>
+# H0: randomness
+# H1: systematic oscillation
+randtests::bartels.rank.test(df.ts$mood_down, alternative = &quot;right.sided&quot;)</code></pre>
+<pre><code>&gt; 
+&gt;   Bartels Ratio Test
+&gt; 
+&gt; data:  df.ts$mood_down
+&gt; statistic = -16.606, n = 1474, p-value = 1
+&gt; alternative hypothesis: systematic oscillation</code></pre>
+<pre class="r"><code>
+
+# COX-STUART SIGN TEST 
+# H0: randomness
+# H1: upward or downward trend
+randtests::cox.stuart.test(na.exclude(df.ts$mood_down), alternative = &quot;two.sided&quot;)</code></pre>
+<pre><code>&gt; 
+&gt;   Cox Stuart test
+&gt; 
+&gt; data:  na.exclude(df.ts$mood_down)
+&gt; statistic = 246, n = 362, p-value = 7.196e-12
+&gt; alternative hypothesis: non randomness</code></pre>
+<pre class="r"><code>
+# H0: randomness
+# H1: upward trend
+randtests::cox.stuart.test(na.exclude(df.ts$mood_down), alternative = &quot;right.sided&quot;)</code></pre>
+<pre><code>&gt; 
+&gt;   Cox Stuart test
+&gt; 
+&gt; data:  na.exclude(df.ts$mood_down)
+&gt; statistic = 246, n = 362, p-value = 3.598e-12
+&gt; alternative hypothesis: increasing trend</code></pre>
+<pre class="r"><code>
+# H0: randomness
+# H1: downward trend
+randtests::cox.stuart.test(na.exclude(df.ts$mood_down), alternative = &quot;left.sided&quot;)</code></pre>
+<pre><code>&gt; 
+&gt;   Cox Stuart test
+&gt; 
+&gt; data:  na.exclude(df.ts$mood_down)
+&gt; statistic = 246, n = 362, p-value = 1
+&gt; alternative hypothesis: decreasing trend</code></pre>
+<pre class="r"><code>
+
+# KWIATKOWSKI-PHILLIPS-SCHMIDT-SHIN UNIT ROOT TEST [&#39;reversed&#39; DICKY-FULLER TEST] 
+# H0: level stationarity
+# H1: unit root [not level stationary]
+tseries::kpss.test(na.exclude(df.ts$mood_down), lshort = TRUE, null = &quot;Level&quot;)</code></pre>
+<pre><code>&gt; 
+&gt;   KPSS Test for Level Stationarity
+&gt; 
+&gt; data:  na.exclude(df.ts$mood_down)
+&gt; KPSS Level = 1.7668, Truncation lag parameter = 7, p-value = 0.01</code></pre>
+<pre class="r"><code>
+# H0: trend stationarity 
+# H1: not trend stationary
+tseries::kpss.test(na.exclude(df.ts$mood_down), lshort = TRUE, null = &quot;Trend&quot;)</code></pre>
+<pre><code>&gt; 
+&gt;   KPSS Test for Trend Stationarity
+&gt; 
+&gt; data:  na.exclude(df.ts$mood_down)
+&gt; KPSS Trend = 0.090975, Truncation lag parameter = 7, p-value = 0.1</code></pre>
+</div>
+<div id="test-for-ar-arch-or-an-optimal-arima-process" class="section level2">
+<h2>Test for <strong>AR</strong>, <strong>ARCH</strong> or an optimal <strong>ARIMA</strong> process</h2>
+<p>First inspect the partial autocorrelation function to get an idea of the AR order.</p>
+<pre class="r"><code>par(mfrow=c(1,2))
+acf(df.ts$mood_down, na.action = na.pass)
+pacf(df.ts$mood_down, na.action = na.pass)</code></pre>
+<p><img src="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>One could conclude there’s at least <span class="math inline">\(AR(3)\)</span> involved, however there are also possible long-range correlations in these data. I am not an initiate of the <strong>how-to-interpret-<code>(P)ACF</code>-to-<code>ARfiMA</code>-orders-cult</strong>, so let’s do some tests!</p>
+<pre class="r"><code># KEENAN 1-DEGREE TEST OF NONLINEARITY
+# H0: time series follows some AR process
+# H1: time series cannot be considered some AR process
+TSA::Keenan.test(na.exclude(df.ts$mood_down))</code></pre>
+<pre><code>&gt; $test.stat
+&gt; [1] 5.359887
+&gt; 
+&gt; $p.value
+&gt; [1] 0.02074511
+&gt; 
+&gt; $order
+&gt; [1] 16</code></pre>
+<p>Not an <strong>AR</strong> process, how about <strong>ARCH</strong> or a best fitting <strong>ARiMA</strong>?</p>
+<pre class="r"><code># MCLEOD-LI TEST FOR CONDITIONAL HETEROSCEDASTICITY
+# H0: time series follows some AR process
+# H1: time series cannot be considered some ARCH process
+TSA::McLeod.Li.test(y = df.ts$mood_down, plot = TRUE, omit.initial = TRUE)</code></pre>
+<p><img src="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>
+# MCLEOD-LI TEST FOR CONDITIONAL HETEROSCEDASTICITY
+# H0: time series follows some AR process
+# H1: time series cannot be considered some ARiMA process
+TSA::McLeod.Li.test(object = forecast::auto.arima(df.ts$mood_down), plot = TRUE, omit.initial = TRUE)</code></pre>
+<p><img src="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<p>This test finds no convincing evidence of the timeseries being either <strong>ARCH</strong> or <strong>ARiMA</strong>.</p>
+</div>
+<div id="structural-decomposition" class="section level2">
+<h2>Structural decomposition</h2>
+<p>It is also possible to decompose the time series in different sources of variation. Let’s calculate the average frequency between beeps (in hours), and use that as a guess for any periodicity that may occur in the timeseries.</p>
+<pre class="r"><code>(beepMean &lt;- mean(time_length(diff(beep), unit = &quot;hours&quot;)))</code></pre>
+<pre><code>&gt; [1] 3.886332</code></pre>
+<pre class="r"><code>ts0 &lt;- ts(df.ts$mood_down, frequency = round(beepMean))
+fit&lt;-StructTS(ts0, type=&quot;BSM&quot;)
+par(mfrow = c(4, 1)) # to give appropriate aspect ratio for next plot.
+plot(cbind(fitted(fit), resids=resid(fit)), main= &quot;Basic Structural Model for &#39;mood_down&#39;&quot;)</code></pre>
+<p><img src="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>There is a lot going on here, the residuals and level fluctuations show we probably should not assume a linear ergodic stochastic change process.</p>
+</div>
+<div id="conclusions" class="section level1">
+<h1>Conclusions</h1>
+<p>This timeseries is:</p>
+<ul>
+<li>Not level stationary</li>
+<li>Not random</li>
+<li>Not oscillatory</li>
+<li>Not generated by some <strong>AR</strong> process</li>
+<li>Not <strong>ARCH</strong> or generated by a best fitting <strong>ARiMA</strong> process</li>
+<li>Contains long range correlations in <code>PACF</code>, e.g. lags 6, 9, 13, 25 and beyond (remember it is 25 * 4 hours!)</li>
+<li>Upward Trend (which is stationary)</li>
+</ul>
+<p>This is likely a violation of the strong ergodic condition / strong memorylessness property:</p>
+<div class="alert alert-warning">
+  <p>The statistical properties of a between-individual cross-sectional sample of the same theoretical process will be very different from a within-individual sample in a non-trivial way if the process can be considered to be some form of anomalous diffusion.</p>
+
+</div>
+
+<p>So, <strong>do not</strong> use any analytic techniques that depend on the ESM data and underlying process to be stationary and ergodic if these tests indicate the assumptions are violated.</p>
+<div id="next-dynamics-in-state-space" class="section level2">
+<h2><strong>NEXT: Dynamics in state space</strong></h2>
+<p>What can we do to study non-ergodic processes?</p>
+<p>Again from the anomalous diffussion article:</p>
+<blockquote>
+<p>We note that non-ergodicity […] is not restricted to the spatial diffusion of particles, but similar principles hold for certain processes revealing non-exponential dynamics, such as the blinking behaviour of individual quantum dots or laser cooling. To physically interpret such measurements <strong>we need to understand the time averages of individual time series</strong>. As we will see, this requires information beyond the conventional ensemble averages for a variety of anomalous diffusion processes.</p>
+</blockquote>
+<p>This resonates with some great advice from Peter Molenaar in Todd Roses’s book <a href="http://www.toddrose.com/endofaverage/">The End of Average</a>:</p>
+<blockquote>
+<p>“first analyse, then aggregate”</p>
+</blockquote>
+<p>When I find the time I’ll post some examples of how to represent and quantify state space dynamics of individual time series.</p>
+<p>For now, the plots below should make clear the occurrence of state stransitions is not distributed according to a uniform or Gaussian pdf.</p>
+<pre class="r"><code>library(ggTimeSeries)
+
+df.ts2 = data.frame(
+  Signal = round(head(df.ts$mood_down, -1),0),
+  NextSignal = round(tail(df.ts$mood_down, -1),0),
+  Weight = 1,
+  Label = &quot;mood_down&quot;,
+  Size  = 0,
+  Time = factor(round(seq(1,150, length.out = max(index(head(beep,-1))))))
+)
+
+N = length(df.ts2$Signal)
+
+set.seed(123)
+dfcat &lt;- round(runif(N,min=-3,max=3))
+dfcat2 &lt;- data.frame(
+  Signal = round(head(dfcat, -1),0),
+  NextSignal = round(tail(dfcat, -1),0),
+  Weight = 1,
+  Label = &quot;random_uniform&quot;,
+  Size=0,
+  Time = factor(round(seq(1,150, length.out = max(index(head(beep,-2))))))
+)
+
+dftot &lt;- rbind(dfcat2,df.ts2)
+
+ggplot(dftot, aes(xbucket = Signal, 
+                   ybucket = NextSignal, 
+                   fill = factor(NextSignal), 
+                   weight = Weight) )+
+  stat_marimekko(color = &#39;black&#39;, xlabelyposition = -0.1) + 
+  scale_y_continuous(&quot;Relative frequency&quot;) +
+  scale_x_continuous(&quot;Current value&quot;) +
+  scale_fill_discrete(&quot;Next value&quot;) +
+  facet_wrap(~Label) +
+  ggtitle(label = &quot;State tranisitions: Random numbers vs. &#39;I feel down&#39;&quot;,subtitle = paste(&quot;box dimensions represent relative frequencies of&quot;,N,&quot;values&quot;)) +
+  theme(axis.text.x =  element_blank(), 
+    axis.ticks.x = element_blank(), 
+    strip.background = element_rect(fill=&quot;grey90&quot;),
+    strip.text = element_text(face = &quot;bold&quot;),
+    plot.background = element_blank(), 
+    panel.border = element_blank(), 
+    panel.background = element_blank(), 
+    panel.grid = element_blank()) </code></pre>
+<p><img src="/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
+<p>If we consider the values <span class="math inline">\(-3\)</span> to <span class="math inline">\(3\)</span> to span the possibe states the ‘system’ can be in, then a crude way to study the dynamics of the states is to look at a lag-1 <em>return plot</em>.</p>
+<pre class="r"><code>library(gganimate)
+
+tmp   &lt;- as.data.frame(table(df.ts2$Signal,df.ts2$NextSignal))
+
+# Set the size to frequency of occurrence of each combination of values
+for(c in seq_along(tmp$Freq)){
+  ID &lt;- (df.ts2$Signal%in%tmp$Var1[c])&amp;(df.ts2$NextSignal%in%tmp$Var2[c])
+  if(sum(ID)&gt;0){
+    df.ts2$Size[ID] &lt;- tmp$Freq[c]
+  }
+}
+
+ga &lt;- ggplot(df.ts2,aes(x=Signal,y=NextSignal, frame = Time)) +
+  geom_path(colour = &quot;grey80&quot;) +
+  geom_point(aes(size=Size)) +
+  scale_y_continuous(&quot;Next value&quot;) +
+  scale_x_continuous(&quot;Current value&quot;) +
+  scale_size_continuous(&quot;Frequency of\n pair (Curren,Next)&quot;) + 
+  ggtitle(label = &quot;Window&quot;, subtitle = &quot;Return plot&quot;) +
+  theme_bw() + coord_equal()
+
+gganimate(ga, interval=.2, &quot;returnplot.gif&quot;)</code></pre>
+
+
+
+<figure>
+
+<img src="/img/returnplot.gif" />
+
+
+</figure>
+<p>It is appears to be the case the system is <em>attracted</em> to specific states. Perhaps the dynamics can be described as transitions between more or less stable states, or stable temporal patterns of recurring states.</p>
+<p>to be continued …</p>
+<p>天</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Bos, F. M., Snippe, E., de Vos, S., Hartmann, J. A., Simons, C. J., van der Krieke, L., &amp; Wichers, M. (2017). Can We Jump from Cross-Sectional to Dynamic Interpretations of Networks? Implications for the Network Perspective in Psychiatry. <em>Psychotherapy and Psychosomatics, 86(3)</em>, 175-177<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Metzler, R., Jeon, J. H., Cherstvy, A. G., &amp; Barkai, E. (2014). Anomalous diffusion models and their properties: non-stationarity, non-ergodicity, and ageing at the centenary of single particle tracking. <em>Physical Chemistry Chemical Physics, 16(44)</em>, 24128-24164.<a href="#fnref2">↩</a></p></li>
+</ol>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/ergodicity/">Ergodicity</a>
+  
+  <a class="badge badge-light" href="/tags/structural-decomposition/">Structural Decomposition</a>
+  
+  <a class="badge badge-light" href="/tags/homogeneity/">Homogeneity</a>
+  
+  <a class="badge badge-light" href="/tags/stationarity/">Stationarity</a>
+  
+  <a class="badge badge-light" href="/tags/anomalous-diffusion/">Anomalous Diffusion</a>
+  
+</div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/img/brain.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/">Fred Hasselman</a></h5>
+    <h6 class="card-subtitle">Structural realist crash-testing ontology until it breaks down</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:f.hasselman@bsi.ru.nl" >
+          <i class="fa fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//twitter.com/FredHasselman" >
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//scholar.google.com/citations?user=yIlTr6QAAAAJ" >
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//github.com/FredHasselman" >
+          <i class="fa fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//www.linkedin.com/in/fred-hasselman-3867b215" >
+          <i class="fa fa-linkedin"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//osf.io/ujgs6/" >
+          <i class="ai ai-osf"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="//www.researchgate.net/profile/Fred_Hasselman" >
+          <i class="ai ai-researchgate"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/files/cv.pdf" >
+          <i class="ai ai-cv"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/post/2017-05-09-pandigital-numbers-and-functions/" rel="prev">Reproduce $e$ to $18,457,734,525,360,901,453,873,570$ decimal places!</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "anti-ism-ism" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2018 Fred Hasselman &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//anti-ism-ism.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.d037ee5294b166a79dec317c58aea9cc.js"></script>
+
+    
+
+  </body>
+</html>
+

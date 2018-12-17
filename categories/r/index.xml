@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on anti-ism-ism</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on anti-ism-ism</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018 Fred Hasselman</copyright>
+    <lastBuildDate>Fri, 19 May 2017 09:50:02 -0700</lastBuildDate>
+    
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Testing assumptions of the data-generating process underlying Experience Sampling</title>
+      <link>/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</link>
+      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
+      
+      <guid>/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</guid>
+      <description>Anomalous diffusion: Individual particle tracking vs. Ensemble averages Particles are individuals too!  A timeseries of daily mood: down Test for level and trend stationarity Test for AR, ARCH or an optimal ARIMA process Structural decomposition Conclusions NEXT: Dynamics in state space    Anomalous diffusion: Individual particle tracking vs. Ensemble averages A recent article by Bos et al. (2017)1 in which the authors compared network measures derived from cross-sectional (between-individual) and within-individual data sparked some discussion on facebook.</description>
+    </item>
+    
+    <item>
+      <title>R Effect Size CI tutorial</title>
+      <link>/post/2015-05-05-osc-r-esci-tutorial/</link>
+      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
+      
+      <guid>/post/2015-05-05-osc-r-esci-tutorial/</guid>
+      <description>Using R to Compute Effect Size Confidence Intervals This is a demonstration of using R in the context of hypothesis testing by means of Effect Size Confidence Intervals. In other words, we’ll calculate confidence intervals based on the distribution of a test statistic under the assumption that \(H_0\) is false, the noncentral distribution of a test statistic.
+Discrete distributions: Count data and proportions  Discrete CI ≠ Approximately Continuous CI Noncentral CIs around the Odds Ratio of Fisher’s Exact Test Example: Time, Money, and Morality  Continuous distributions: Standardised sample means  Standardised, but on which measure of dispersion?</description>
+    </item>
+    
+  </channel>
+</rss>

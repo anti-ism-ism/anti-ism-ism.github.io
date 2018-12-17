@@ -11,473 +11,1241 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Example Page</title>
-      <link>/tutorial/example/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 +0200</pubDate>
+      <title>Testing assumptions of the data-generating process underlying Experience Sampling</title>
+      <link>/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</link>
+      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/tutorial/example/</guid>
+      <guid>/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</guid>
       <description>
 
-&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#anomalous-diffusion-individual-particle-tracking-vs.ensemble-averages&#34;&gt;Anomalous diffusion: Individual particle tracking vs. Ensemble averages&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#particles-are-individuals-too&#34;&gt;Particles are individuals too!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#a-timeseries-of-daily-mood-down&#34;&gt;A timeseries of daily mood: &lt;em&gt;down&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#test-for-level-and-trend-stationarity&#34;&gt;Test for &lt;strong&gt;level&lt;/strong&gt; and &lt;strong&gt;trend&lt;/strong&gt; stationarity&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#test-for-ar-arch-or-an-optimal-arima-process&#34;&gt;Test for &lt;strong&gt;AR&lt;/strong&gt;, &lt;strong&gt;ARCH&lt;/strong&gt; or an optimal &lt;strong&gt;ARIMA&lt;/strong&gt; process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#structural-decomposition&#34;&gt;Structural decomposition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusions&#34;&gt;Conclusions&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#next-dynamics-in-state-space&#34;&gt;&lt;strong&gt;NEXT: Dynamics in state space&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
-&lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
+&lt;div id=&#34;anomalous-diffusion-individual-particle-tracking-vs.ensemble-averages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Anomalous diffusion: Individual particle tracking vs. Ensemble averages&lt;/h2&gt;
+&lt;p&gt;A recent article by Bos et al. (2017)&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; in which the authors compared network measures derived from cross-sectional (between-individual) and within-individual data sparked &lt;a href=&#34;https://www.facebook.com/groups/PsychologicalDynamics/permalink/1915536272037759/&#34;&gt;some discussion on facebook.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The authors conclude that the outcomes of network analyses based on time-ordered ensemble averages are not the same as the outcomes based on the time evolution of individual trajectories.&lt;/p&gt;
+&lt;p&gt;I argued this result is to be expected, because I think the data-generating process underlying time and trial series of human physiology and performance should be considered a &lt;em&gt;non-ergodic process&lt;/em&gt; and the particular analyses used to construct the graphical model (the Gaussian Graphical Model) assume ergodic processes. Simply put, the ergodic assumption is that the space-averaged behaviour of some variable observed in an ensemle will be the same as the time-averaged behaviour observed in an individual (… in the limit of infite time and space). If it is violated, this is a problem for such models, because it implies the statistical properties of the process change over time and one cannot depend (fullly) on universal laws of probability to predict or infer properties and behaviour of a system.&lt;/p&gt;
+&lt;p&gt;This post originated as a short tutorial on analysing stationarity and other properties of time series, the current text is an expansion of the page kindly tweeted by Eiko Fried:&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Added to the tutorials section of psych-networks. If you have any other tutorials that would fit please let me know&lt;a href=&#34;https://t.co/zgJutWpOs8&#34;&gt;https://t.co/zgJutWpOs8&lt;/a&gt;&lt;/p&gt;&amp;mdash; Eiko Fried (@EikoFried) &lt;a href=&#34;https://twitter.com/EikoFried/status/865679242939465728?ref_src=twsrc%5Etfw&#34;&gt;May 19, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-
-&lt;h2 id=&#34;tip-2&#34;&gt;Tip 2&lt;/h2&gt;
-
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Example Talk</title>
-      <link>/talk/example/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 +0100</pubDate>
-      
-      <guid>/talk/example/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;p&gt;Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.&lt;/p&gt;
+&lt;div id=&#34;particles-are-individuals-too&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Particles are individuals too!&lt;/h3&gt;
+&lt;p&gt;I often use the Complex Sysems argument to suggest measurements should be considered non-ergodic (many interactions between processes across multiple scales that are mostly multiplicative instead of additive), however, it turns out that studies of individual particle tracking (both biological and physical ‘particles’) also have to deal with &lt;em&gt;ergodicity-breaking&lt;/em&gt;, &lt;em&gt;ageing&lt;/em&gt; and &lt;em&gt;non-stationarity&lt;/em&gt;. This behaviour is called &lt;em&gt;anomalous diffusion&lt;/em&gt;, which turns out to be more common in nature than the classical &lt;em&gt;normal diffusion&lt;/em&gt; processes studied by Brown, Einstein and many other prominent scientists.&lt;/p&gt;
+&lt;p&gt;The following quotes are from the article &lt;a href=&#34;http://pubs.rsc.org/en/Content/ArticleLanding/2014/CP/C4CP03465A#!divAbstract&#34;&gt;&lt;strong&gt;Anomalous diffusion models and their properties: non-stationarity, non-ergodicity, and ageing at the centenary of single particle tracking&lt;/strong&gt;&lt;/a&gt; which provides an excellent review and perspective.&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; The authors list the conditions for normal diffusion, they should sound familiar because these assunmptions are the same as for most statistical analyses used in the social and life sciences:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The conditions assumed by Einstein in his derivation of the diffusion equation are (i) the independence of individual particles, (ii) the existence of a sufficiently small time scale beyond which individual displacements are statistically independent, and (iii) the property that the particle displacements during this time scale correspond to a typical mean free path distributed symmetrically in positive or negative directions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So, we need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Independence&lt;/em&gt; of indivdual measurement objects in a sample&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Memorylessness&lt;/em&gt; regarding any interactions between individuals and their environment. The after-effects of interactions should be short-lived and not affect behaviour in the long run (no long-range correlations).&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Randomly distributed&lt;/em&gt; deviations from central tendency (Gaussian error distribution).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What happens when we violate these assumptions?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In anomalous diffusion processes, at least one of these fundamental assumptions is violated, and the strong convergence to the Gaussian according to the central limit theorem broken. In particular, by departing from one or more of the assumptions (i)–(iii), we find that there exist many different generalisations of the Einstein–Smoluchowski diffusion picture.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ok, but what does that mean?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The fact that we consider this large range of anomalous diffusion processes is the &lt;strong&gt;non-universal nature of anomalous diffusion&lt;/strong&gt; itself. Once we leave the realm of Brownian motion, we lose the confines of the central limit theorem forcing the processes to converge to the Gaussian behaviour predicted by Einstein.&lt;/p&gt;
+&lt;p&gt;[…]&lt;/p&gt;
+&lt;p&gt;Quite commonly such analyses of time series from experiment or simulations are performed in terms of time averaged observables, in particular, the time averaged MSD [&lt;em&gt;Mean squared displecement = Mean squared ‘error’&lt;/em&gt;]. We point out that the physical interpretation of the obtained behaviour of such time averages in terms of the &lt;strong&gt;typically available ensemble approaches may be treacherous&lt;/strong&gt; : many of the anomalous diffusion processes discussed herein lead to a &lt;strong&gt;disparity between the ensemble and the time averaged observable&lt;/strong&gt;, for instance, between the ensemble and time averaged MSDs […] even in the limit of long measurement times. Moreover, it turns out that individual results for time averages […] appear to be &lt;strong&gt;irreproducible&lt;/strong&gt;, despite long measurement times.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To summarise, when non-ergodicity, non-stationarity and ageing play a role in the timeseries measurements of variables of interest, one cannot rely on ensemble statistics to yield valid inferences, in fact they should be considered &lt;strong&gt;treacherous&lt;/strong&gt;, and individual time series averages are &lt;strong&gt;irreproducible&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;What follows are some tests that have been developped (in different scientific disciplines) to check assumptions of non-stationarity (and more).&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;p&gt;This is by no means an exhaustive account of tests (or even a strategy that I would use myself, but that is for another post).&lt;/p&gt;
 
 &lt;/div&gt;
 
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-timeseries-of-daily-mood-down&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A timeseries of daily mood: &lt;em&gt;down&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Unzip and load these interesting &lt;a href=&#34;https://files.osf.io/v1/resources/j4fg8/providers/osfstorage/584e6cc1b83f6901f7ad2d30?direct=true&amp;amp;action=download&#34;&gt;ESM data&lt;/a&gt; provided by:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Kossakowski, J. J., Groot, P. C., Haslbeck, J. M., Borsboom, D., &amp;amp; Wichers, M. (2016, December 12). Data from “Critical Slowing Down as a Personalized Early Warning Signal for Depression.” Retrieved from osf.io/j4fg8&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There is a timecode in the dataset indicating when the participant was promted to nswer some questions. Here, we use it to create a time series object and plot it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(lubridate)
+beep &amp;lt;- dmy_hms(paste0(df.ts$date,&amp;quot; &amp;quot;,df.ts$beeptime,&amp;quot;:00&amp;quot;),tz = &amp;quot;Europe/Amsterdam&amp;quot;)
+y &amp;lt;- xts(df.ts$mood_down, order.by = beep)
+plot(y, main = &amp;quot;Time series of variable &amp;#39;mood_down&amp;#39;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;test-for-level-and-trend-stationarity&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Test for &lt;strong&gt;level&lt;/strong&gt; and &lt;strong&gt;trend&lt;/strong&gt; stationarity&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Load some Time Series libraries
+library(nonlinearTseries)
+library(randtests)
+library(tseries)
+library(TSA)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# BARTELS RANK TEST [rank version of von NEUMANN&amp;#39;s Ratio Test for Randomness]
+# H0: randomness
+# H1: nonrandomness
+randtests::bartels.rank.test(df.ts$mood_down, alternative = &amp;quot;two.sided&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 
+&amp;gt;   Bartels Ratio Test
+&amp;gt; 
+&amp;gt; data:  df.ts$mood_down
+&amp;gt; statistic = -16.606, n = 1474, p-value &amp;lt; 2.2e-16
+&amp;gt; alternative hypothesis: nonrandomness&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+# H0: randomness
+# H1: trend
+randtests::bartels.rank.test(df.ts$mood_down, alternative = &amp;quot;left.sided&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 
+&amp;gt;   Bartels Ratio Test
+&amp;gt; 
+&amp;gt; data:  df.ts$mood_down
+&amp;gt; statistic = -16.606, n = 1474, p-value &amp;lt; 2.2e-16
+&amp;gt; alternative hypothesis: trend&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+# H0: randomness
+# H1: systematic oscillation
+randtests::bartels.rank.test(df.ts$mood_down, alternative = &amp;quot;right.sided&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 
+&amp;gt;   Bartels Ratio Test
+&amp;gt; 
+&amp;gt; data:  df.ts$mood_down
+&amp;gt; statistic = -16.606, n = 1474, p-value = 1
+&amp;gt; alternative hypothesis: systematic oscillation&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
 
-&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
+# COX-STUART SIGN TEST 
+# H0: randomness
+# H1: upward or downward trend
+randtests::cox.stuart.test(na.exclude(df.ts$mood_down), alternative = &amp;quot;two.sided&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 
+&amp;gt;   Cox Stuart test
+&amp;gt; 
+&amp;gt; data:  na.exclude(df.ts$mood_down)
+&amp;gt; statistic = 246, n = 362, p-value = 7.196e-12
+&amp;gt; alternative hypothesis: non randomness&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+# H0: randomness
+# H1: upward trend
+randtests::cox.stuart.test(na.exclude(df.ts$mood_down), alternative = &amp;quot;right.sided&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 
+&amp;gt;   Cox Stuart test
+&amp;gt; 
+&amp;gt; data:  na.exclude(df.ts$mood_down)
+&amp;gt; statistic = 246, n = 362, p-value = 3.598e-12
+&amp;gt; alternative hypothesis: increasing trend&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+# H0: randomness
+# H1: downward trend
+randtests::cox.stuart.test(na.exclude(df.ts$mood_down), alternative = &amp;quot;left.sided&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 
+&amp;gt;   Cox Stuart test
+&amp;gt; 
+&amp;gt; data:  na.exclude(df.ts$mood_down)
+&amp;gt; statistic = 246, n = 362, p-value = 1
+&amp;gt; alternative hypothesis: decreasing trend&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
 
+# KWIATKOWSKI-PHILLIPS-SCHMIDT-SHIN UNIT ROOT TEST [&amp;#39;reversed&amp;#39; DICKY-FULLER TEST] 
+# H0: level stationarity
+# H1: unit root [not level stationary]
+tseries::kpss.test(na.exclude(df.ts$mood_down), lshort = TRUE, null = &amp;quot;Level&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 
+&amp;gt;   KPSS Test for Level Stationarity
+&amp;gt; 
+&amp;gt; data:  na.exclude(df.ts$mood_down)
+&amp;gt; KPSS Level = 1.7668, Truncation lag parameter = 7, p-value = 0.01&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+# H0: trend stationarity 
+# H1: not trend stationary
+tseries::kpss.test(na.exclude(df.ts$mood_down), lshort = TRUE, null = &amp;quot;Trend&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 
+&amp;gt;   KPSS Test for Trend Stationarity
+&amp;gt; 
+&amp;gt; data:  na.exclude(df.ts$mood_down)
+&amp;gt; KPSS Trend = 0.090975, Truncation lag parameter = 7, p-value = 0.1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;test-for-ar-arch-or-an-optimal-arima-process&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Test for &lt;strong&gt;AR&lt;/strong&gt;, &lt;strong&gt;ARCH&lt;/strong&gt; or an optimal &lt;strong&gt;ARIMA&lt;/strong&gt; process&lt;/h2&gt;
+&lt;p&gt;First inspect the partial autocorrelation function to get an idea of the AR order.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
+acf(df.ts$mood_down, na.action = na.pass)
+pacf(df.ts$mood_down, na.action = na.pass)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;One could conclude there’s at least &lt;span class=&#34;math inline&#34;&gt;\(AR(3)\)&lt;/span&gt; involved, however there are also possible long-range correlations in these data. I am not an initiate of the &lt;strong&gt;how-to-interpret-&lt;code&gt;(P)ACF&lt;/code&gt;-to-&lt;code&gt;ARfiMA&lt;/code&gt;-orders-cult&lt;/strong&gt;, so let’s do some tests!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# KEENAN 1-DEGREE TEST OF NONLINEARITY
+# H0: time series follows some AR process
+# H1: time series cannot be considered some AR process
+TSA::Keenan.test(na.exclude(df.ts$mood_down))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; $test.stat
+&amp;gt; [1] 5.359887
+&amp;gt; 
+&amp;gt; $p.value
+&amp;gt; [1] 0.02074511
+&amp;gt; 
+&amp;gt; $order
+&amp;gt; [1] 16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Not an &lt;strong&gt;AR&lt;/strong&gt; process, how about &lt;strong&gt;ARCH&lt;/strong&gt; or a best fitting &lt;strong&gt;ARiMA&lt;/strong&gt;?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# MCLEOD-LI TEST FOR CONDITIONAL HETEROSCEDASTICITY
+# H0: time series follows some AR process
+# H1: time series cannot be considered some ARCH process
+TSA::McLeod.Li.test(y = df.ts$mood_down, plot = TRUE, omit.initial = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+# MCLEOD-LI TEST FOR CONDITIONAL HETEROSCEDASTICITY
+# H0: time series follows some AR process
+# H1: time series cannot be considered some ARiMA process
+TSA::McLeod.Li.test(object = forecast::auto.arima(df.ts$mood_down), plot = TRUE, omit.initial = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-6-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This test finds no convincing evidence of the timeseries being either &lt;strong&gt;ARCH&lt;/strong&gt; or &lt;strong&gt;ARiMA&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;structural-decomposition&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Structural decomposition&lt;/h2&gt;
+&lt;p&gt;It is also possible to decompose the time series in different sources of variation. Let’s calculate the average frequency between beeps (in hours), and use that as a guess for any periodicity that may occur in the timeseries.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(beepMean &amp;lt;- mean(time_length(diff(beep), unit = &amp;quot;hours&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] 3.886332&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ts0 &amp;lt;- ts(df.ts$mood_down, frequency = round(beepMean))
+fit&amp;lt;-StructTS(ts0, type=&amp;quot;BSM&amp;quot;)
+par(mfrow = c(4, 1)) # to give appropriate aspect ratio for next plot.
+plot(cbind(fitted(fit), resids=resid(fit)), main= &amp;quot;Basic Structural Model for &amp;#39;mood_down&amp;#39;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There is a lot going on here, the residuals and level fluctuations show we probably should not assume a linear ergodic stochastic change process.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusions&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusions&lt;/h1&gt;
+&lt;p&gt;This timeseries is:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;em&gt;Slides&lt;/em&gt; feature and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;.&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Not level stationary&lt;/li&gt;
+&lt;li&gt;Not random&lt;/li&gt;
+&lt;li&gt;Not oscillatory&lt;/li&gt;
+&lt;li&gt;Not generated by some &lt;strong&gt;AR&lt;/strong&gt; process&lt;/li&gt;
+&lt;li&gt;Not &lt;strong&gt;ARCH&lt;/strong&gt; or generated by a best fitting &lt;strong&gt;ARiMA&lt;/strong&gt; process&lt;/li&gt;
+&lt;li&gt;Contains long range correlations in &lt;code&gt;PACF&lt;/code&gt;, e.g. lags 6, 9, 13, 25 and beyond (remember it is 25 * 4 hours!)&lt;/li&gt;
+&lt;li&gt;Upward Trend (which is stationary)&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;This is likely a violation of the strong ergodic condition / strong memorylessness property:&lt;/p&gt;
+&lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;p&gt;The statistical properties of a between-individual cross-sectional sample of the same theoretical process will be very different from a within-individual sample in a non-trivial way if the process can be considered to be some form of anomalous diffusion.&lt;/p&gt;
 
-&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>External Project</title>
-      <link>/project/external-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0200</pubDate>
-      
-      <guid>/project/external-project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Internal Project</title>
-      <link>/project/internal-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0200</pubDate>
-      
-      <guid>/project/internal-project/</guid>
-      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
-
-&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
-
-&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
-
-&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
-
-&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Academic: the website designer for Hugo</title>
-      <link>/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0200</pubDate>
-      
-      <guid>/post/getting-started/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;Academic&lt;/strong&gt; makes it easy to create a beautiful website for free using Markdown. Customize anything on your site with widgets, themes, and language packs.&lt;/p&gt;
-
-&lt;p&gt;Follow our easy &lt;a href=&#34;https://sourcethemes.com/academic/docs/install/&#34; target=&#34;_blank&#34;&gt;step by step guide&lt;/a&gt; to learn how to build your own free website with Academic. &lt;a href=&#34;https://themes.gohugo.io/theme/academic/&#34; target=&#34;_blank&#34;&gt;Check out the personal demo&lt;/a&gt; or the &lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34;&gt;business demo&lt;/a&gt; of what you&amp;rsquo;ll get in less than 10 minutes.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;View the documentation&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://discuss.gohugo.io/&#34; target=&#34;_blank&#34;&gt;Ask a question&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues&#34; target=&#34;_blank&#34;&gt;Request a feature or report a bug&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Updating? View the &lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update Guide&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/updates/&#34; target=&#34;_blank&#34;&gt;Release Notes&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Support development of Academic:&lt;br /&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://paypal.me/cushen&#34; target=&#34;_blank&#34;&gt;Donate a coffee&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.patreon.com/cushen&#34; target=&#34;_blank&#34;&gt;Become a backer on Patreon&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.redbubble.com/people/neutreno/works/34387919-academic&#34; target=&#34;_blank&#34;&gt;Decorate your laptop or journal with an Academic sticker&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://academic.threadless.com/&#34; target=&#34;_blank&#34;&gt;Wear the T-shirt&lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academic/&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academic/master/academic.png&#34; alt=&#34;Screenshot&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Key features:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Easily manage various content including homepage, blog posts, publications, talks, and projects&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Extensible via &lt;strong&gt;color themes&lt;/strong&gt; and &lt;strong&gt;widgets/plugins&lt;/strong&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Write in &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;Markdown&lt;/a&gt; for easy formatting and code highlighting, with &lt;a href=&#34;https://en.wikibooks.org/wiki/LaTeX/Mathematics&#34; target=&#34;_blank&#34;&gt;LaTeX&lt;/a&gt; for mathematical expressions&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Social/academic network linking, &lt;a href=&#34;https://analytics.google.com&#34; target=&#34;_blank&#34;&gt;Google Analytics&lt;/a&gt;, and &lt;a href=&#34;https://disqus.com&#34; target=&#34;_blank&#34;&gt;Disqus&lt;/a&gt; comments&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Responsive and mobile friendly&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Simple and refreshing one page design&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Multilingual and easy to customize&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;color-themes&#34;&gt;Color Themes&lt;/h2&gt;
-
-&lt;p&gt;Academic is available in different color themes and font themes.&lt;/p&gt;
-
-
-
-&lt;div class=&#34;gallery&#34;&gt;
-
-  
-  
-  
-  
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-1950s.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-apogee.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-coffee-playfair.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-cupcake.png&#34; data-caption=&#34;Cupcake&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-cupcake.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-dark.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-default.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-forest.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-ocean.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-
-  
 &lt;/div&gt;
 
-&lt;h2 id=&#34;ecosystem&#34;&gt;Ecosystem&lt;/h2&gt;
+&lt;p&gt;So, &lt;strong&gt;do not&lt;/strong&gt; use any analytic techniques that depend on the ESM data and underlying process to be stationary and ergodic if these tests indicate the assumptions are violated.&lt;/p&gt;
+&lt;div id=&#34;next-dynamics-in-state-space&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;NEXT: Dynamics in state space&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;What can we do to study non-ergodic processes?&lt;/p&gt;
+&lt;p&gt;Again from the anomalous diffussion article:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We note that non-ergodicity […] is not restricted to the spatial diffusion of particles, but similar principles hold for certain processes revealing non-exponential dynamics, such as the blinking behaviour of individual quantum dots or laser cooling. To physically interpret such measurements &lt;strong&gt;we need to understand the time averages of individual time series&lt;/strong&gt;. As we will see, this requires information beyond the conventional ensemble averages for a variety of anomalous diffusion processes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This resonates with some great advice from Peter Molenaar in Todd Roses’s book &lt;a href=&#34;http://www.toddrose.com/endofaverage/&#34;&gt;The End of Average&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“first analyse, then aggregate”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;When I find the time I’ll post some examples of how to represent and quantify state space dynamics of individual time series.&lt;/p&gt;
+&lt;p&gt;For now, the plots below should make clear the occurrence of state stransitions is not distributed according to a uniform or Gaussian pdf.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggTimeSeries)
 
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sourcethemes/academic-admin&#34; target=&#34;_blank&#34;&gt;Academic Admin&lt;/a&gt;:&lt;/strong&gt; An admin tool to import publications from BibTeX or import assets for an offline site&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sourcethemes/academic-scripts&#34; target=&#34;_blank&#34;&gt;Academic Scripts&lt;/a&gt;:&lt;/strong&gt; Scripts to help migrate content to new versions of Academic&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+df.ts2 = data.frame(
+  Signal = round(head(df.ts$mood_down, -1),0),
+  NextSignal = round(tail(df.ts$mood_down, -1),0),
+  Weight = 1,
+  Label = &amp;quot;mood_down&amp;quot;,
+  Size  = 0,
+  Time = factor(round(seq(1,150, length.out = max(index(head(beep,-1))))))
+)
 
-&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+N = length(df.ts2$Signal)
 
-&lt;p&gt;You can choose from one of the following four methods to install:&lt;/p&gt;
+set.seed(123)
+dfcat &amp;lt;- round(runif(N,min=-3,max=3))
+dfcat2 &amp;lt;- data.frame(
+  Signal = round(head(dfcat, -1),0),
+  NextSignal = round(tail(dfcat, -1),0),
+  Weight = 1,
+  Label = &amp;quot;random_uniform&amp;quot;,
+  Size=0,
+  Time = factor(round(seq(1,150, length.out = max(index(head(beep,-2))))))
+)
 
-&lt;ul&gt;
-&lt;li&gt;one-click install using your web browser (recommended)&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;install on your computer using Git with the Command Prompt/Terminal app&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;install on your computer by downloading the ZIP files&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;install on your computer with RStudio&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+dftot &amp;lt;- rbind(dfcat2,df.ts2)
 
-&lt;h3 id=&#34;quick-install-using-your-web-browser&#34;&gt;Quick install using your web browser&lt;/h3&gt;
+ggplot(dftot, aes(xbucket = Signal, 
+                   ybucket = NextSignal, 
+                   fill = factor(NextSignal), 
+                   weight = Weight) )+
+  stat_marimekko(color = &amp;#39;black&amp;#39;, xlabelyposition = -0.1) + 
+  scale_y_continuous(&amp;quot;Relative frequency&amp;quot;) +
+  scale_x_continuous(&amp;quot;Current value&amp;quot;) +
+  scale_fill_discrete(&amp;quot;Next value&amp;quot;) +
+  facet_wrap(~Label) +
+  ggtitle(label = &amp;quot;State tranisitions: Random numbers vs. &amp;#39;I feel down&amp;#39;&amp;quot;,subtitle = paste(&amp;quot;box dimensions represent relative frequencies of&amp;quot;,N,&amp;quot;values&amp;quot;)) +
+  theme(axis.text.x =  element_blank(), 
+    axis.ticks.x = element_blank(), 
+    strip.background = element_rect(fill=&amp;quot;grey90&amp;quot;),
+    strip.text = element_text(face = &amp;quot;bold&amp;quot;),
+    plot.background = element_blank(), 
+    panel.border = element_blank(), 
+    panel.background = element_blank(), 
+    panel.grid = element_blank()) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If we consider the values &lt;span class=&#34;math inline&#34;&gt;\(-3\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(3\)&lt;/span&gt; to span the possibe states the ‘system’ can be in, then a crude way to study the dynamics of the states is to look at a lag-1 &lt;em&gt;return plot&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gganimate)
 
+tmp   &amp;lt;- as.data.frame(table(df.ts2$Signal,df.ts2$NextSignal))
+
+# Set the size to frequency of occurrence of each combination of values
+for(c in seq_along(tmp$Freq)){
+  ID &amp;lt;- (df.ts2$Signal%in%tmp$Var1[c])&amp;amp;(df.ts2$NextSignal%in%tmp$Var2[c])
+  if(sum(ID)&amp;gt;0){
+    df.ts2$Size[ID] &amp;lt;- tmp$Freq[c]
+  }
+}
+
+ga &amp;lt;- ggplot(df.ts2,aes(x=Signal,y=NextSignal, frame = Time)) +
+  geom_path(colour = &amp;quot;grey80&amp;quot;) +
+  geom_point(aes(size=Size)) +
+  scale_y_continuous(&amp;quot;Next value&amp;quot;) +
+  scale_x_continuous(&amp;quot;Current value&amp;quot;) +
+  scale_size_continuous(&amp;quot;Frequency of\n pair (Curren,Next)&amp;quot;) + 
+  ggtitle(label = &amp;quot;Window&amp;quot;, subtitle = &amp;quot;Return plot&amp;quot;) +
+  theme_bw() + coord_equal()
+
+gganimate(ga, interval=.2, &amp;quot;returnplot.gif&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;/img/returnplot.gif&#34; /&gt;
+
+
+&lt;/figure&gt;
+&lt;p&gt;It is appears to be the case the system is &lt;em&gt;attracted&lt;/em&gt; to specific states. Perhaps the dynamics can be described as transitions between more or less stable states, or stable temporal patterns of recurring states.&lt;/p&gt;
+&lt;p&gt;to be continued …&lt;/p&gt;
+&lt;p&gt;天&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://app.netlify.com/start/deploy?repository=https://github.com/sourcethemes/academic-kickstart&#34; target=&#34;_blank&#34;&gt;Install Academic with Netlify&lt;/a&gt;&lt;br /&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Bos, F. M., Snippe, E., de Vos, S., Hartmann, J. A., Simons, C. J., van der Krieke, L., &amp;amp; Wichers, M. (2017). Can We Jump from Cross-Sectional to Dynamic Interpretations of Networks? Implications for the Network Perspective in Psychiatry. &lt;em&gt;Psychotherapy and Psychosomatics, 86(3)&lt;/em&gt;, 175-177&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Metzler, R., Jeon, J. H., Cherstvy, A. G., &amp;amp; Barkai, E. (2014). Anomalous diffusion models and their properties: non-stationarity, non-ergodicity, and ageing at the centenary of single particle tracking. &lt;em&gt;Physical Chemistry Chemical Physics, 16(44)&lt;/em&gt;, 24128-24164.&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Reproduce $e$ to $18,457,734,525,360,901,453,873,570$ decimal places!</title>
+      <link>/post/2017-05-09-pandigital-numbers-and-functions/</link>
+      <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
+      
+      <guid>/post/2017-05-09-pandigital-numbers-and-functions/</guid>
+      <description>
 
+
+&lt;p&gt;Why?&lt;/p&gt;
+&lt;p&gt;No reason, this is the &lt;code&gt;accidental mathematician&lt;/code&gt; category.&lt;/p&gt;
+&lt;div id=&#34;pandigital-numbers&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pandigital numbers&lt;/h2&gt;
+&lt;p&gt;Pandigital numbers aren’t that special, it’s a number that has all digits from 1-9, or, 0-9 in it.&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;p&gt;For example: 381654729 is a pandigital number (with some &lt;a href=&#34;https://youtu.be/gaVMrqzb91w?t=46s&#34;&gt;extra properties&lt;/a&gt;)&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;pandigital-functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pandigital functions&lt;/h2&gt;
+&lt;p&gt;As Complexity Scientists (and musicians and artists in general) know:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Interesting things will happen when the degrees of freedom available to a system to generate its behaviour, are reduced.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now, the pandigital constraint can become very interesting when applied to functions, or rather, mathematical operators. The rules are:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Netlify will provide you with a customizable URL to access your new site&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Take a &lt;em&gt;pandigital&lt;/em&gt; number&lt;/li&gt;
+&lt;li&gt;Stick any mathematical operator between any cluster of digits&lt;/li&gt;
+&lt;li&gt;Attempt to get an interesting outcome&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Turns out such a pandigital formula is able to approximate the trancendental number &lt;span class=&#34;math inline&#34;&gt;\(e\)&lt;/span&gt; with uncanny precision!&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[e\approx\left (1 + 9^{-4^{6*7}} \right)^{3^{2^{85}}}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;It was discovered by &lt;a href=&#34;http://www2.stetson.edu/~efriedma/mathmagic/0804.html&#34;&gt;Richard Sabey in 2004&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Numberphile&lt;/strong&gt; channel has a great video on it:&lt;/p&gt;
+
+
+HUGOMORE42
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/xgBGibfLD-U&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;天&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Oh right... I used to blog</title>
+      <link>/post/2017-03-02-oh-right-i-used-to-blog/</link>
+      <pubDate>Fri, 03 Mar 2017 16:35:02 -0700</pubDate>
+      
+      <guid>/post/2017-03-02-oh-right-i-used-to-blog/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;A beginning is the time for taking the most delicate care that the balances are correct.&lt;/p&gt;
+
+&lt;p&gt;&amp;ndash; Fom Manual of Muad’Dib by Prinses Irulan (Herbert, 1965)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It&amp;rsquo;s been a while&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;If you still have a while&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Watch / listen to this excellent display of intelligent behaviour:&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/PhHtBqsGAoA&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;天&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>R Effect Size CI tutorial</title>
+      <link>/post/2015-05-05-osc-r-esci-tutorial/</link>
+      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
+      
+      <guid>/post/2015-05-05-osc-r-esci-tutorial/</guid>
+      <description>
+
+&lt;div id=&#34;using-r-to-compute-effect-size-confidence-intervals&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Using &lt;code&gt;R&lt;/code&gt; to Compute Effect Size Confidence Intervals&lt;/h1&gt;
+&lt;p&gt;This is a demonstration of using &lt;code&gt;R&lt;/code&gt; in the context of hypothesis testing by means of Effect Size Confidence Intervals. In other words, we’ll calculate confidence intervals based on the distribution of a test statistic under the assumption that &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; is false, the noncentral distribution of a test statistic.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;#A1&#34;&gt;Discrete distributions: Count data and proportions&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Discrete CI ≠ Approximately Continuous CI&lt;/li&gt;
+&lt;li&gt;Noncentral CIs around the Odds Ratio of Fisher’s Exact Test&lt;/li&gt;
+&lt;li&gt;Example: &lt;em&gt;Time, Money, and Morality&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;On GitHub, go to your newly created &lt;code&gt;academic-kickstart&lt;/code&gt; repository and edit &lt;code&gt;config.toml&lt;/code&gt; to personalize your site. Shortly after saving the file, your site will automatically update&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Read the &lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;Quick Start Guide&lt;/a&gt; to learn how to add Markdown content. For inspiration, refer to the &lt;a href=&#34;https://github.com/gcushen/hugo-academic/tree/master/exampleSite&#34; target=&#34;_blank&#34;&gt;Markdown content&lt;/a&gt; which powers the &lt;a href=&#34;https://themes.gohugo.io/theme/academic/&#34; target=&#34;_blank&#34;&gt;Demo&lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;install-with-git&#34;&gt;Install with Git&lt;/h3&gt;
-
-&lt;p&gt;Prerequisites:&lt;/p&gt;
-
+&lt;li&gt;&lt;a href=&#34;#A2&#34;&gt;Continuous distributions: Standardised sample means&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://git-scm.com/downloads&#34; target=&#34;_blank&#34;&gt;Download and install Git&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gohugo.io/getting-started/installing/#quick-install&#34; target=&#34;_blank&#34;&gt;Download and install Hugo&lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Standardised, but on which measure of dispersion?&lt;/li&gt;
+&lt;li&gt;Example: &lt;em&gt;Neural reactivation links unconscious thought to decision-making performance&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#A3&#34;&gt;Learn From Reproducible Open Data&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Example: The &lt;a href=&#34;https://openscienceframework.org/project/WX7Ck/&#34;&gt;ManyLabs&lt;/a&gt; project&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;**&lt;a href=&#34;Notes:**&#34; class=&#34;uri&#34;&gt;Notes:**&lt;/a&gt;&lt;br /&gt;
+New to &lt;code&gt;R&lt;/code&gt;? &lt;a href=&#34;#A4&#34;&gt;Here are some pointers to get you started&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Source a file from Github to get function in.IT(), which will load and, if necessary, install packages passed as a list.
+require(devtools)
+source_url(&amp;#39;https://raw.githubusercontent.com/FredHasselman/toolboxR/master/C-3PR.R&amp;#39;)
+
+in.IT(c(&amp;quot;MBESS&amp;quot;,&amp;quot;metafor&amp;quot;,&amp;quot;plyr&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;discrete-distributions-count-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Discrete distributions: Count data&lt;/h1&gt;
+&lt;div id=&#34;discrete-ci-approximately-continuous-ci&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Discrete CI ≠ Approximately Continuous CI&lt;/h3&gt;
+&lt;p&gt;Many studies in the social sciences compare variables across the levels of a design factor that are discrete in nature. These discrete variables often represent countable units: Participants, behaviours, correctly answered items, etc. At the aggregate level a proportion or percentage is often the object of analysis. It is common practice to disregard the discrete nature of the variable under investigation and assign probabilities to observed events using a continuous distribution function given large enough sample sizes. For example, the test for equality of sample proportions uses the standardised normal distribution (Z-score). In &lt;code&gt;R&lt;/code&gt; this test can be conducted using the function &lt;code&gt;prop.test&lt;/code&gt;, by default, it performs Yates’ continuity correction. Depending on the situation such corrections can be either too lenient or too strict, moreover, calculating a symmetrical, continuous CI around a discrete variable is almost always inaccurate.&lt;/p&gt;
+&lt;p&gt;Let’s review some properties of discrete probability distributions: A distribution function that assigns a probability to the value taken on by a random variable due to the occurrence of a discrete random event is called a &lt;em&gt;Probability Mass Function&lt;/em&gt;. They come in several flavours, the &lt;a href=&#34;http://en.wikipedia.org/wiki/Binomial_distribution&#34;&gt;binomial distribution function&lt;/a&gt; assigns probabilities to events drawn from a finite population &lt;em&gt;with&lt;/em&gt; replacement. The &lt;a href=&#34;http://en.wikipedia.org/wiki/Hypergeometric_distribution&#34;&gt;hypergeometric distribution function&lt;/a&gt; assigns probabilities to events drawn &lt;em&gt;without&lt;/em&gt; replacing them, and the &lt;a href=&#34;http://en.wikipedia.org/wiki/Poisson_distribution&#34;&gt;poisson distribution&lt;/a&gt; describes independent event probabilities based on an expected value of ‘successes’ denoted as &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;These probability mass functions and their cumulative distribution function are shown in the figure below, the value with highest mass is 3 in all cases (the code to generate these figures is available in the &lt;a href=&#34;https://osf.io/vn5dz/&#34;&gt;.Rmarkdown file&lt;/a&gt; that generated this page).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-05-05-OSC-R-ESCI-Tutorial_files/figure-html/PMF-1.png&#34; width=&#34;1056&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It is evident from the figures above that for small sample sizes the CI based on a discrete distribution is not symmetrical: These distributions are zero inflated and depending on the context, can have fat tails when large samples are concerned.&lt;/p&gt;
+&lt;p&gt;Another reason to look for a more accurate CI around a discrete ES is a less than ideal analysis strategy that is often used when there are more than 2 factor levels in the design. One often calculates a &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; statistic for the large design table and subsequently interprets &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; tests on 2X2 partitions of the full design as level or group comparisons, like in a linear model. In my opinion this is an incorrect strategy: A &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; test is a goodness-of-fit test and should not be used to test hypotheses about the effects of a linear predictor on a dependent variable. One should use a generalised linear model with a poisson link (poisson regression, log-linear analysis), or binomial link (logistic, probit regression) function to answer such questions.&lt;/p&gt;
+&lt;p&gt;What options are available if one does not want to embark on a generalised mixed model fitting spree?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;noncentral-cis-around-the-odds-ratio-of-fishers-exact-test&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Noncentral CIs around the Odds Ratio of Fisher’s Exact Test&lt;/h2&gt;
+&lt;p&gt;The solution is in fact quite simple when you are using &lt;code&gt;R&lt;/code&gt;. &lt;strong&gt;No extra packages are required&lt;/strong&gt;, because the &lt;code&gt;fisher.test()&lt;/code&gt; function available in the core &lt;code&gt;stats&lt;/code&gt; package will give you &lt;em&gt;exactly&lt;/em&gt; the effect size you need: An &lt;em&gt;exact&lt;/em&gt; Odds Ratio (OR) with CIs based on the noncentral hypergeomtric distribution for 2x2 tables. The function performs Fisher’s exact test, which for 2x2 tables amounts to evaluating &lt;span class=&#34;math inline&#34;&gt;\(H_0: OR = 1\)&lt;/span&gt;. If the Odds Ratio is 1, the cell counts are conditionally independent of row and column variables and one would infer: “There is no effect”.&lt;/p&gt;
+&lt;p&gt;You’ve probably read somewhere that Fisher’s Exact Test can take a long time to compute when the table is very large. That is correct, but when examples of large datasets with discrete variables in recent experimental studies are considered, I would not worry too much about the computation time. Moreover, &lt;code&gt;R&lt;/code&gt; only gives the noncentral CIs for 2x2 tables, therefore this specific strategy can only be applied in the following common analysis context:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;When dealing with tables larger than 2x2, check dependence of row and column variables using whatever test is convenient to do so.&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;When it is appropriate to analyse whether variation in cell counts depends on the levels a row or column factor, use Fisher’s exact test on the appropriate 2x2 sub-tables to get an exact Odds Ratio (OR).&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Adjust the confidence level of the of the confidence interval around the OR estimate to take into account the number of statistical tests that were conducted on a partition of the full table: &lt;span class=&#34;math inline&#34;&gt;\(CL = \frac{(1-\alpha)}{n_{comparisons}}\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;span class=&#34;math inline&#34;&gt;\(OR\)&lt;/span&gt; is usually expressed as &lt;span class=&#34;math inline&#34;&gt;\(\log(OR)\)&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example-time-money-and-morality&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example: &lt;em&gt;Time, Money, and Morality&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;This example is taken from: &lt;a href=&#34;http://anti-ism-ism.blogspot.nl/2014/01/time-money-morality-of-being-accurate.html&#34;&gt;A Post-Publication Peer-Review (3PR) of &lt;em&gt;Time, Money, and Morality&lt;/em&gt;&lt;/a&gt;, based on: &lt;a href=&#34;#R1&#34;&gt;Gino et al., 2013&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This study examines unethical behaviour in participants as a function of induced states of &lt;em&gt;self-interest&lt;/em&gt; or &lt;em&gt;self-reflection&lt;/em&gt;. One of the dependent variables is the observation of cheating behaviour in participants, in order to receive a higher financial reward for completing the experiment. The two states are induced by subconscious priming of the concept of &lt;em&gt;Money&lt;/em&gt; and &lt;em&gt;Time&lt;/em&gt; respectively. In addition to subconscious priming, 2 of the 4 studies also used inductions of &lt;em&gt;self-reflection&lt;/em&gt; by means of framing the task as a personality vs. intelligence assessment, or by placing a mirror in the experimentation room.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Setup the data&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The R code below creates 4 tables based on the published results of the 4 experiments (however, see link to HIBAR above for details). The columns are Cheating=YES and Cheating=NO, and rows are the conditions in each experiment.&lt;br /&gt;
+After each table is assigned cell counts (and row and column names), the variable name is called. Normal R behaviour is to display the contents of the variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Experiment 1 - Cheating(YES,NO) X Prime(Money,Time,No Prime):
+table.1           &amp;lt;- as.table(cbind(c(28,14,22),c(4,19,11)))
+dimnames(table.1) &amp;lt;- list(Test=c(&amp;quot;Money&amp;quot;,&amp;quot;Time&amp;quot;,&amp;quot;Control&amp;quot;), Cheating=c(&amp;quot;CheatYES&amp;quot;,&amp;quot;CheatNO&amp;quot;))
+table.1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;          Cheating
+&amp;gt; Test      CheatYES CheatNO
+&amp;gt;   Money         28       4
+&amp;gt;   Time          14      19
+&amp;gt;   Control       22      11&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Setup the analysis&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The statistical hypotheses concern comparisons of individual conditions, in ESCI terms, one needs an effect size with confidence interval for multiple 2x2 partitions of the full design table. In experiment 1 &amp;amp; 4 the number of 2x2 sub-tables that are possible is 3 and in experiment 2 &amp;amp; 3 there are 4 such partitions of the full table. In order to take into account that we are questioning a random sample more than once, a correction of the &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; level is appropriate and this implies a CI of 0.9833333 for experiment 1.&lt;/p&gt;
+&lt;p&gt;The 2x2 partitions are easy to create in R. For instance, to compare row 1 and 3 of table.1 created above one can us the following:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset a table by calling specific row numbers: [c(1,3),1:2]
+# Omitting column IDs [c(1,3),] will return all columns
+table.1[c(1,3),]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;          Cheating
+&amp;gt; Test      CheatYES CheatNO
+&amp;gt;   Money         28       4
+&amp;gt;   Control       22      11&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: It often pays off to take the time to create sensible row and column labels; it is immediately clear which comparison is up for analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The function &lt;code&gt;fisher.test()&lt;/code&gt; can be called using this syntax and we need just one extra argument which is the desired confidence level. The code below clearly contains repetitions, the test is conducted 14 times! Experienced R programmers will shake their head and maybe even shed a tear, but the purpose here is to give an idea of what it is we are calculating and how those results are converted into a plot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create confidence levels adjusted for comparisons
+CL &amp;lt;- (1-.05/3)
+
+# Perform Fisher&amp;#39;s Exact Test on the appropriate 2x2 table
+c1.1 &amp;lt;- fisher.test(table.1[c(1,2),],conf.level=CL)
+c1.2 &amp;lt;- fisher.test(table.1[c(1,3),],conf.level=CL)
+c1.3 &amp;lt;- fisher.test(table.1[c(2,3),],conf.level=CL)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The output of the &lt;code&gt;fisher.test()&lt;/code&gt; function is a list with different kinds of values, the OR estimates, the CIs and the exact p-values. The code below creates a data frame called &lt;code&gt;ORcomp&lt;/code&gt;, it will be used to plot the results.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Setup the plot&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create a data frame
+ORcomp &amp;lt;- data.frame(cbind(comparison=1:3, log(rbind(c1.1$estimate,c1.2$estimate,c1.3$estimate)), log(rbind(c1.1$conf.int,c1.2$conf.int,c1.3$conf.int)), round(rbind(c1.1$p.value,c1.2$p.value,c1.3$p.value),digits=4)))
+
+# Some columns do not have a name yet...
+names(ORcomp)[3] &amp;lt;- &amp;quot;lo&amp;quot; 
+names(ORcomp)[4] &amp;lt;- &amp;quot;hi&amp;quot; 
+names(ORcomp)[5] &amp;lt;- &amp;quot;p&amp;quot; 
+
+# Create a factor with labels to indicate which comparison we are dealing with
+ORcomp$comparison &amp;lt;- factor(ORcomp$comparison,labels=c(&amp;quot;EXP1: Money-Time&amp;quot;,&amp;quot;EXP1: Money-Control&amp;quot;,&amp;quot;EXP1: Time-Control&amp;quot;))
+
+# Show the data frame
+ORcomp&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;            comparison odds.ratio         lo        hi      p
+&amp;gt; 1    EXP1: Money-Time   2.212450  0.6510981 4.1467802 0.0002
+&amp;gt; 2 EXP1: Money-Control   1.233574 -0.3954537 3.1832615 0.0759
+&amp;gt; 3  EXP1: Time-Control  -0.982712 -2.3549566 0.3207653 0.0828&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;A forest (the cure to publication bias?)&lt;/strong&gt;&lt;br /&gt;
+All that is left is to create a plot of the results. The function &lt;code&gt;forest()&lt;/code&gt; from the package &lt;code&gt;metafor&lt;/code&gt; is used to create a so called forest plot, the Bonferroni adjusted p-values of the exact test will be added to the plot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Bonferroni adjustment of the exact p-value
+adj &amp;lt;- c(rep(3,3))*ORcomp$p
+adj[adj&amp;gt;1] &amp;lt;- 1
+
+# Plot the results stored in data frame ORcomp
+forest(x=ORcomp$odds.ratio,ci.lb=ORcomp$lo, ci.ub=ORcomp$hi, slab=ORcomp$comparison, ilab=adj, ilab.xpos=5, alim=c(-3.5,4.5), main=&amp;quot;Forest Plot&amp;quot;, xlim=c(-7,9), xlab=&amp;quot;Exact log Odds Ratio&amp;quot;, efac=1, cex=.9, mgp=c(1,1,0))
+
+# Add some text
+text(7.5,(nrow(ORcomp)+1.5),&amp;quot;log OR [CI.9833]&amp;quot;)
+text(-4.4,(nrow(ORcomp)+1.5),&amp;quot;Contrasts comparing Cheating frequency&amp;quot;)
+text(5,(nrow(ORcomp)+1.5),&amp;quot;Adjusted p&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-05-05-OSC-R-ESCI-Tutorial_files/figure-html/ORCI_Forest-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Only the first comparison does not include 0. In the original article, the number of significant contrasts reported in 14 comparisons of occurrence of cheating behaviour conducted in 4 samples, was 9. This was based on a continuous test of sample proportions, without correcting for multiple comparisons. Both in R and in SPSS (for 2x2 tables), this is a deliberate choice, because the default behaviour is to apply Yates’ correction. If the continuous test is continuity corrected and a Bonferroni adjustment is applied, 2 significant results remain in the entire article. The ESCI hypothesis test conducted for all 4 experiments gives the same result: Just 2 intervals remain that do not include log(1)=0.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;continuous-distributions-standardised-sample-means&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Continuous distributions: Standardised sample means&lt;/h1&gt;
+&lt;div id=&#34;standardised-but-on-which-measure-of-dispersion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Standardised, but on which measure of dispersion?&lt;/h2&gt;
+&lt;p&gt;When continuous variables are compared across different independent samples, the effect size of interest is often the standardised mean difference, also known as &lt;span class=&#34;math inline&#34;&gt;\(\text{Cohen&amp;#39;s d} = \frac{\bar{X_1}-\bar{X_2}}{s}\)&lt;/span&gt;. One source of confusion that can arise when comparing this effect size between studies, is that different dispersion measures may be used to standardise the mean difference. In the equation, &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; can mean at least two things: A reference sample’s standard deviation (e.g. a control group), or a pooled standard deviation.&lt;/p&gt;
+&lt;p&gt;It is of course important to know which dispersion measure was used to calculate &lt;em&gt;Cohen’s d&lt;/em&gt; in order to build a CI around it. The R package &lt;a href=&#34;http://nd.edu/~kkelley/site/MBESS.html&#34;&gt;&lt;code&gt;MBESS&lt;/code&gt;&lt;/a&gt; contains separate functions to deal with each situation:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;ci.sm()&lt;/code&gt; Confidence interval for the &lt;strong&gt;s&lt;/strong&gt;tandardised &lt;strong&gt;m&lt;/strong&gt;ean: &lt;span class=&#34;math inline&#34;&gt;\(\frac{\bar{X}-\mu}{SD_X}\)&lt;/span&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ci.smd()&lt;/code&gt; Confidence interval for the &lt;strong&gt;s&lt;/strong&gt;tandardised &lt;strong&gt;m&lt;/strong&gt;ean &lt;strong&gt;d&lt;/strong&gt;ifference: &lt;span class=&#34;math inline&#34;&gt;\(\frac{\bar{X_1} - \bar{X_2}}{SD_{pooled}}\)&lt;/span&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ci.smd.c()&lt;/code&gt; Confidence interval for the &lt;strong&gt;c&lt;/strong&gt;ontrol &lt;strong&gt;s&lt;/strong&gt;tandardised &lt;strong&gt;m&lt;/strong&gt;ean &lt;strong&gt;d&lt;/strong&gt;ifference: &lt;span class=&#34;math inline&#34;&gt;\(\frac{\bar{X_C}-\bar{X_E}}{SD_C}\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Most &lt;code&gt;MBESS&lt;/code&gt; functions allow different sets of input arguments to calculate the CIs:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Based on sample descriptives:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ci.sm(Mean = , SD = , N = )&lt;/code&gt;, or: &lt;code&gt;ci.sm(sm = , N = )&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ci.smd(smd = , n.1 = , n.2 = )&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ci.smd.c(smd.c = , n.C = , n.E = )&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Based on the estimated non-centrality parameter (value of the test statistic, most often &lt;em&gt;Student’s t&lt;/em&gt; assuming homogeneity of variance):
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ci.sm(ncp = , N = )&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ci.smd(ncp = , n.1 = , n.2 = )&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ci.smd.c(ncp = , n.C = , n.E = )&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The confidence interval coverage (&lt;span class=&#34;math inline&#34;&gt;\(1 - \alpha\)&lt;/span&gt;) is .95 by default, this can be adjusted:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Symmetrically, e.g., &lt;code&gt;ci.sm(sm = 2.1, N = 15, conf.level = .99)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Asymmetrically, separate &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; for lower and upper bound of the CI, e.g., &lt;code&gt;ci.smd(ncp = 3.3, n.1 = 20, n.2 = 19, alpha.lower = 0, alpha.upper = .05)&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example-neural-reactivation-links-unconscious-thought-to-decision-making-performance&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example: &lt;em&gt;Neural reactivation links unconscious thought to decision-making performance&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;A study by &lt;a href=&#34;#R2&#34;&gt;Creswell et al. (2013)&lt;/a&gt; examined whether it could find neural correlates of the so-called &lt;em&gt;Unconscious Thought Effect&lt;/em&gt; (cf. &lt;a href=&#34;#R3&#34;&gt;Dijksterhuis, 2013&lt;/a&gt;)&lt;br /&gt;
+The claim is that incubation effects, the unreflective emergence of meaning that is associated with creative processes and insight in problem solving, also occur in complex decision making. Participants who are distracted from thinking about a decision problem (UT) make a better choice than participants who had a chance to consciously think about the problem (CT), or who had to make an immediate decision after the problem was presented (ID).&lt;/p&gt;
+&lt;p&gt;This paradigm was implemented as a within-subjects fMRI study in which participants went through all 3 conditions rating each one of three Cars, Apartments, Backpacks. The accuracy of the decision process was defined as the difference between the rating for the best item and the worst item. Of course, for the fMRI data to make any sense, it is important that the behavioural effects are replicated. From the article:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Paired t-tests indicated that UT produced better decisions compared with the ID [&lt;span class=&#34;math inline&#34;&gt;\(t(26)=2.15, P=0.04\)&lt;/span&gt;] and CT [&lt;span class=&#34;math inline&#34;&gt;\(t(26)=2.10, P=0.04\)&lt;/span&gt;] conditions [the overall one-way ANOVA was marginally significant, &lt;span class=&#34;math inline&#34;&gt;\(F(2,52)=2.48, P=0.09\)&lt;/span&gt;].&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;[…]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In this study, we did not find that a 2-min period of CT produced better decision making compared with the ID condition [paired samples &lt;span class=&#34;math inline&#34;&gt;\(t(26)=0.20, P=0.84\)&lt;/span&gt;]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Note that a one-way ANOVA is not the correct analysis for repeated measures data, oddly enough the df of the F-test, F(2,52) do not correspond to a one-way ANOVA at all. That would have been F(2,24) and for a repeated measures ANOVA F(2,50). In any case, df and p-value were apparently ‘close enough’ to warrant three post-hoc paired samples t-tests. Indeed, use of paired sample tests is correct here, but a correction for multiple comparisons should be used and at &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 0.017\)&lt;/span&gt; none of these post-hoc tests is significant. This is in accordance with the F-test for the main effect.&lt;/p&gt;
+&lt;p&gt;In addition to the behavioural data, the authors report tests that show neural reactivation in several areas of the brain predicts decision performance (difference between judgements of the best and the worst item). The association between neural reactivation and performance was not tested in one model even though the contrasts are just linear combinations of the within-subject design factor and neural activity and rating differences are measured from one and the same random outcome, the randomly selected participant.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We observed that neural reactivation occurring in right dorsolateral PFC [&lt;span class=&#34;math inline&#34;&gt;\(\beta=0.39, t(26)=2.13, P=0.04\)&lt;/span&gt;] and left intermediate visual cortex [&lt;span class=&#34;math inline&#34;&gt;\(\beta=0.40, t(26)=2.20, P=0.04\)&lt;/span&gt;] predicted subsequent decision-making performance, such that more neural reactivation in these regions was associated with greater discrimination between the best and worst items on the decision-making task.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;[…]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Although we observed clusters of neural reactivation during CT (Figure 5; Table 4), none of these clusters significantly predicted decision-making performance. Specifically, CT reactivation clusters observed in right cerebellum [&lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;=0.27, t(26)=1.39, P=0.18], left supplementary motor area [&lt;span class=&#34;math inline&#34;&gt;\(\beta=0.21, t(26)=1.07, P=0.29\)&lt;/span&gt;], right ventrolateral PFC [&lt;span class=&#34;math inline&#34;&gt;\(\beta=0.18, t(26)=0.90, P=0.38\)&lt;/span&gt;] and right intraparietal lobule [&lt;span class=&#34;math inline&#34;&gt;\(\beta=0.13, t(26)=0.67, P=0.51\)&lt;/span&gt;] did not predict decision performance after CT.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;t-tests-galore&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;T-tests galore!&lt;/h3&gt;
+&lt;p&gt;Again, one should accommodate in some way for multiple hypothesis testing and assuming just 2 tests were conducted to evaluate the benefits of UT mode of thought at &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 0.025\)&lt;/span&gt;, we might as well be looking at &lt;a href=&#34;http://prefrontal.org/files/posters/Bennett-Salmon-2009.pdf&#34;&gt;a dead salmon&lt;/a&gt;, or at least a red herring.&lt;br /&gt;
+Granted, the neural activity measure used in these tests is itself the result of multiple comparison corrected analyses. This measure is the output from a conjunction analysis in which activity during several different conditions is examined conditional on a specific contrast or hypothesis (&lt;em&gt;UT&lt;/em&gt;: (UT n-back task &amp;gt; independent n-back task) AND (encoding &amp;gt; fixation); &lt;em&gt;CT&lt;/em&gt;: (CT fixation &amp;gt; fixation) AND (encoding &amp;gt; fixation)). The purpose is to identify clusters of voxels whose activity is connected and associated to the UT and CT modes of thought as specified in the contrast. That is, assuming brain physiology can be neatly decomposed into the architecture of cognitive components and processes posited to exist by these authors, but that is another story.&lt;/p&gt;
+&lt;p&gt;How to deal with within-subjects effect sizes? There must be correlations between within-subject conditions, so is it at all possible to calculate ESCIs? Yes, provided one can be sure the t-value was obtained from a paired samples t-test, because then it is associated to a tests of the mean difference. An effect size in this case is a standardised mean, whose magnitude indicates how much the observed within-subject mean difference deviates from 0. The &lt;code&gt;MBESS&lt;/code&gt; function &lt;code&gt;ci.sm(ncp= , N= )&lt;/code&gt; can be used here, taking the paired samples t-value as the non-centrality parameter, ncp.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Setup the data&lt;/strong&gt;&lt;br /&gt;
+Compared to the OR example, the code below reflects a different approach to get the ESCIs.&lt;/p&gt;
+&lt;p&gt;It is in general more efficient in R to use the so-called &lt;code&gt;apply&lt;/code&gt; functions that ship with R when you need to &lt;em&gt;apply&lt;/em&gt; the same function repeatedly to different data vectors. These functions take each element of a list object and pass those to a function, returning the results as another list object. A package that can make your &lt;code&gt;apply&lt;/code&gt; coding a little easier is &lt;code&gt;plyr&lt;/code&gt;, it contains functions that are sometimes just wrappers for the native &lt;code&gt;apply&lt;/code&gt; functions, but the great advantage is that the input and output object types can be chosen.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create a list of confidence levels adjusted for the number of comparisons of each family of tests (3, 2 and 4 respectively)
+CL &amp;lt;- c(rep(1-.05/3,3),rep(1-.05/2,2),rep(1-.05/4,4))
+CL&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] 0.9833333 0.9833333 0.9833333 0.9750000 0.9750000 0.9875000 0.9875000 0.9875000 0.9875000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# This is a list object with t-values from the article as elements.
+# The elements are named after the contrast / paired observation that was tested.
+NCP &amp;lt;- list(UTvsID=c(2.15),UTvsCT=c(2.10),CTvsID=c(0.20),UTpfc=c(2.13),UTvzc=c(2.20),CTcbl=c(1.39),CTsma=c(1.07),CTpfc=c(.90),CTlob=c(0.67))  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Setup the analysis&lt;/strong&gt;&lt;br /&gt;
+That’s it, a single line of code!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# The function `ldply` passes the elements in NCP (t-values) to an anonymous function as `p`.
+# This ensures the t-values are interpreted as the correct input argument for ci.sm: ncp=p
+# `ldply` returns the data in a dataframe, native `apply` functions would return a list object.
+PTcomp &amp;lt;- ldply(seq_along(NCP), function(p) data.frame(test=names(NCP)[p],ci.sm(ncp=NCP[[p]], N=27, conf.level=CL[p])))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Setup the plot&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Plot the results stored in data frame PTcomp
+forest(x=PTcomp$Standardized.Mean, ci.lb=PTcomp$Lower.Conf.Limit.Standardized.Mean,ci.ub=PTcomp$Upper.Conf.Limit.Standardized.Mean,slab=PTcomp$test, alim=c(-1.5,2.5), ilab=round(CL,digits=3), ilab.xpos=2.2, main=&amp;quot;Forest Plot&amp;quot;, xlim=c(-3,5), xlab=&amp;quot;Standardised Mean&amp;quot;, efac=1, cex=.9, mgp=c(1,1,0))
+
+# Add some text
+text(2.2,(nrow(PTcomp)+1.5),&amp;quot;adjusted CL&amp;quot;)
+text(3.9,(nrow(PTcomp)+1.5),&amp;quot;Standardised Mean [Low,High]&amp;quot;)
+text(-2.2,(nrow(PTcomp)+1.5),&amp;quot;Dependent samples t-test&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-05-05-OSC-R-ESCI-Tutorial_files/figure-html/SMDCI_plot-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;neural-correlates-of-barely-observable-behavioural-phenomena&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Neural correlates of… barely observable behavioural phenomena?&lt;/h3&gt;
+&lt;p&gt;It is tempting to place more epistemic weight to psychological effects evidenced using expensive measurement equipment, especially if those measurements concern outcomes of observables at the level where biology meets (quantum) physics. In this case, it is especially important not to reverse the chain of evidence: There is no difference between conditions in the behavioural measures which led to doing the experiment in an fMRI scanner! The data should not be presented as a confirmation of the behavioural effect:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using BOLD contrast fMRI, we observed neural activity during an UT period, which challenges existing accounts that have claimed that deliberation without attention (UT) does not occur during periods of distraction (Acker, 2008).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The first part is partly correct, neural activity was observed in UT, but also in CT. The second part is incorrect:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The deliberation without attention effect concerns an advantage in decision making and this was not observed.&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;The fact that activity was observed reveals nothing about the processes that were going on, moreover, the CT condition does not exclude that UT is taking place as well.&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;There was no association between neural activation and performance.&lt;/li&gt;
+&lt;li&gt;If anything, the full interpretation concerns an interaction between Mode of Thought and Neural reactivation networks to predict decision performance. This interaction was never tested.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/sourcethemes/academic-kickstart#fork-destination-box&#34; target=&#34;_blank&#34;&gt;Fork&lt;/a&gt; the &lt;em&gt;Academic Kickstart&lt;/em&gt; repository and clone your fork with Git:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/sourcethemes/academic-kickstart.git My_Website
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Note that if you forked Academic Kickstart, the above command should be edited to clone your fork, i.e. replace &lt;code&gt;sourcethemes&lt;/code&gt; with your GitHub username.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Initialize the theme:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd My_Website
-git submodule update --init --recursive
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;p&gt;&lt;em&gt;The correct interpretation of the results of the study is&lt;/em&gt;: Within an individual, there are different clusters of jointly active (=connected?) voxels, whose level of activity are represented by a t-value resulting from a test of a contrast composed of a set of relational constraints on the BOLD signal measured in different experimental conditions. It was thus shown that combining brain activity from experimental conditions that differ both in task, cognitive load and visual complexity into statistical hypotheses, will reveal that different clusters of voxels are active.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;learn-from-reproducible-open-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Learn From Reproducible Open Data&lt;/h1&gt;
+&lt;p&gt;Yes, much more to learn about R, about ESCI, and meta-analysis!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example: The &lt;a href=&#34;https://openscienceframework.org/project/WX7Ck/&#34;&gt;ManyLabs&lt;/a&gt; project&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A good place to continue from here on is to have a look at the R scripts used in the ManyLabs project.&lt;br /&gt;
+There are three R scripts available from the &lt;a href=&#34;https://openscienceframework.org/project/WX7Ck/&#34;&gt;OSF ManyLabs project pages&lt;/a&gt; that will also show you how to read from and write to a spreadsheet and how to save graphics device output to a pdf file:&lt;/p&gt;
+&lt;p&gt;1.&lt;code&gt;Manylabs_OriginalStudiesESCI.R&lt;/code&gt; - ESCI for the original studies (correlations, &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt;, Cohen’s d).&lt;br /&gt;
+2.&lt;code&gt;Manylabs_ReplicationStudiesESCI.R&lt;/code&gt; - ESCI for the replication data (correlations, &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt;, Cohen’s d).&lt;br /&gt;
+3.&lt;code&gt;ManyLabs_Heterogeneity.R&lt;/code&gt; - Meta-analysis (forest plot, funnel plot, influence plot, radial plot, heterogeneity measures).&lt;/p&gt;
+&lt;p&gt;Good luck!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://fredhasselman.com&#34;&gt;Fred Hasselman&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;new-to-r&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;New to &lt;code&gt;R&lt;/code&gt;?&lt;/h1&gt;
+&lt;p&gt;You have probably heard many people say they should invest more time and effort to learn to use the &lt;code&gt;R&lt;/code&gt; software environment for statistical computing… &lt;em&gt;and they were right&lt;/em&gt;. However, what they probably meant to say is: “I tried it, but it’s so damned complicated, I gave up”… &lt;em&gt;and they were right&lt;/em&gt;. That is, they were right to note that this is not a point and click tool designed to accommodate any user. It was built for the niche market of scientists who use statistics, but in that segment it’s actually the most useful tool I have encountered so far. Now that your struggles with getting a grip on &lt;code&gt;R&lt;/code&gt; are fully acknowledged in advance, let’s try to avoid the ‘giving up’ from happening. Try to follow these steps to get started:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Get &lt;code&gt;R&lt;/code&gt; and add some user comfort:&lt;/strong&gt; Install the latest &lt;a href=&#34;http://www.r-project.org&#34;&gt;&lt;code&gt;R&lt;/code&gt; software&lt;/a&gt; &lt;em&gt;and&lt;/em&gt; install a user interface like &lt;a href=&#34;http://www.rstudio.com&#34;&gt;RStudio&lt;/a&gt;… &lt;em&gt;It’s all free!&lt;/em&gt; An R interface will make some things easier, e.g., searching and installing packages from repositories. RStudio will also add functionality, like git/svn version control, project management and more, like the tools to create html pages like this one (&lt;code&gt;knitr&lt;/code&gt; and &lt;code&gt;Rmarkdown&lt;/code&gt;). Another source of user comfort are the &lt;code&gt;packages&lt;/code&gt;. &lt;code&gt;R&lt;/code&gt; comes with some basic packages installed, but you’ll soon need to fit generalised linear mixture models, or visualise social networks using graph theory and that means you’ll be searching for packages that allow you to do such things. A good place to start &lt;em&gt;package hunting&lt;/em&gt; are the &lt;a href=&#34;http://cran.r-project.org/web/views/&#34;&gt;CRAN task view&lt;/a&gt; pages.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Learn by running example &lt;code&gt;code&lt;/code&gt;:&lt;/strong&gt; Copy the commands in the &lt;code&gt;code&lt;/code&gt; blocks you find on this page, or any other tutorial or help files (e.g., Rob Kabacoff’s &lt;a href=&#34;http://www.statmethods.net&#34;&gt;Quick R&lt;/a&gt;). Paste them into an &lt;code&gt;.R&lt;/code&gt; script file in the script (or, source) editor. In RStudio You can run code by pressing &lt;code&gt;cmd&lt;/code&gt; + &lt;code&gt;enter&lt;/code&gt; when the cursor is on a single single line, or you can run multiple lines at once by selecting them first. If you get stuck remember that there are expert &lt;code&gt;R&lt;/code&gt; users who probably have answered your question already when it was posted on a forum. Search for example through the Stackoverflow site for &lt;a href=&#34;http://stackoverflow.com/questions/tagged/r&#34;&gt;questions tagged with &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Examine what happens… when you tell &lt;code&gt;R&lt;/code&gt; to make something happen:&lt;/strong&gt; &lt;code&gt;R&lt;/code&gt; stores variables (anything from numeric data to functions) in an &lt;code&gt;Environment&lt;/code&gt;. There are in fact many different environments, but we’ll focus on the main workspace for the current &lt;code&gt;R&lt;/code&gt; session. If you run the command &lt;code&gt;x &amp;lt;- 1+1&lt;/code&gt;, a variable &lt;code&gt;x&lt;/code&gt; will appear in the &lt;code&gt;Environment&lt;/code&gt; with the value &lt;code&gt;2&lt;/code&gt; assigned to it. Examining what happens in the &lt;code&gt;Environment&lt;/code&gt; is not the same as examining the output of a statistical analysis. Output in &lt;code&gt;R&lt;/code&gt; will appear in the &lt;code&gt;Console&lt;/code&gt; window. Note that in a basic set-up each new &lt;code&gt;R&lt;/code&gt; session starts with an empty &lt;code&gt;Environment&lt;/code&gt;. If you need data in another session, you can save the entire &lt;code&gt;Environment&lt;/code&gt;, or just some selected variables, to a file (&lt;code&gt;.RData&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Learn about the properties of &lt;code&gt;R&lt;/code&gt; objects:&lt;/strong&gt; Think of objects as containers designed for specific content. One way to characterize the different objects in &lt;code&gt;R&lt;/code&gt; is by how picky they are about the content you can assign it. There are objects that hold &lt;code&gt;character&lt;/code&gt; and &lt;code&gt;numeric&lt;/code&gt; type data, a &lt;code&gt;matrix&lt;/code&gt; for numeric data organised in rows and columns, a &lt;code&gt;data.frame&lt;/code&gt; is a matrix that allows different data types in columns, and least picky of all is the &lt;code&gt;list&lt;/code&gt; object. It can carry any other object, you can have a &lt;code&gt;list&lt;/code&gt; of which item 1 is an entire &lt;code&gt;data.frame&lt;/code&gt; and item 2 is just a &lt;code&gt;character&lt;/code&gt; vector of the letter &lt;code&gt;R&lt;/code&gt;. The most difficult thing to master is how to efficiently work with these objects, how to assign values and query contents.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Avoid repeating yourself:&lt;/strong&gt; The &lt;code&gt;R&lt;/code&gt; language has some amazing properties that allow execution of many repetitive algorithmic operations using just a few lines of code at speeds up to warp 10. Naturally, you’ll need to be at least half Vulcan to master these features properly and I catch myself copying code when I shouldn’t on a daily basis. The first thing you will struggle with are the &lt;code&gt;apply&lt;/code&gt; functions. These functions pass the contents of a &lt;code&gt;list&lt;/code&gt; object to a function. Suppose we need to calculate the means of column variables in 40 different SPSS &lt;code&gt;.sav&lt;/code&gt; files stored in the folder &lt;code&gt;DAT&lt;/code&gt;. With the &lt;code&gt;foreign&lt;/code&gt; package loaded we can execute the following commands:&lt;br /&gt;
+&lt;code&gt;data &amp;lt;- lapply(dir(&amp;quot;/DAT/&amp;quot;,pattern=&amp;quot;.sav$&amp;quot;),read.spss)&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;out  &amp;lt;- sapply(data,colMeans)&lt;/code&gt;&lt;br /&gt;
+The first command applies read.spss to all files with a &lt;code&gt;.sav&lt;/code&gt; extension found in the folder &lt;code&gt;/DAT&lt;/code&gt;. It creates a dataframe for each file which are all stored as elements of the list &lt;code&gt;data&lt;/code&gt;. The second line applies the function &lt;code&gt;colMeans&lt;/code&gt; to each element of &lt;code&gt;data&lt;/code&gt; and puts the combined results in a matrix with dataset ID as columns (1-40), dataset variables as rows and the calculated column means as cells. This is just the beginning of the &lt;code&gt;R&lt;/code&gt; magic, wait ’till you learn how to write functions that can create functions.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;h3 id=&#34;install-with-zip&#34;&gt;Install with ZIP&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/sourcethemes/academic-kickstart/archive/master.zip&#34; target=&#34;_blank&#34;&gt;Download&lt;/a&gt; and extract &lt;em&gt;Academic Kickstart&lt;/em&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academic/archive/master.zip&#34; target=&#34;_blank&#34;&gt;Download&lt;/a&gt; and extract the &lt;em&gt;Academic theme&lt;/em&gt; to the &lt;code&gt;themes/academic/&lt;/code&gt; folder from the above step&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;install-with-rstudio&#34;&gt;Install with RStudio&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-rstudio&#34; target=&#34;_blank&#34;&gt;View the guide to installing Academic with RStudio&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;quick-start&#34;&gt;Quick start&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;If you installed on your computer, view your new website by running the following command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;hugo server
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now visit &lt;a href=&#34;http://localhost:1313&#34; target=&#34;_blank&#34;&gt;localhost:1313&lt;/a&gt; and your new Academic powered website will appear. Otherwise, if using Netlify, they will provide you with your URL.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Read the &lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;Quick Start Guide&lt;/a&gt; to learn how to add Markdown content, customize your site, and deploy it. For inspiration, refer to the &lt;a href=&#34;https://github.com/gcushen/hugo-academic/tree/master/exampleSite&#34; target=&#34;_blank&#34;&gt;Markdown content&lt;/a&gt; which powers the &lt;a href=&#34;https://themes.gohugo.io/theme/academic/&#34; target=&#34;_blank&#34;&gt;Demo&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Build your site by running the &lt;code&gt;hugo&lt;/code&gt; command. Then &lt;a href=&#34;https://georgecushen.com/create-your-website-with-hugo/&#34; target=&#34;_blank&#34;&gt;host it for free using Github Pages&lt;/a&gt; or Netlify (refer to the first installation method). Alternatively, copy the generated &lt;code&gt;public/&lt;/code&gt; directory (by FTP, Rsync, etc.) to your production web server (such as a university&amp;rsquo;s hosting service).&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;updating&#34;&gt;Updating&lt;/h2&gt;
-
-&lt;p&gt;Feel free to &lt;em&gt;star&lt;/em&gt; the project on &lt;a href=&#34;https://github.com/gcushen/hugo-academic/&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt; to help keep track of updates and check out the &lt;a href=&#34;https://sourcethemes.com/academic/updates&#34; target=&#34;_blank&#34;&gt;release notes&lt;/a&gt; prior to updating your site.&lt;/p&gt;
-
-&lt;p&gt;Before updating the framework, it is recommended to make a backup of your entire website directory (or at least your &lt;code&gt;themes/academic&lt;/code&gt; directory) and record your current version number.&lt;/p&gt;
-
-&lt;p&gt;By default, Academic is installed as a Git submodule which can be updated by running the following command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git submodule update --remote --merge
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Check out the update guide&lt;/a&gt; for full instructions and alternative methods.&lt;/p&gt;
-
-&lt;h2 id=&#34;feedback-contributing&#34;&gt;Feedback &amp;amp; Contributing&lt;/h2&gt;
-
-&lt;p&gt;Please use the &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues&#34; target=&#34;_blank&#34;&gt;issue tracker&lt;/a&gt; to let me know about any bugs or feature requests, or alternatively make a pull request.&lt;/p&gt;
-
-&lt;p&gt;For support, head over to the &lt;a href=&#34;http://discuss.gohugo.io&#34; target=&#34;_blank&#34;&gt;Hugo discussion forum&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
-
-&lt;p&gt;Copyright 2016-present &lt;a href=&#34;https://georgecushen.com&#34; target=&#34;_blank&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Released under the &lt;a href=&#34;https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md&#34; target=&#34;_blank&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a name=&#34;R2&#34;&gt;&lt;/a&gt; Creswell, J. D., Bursley, J. K., &amp;amp; Satpute, A. B. (2013). Neural reactivation links unconscious thought to decision-making performance. &lt;em&gt;Social Cognitive and Affective Neuroscience, 8(8)&lt;/em&gt;, 863–869. &lt;a href=&#34;doi:10.1093/scan/nst004&#34; class=&#34;uri&#34;&gt;doi:10.1093/scan/nst004&lt;/a&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a name=&#34;R3&#34;&gt;&lt;/a&gt; Dijksterhuis, A. (2013). First neural evidence for the unconscious thought process. &lt;em&gt;Social Cognitive and Affective Neuroscience, 8(8)&lt;/em&gt;, 845–846. &lt;a href=&#34;doi:10.1093/scan/nst036&#34; class=&#34;uri&#34;&gt;doi:10.1093/scan/nst036&lt;/a&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a name=&#34;R1&#34;&gt;&lt;/a&gt; Gino, F., &amp;amp; Mogilner, C. (online, 2013). Time, Money, and Morality. &lt;em&gt;Psychological Science&lt;/em&gt;. doi: 10.1177/0956797613506438&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>A Person Re-Identification System For Mobile Devices</title>
-      <link>/publication/person-re-id/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0200</pubDate>
+      <title>Time = Money: The Morality of Being Accurate.</title>
+      <link>/post/2015-03-07-time-money-morality/</link>
+      <pubDate>Sat, 07 Mar 2015 12:00:00 +0000</pubDate>
       
-      <guid>/publication/person-re-id/</guid>
-      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Mobile visual clothing search</title>
-      <link>/publication/clothing-search/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 +0200</pubDate>
-      
-      <guid>/publication/clothing-search/</guid>
-      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+      <guid>/post/2015-03-07-time-money-morality/</guid>
+      <description>
+
+&lt;div id=&#34;a-post-publication-peer-review-3pr-of&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;A Post-Publication Peer-Review (3PR) of:&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Time, Money, and Morality&lt;/em&gt; by Gino, F., &amp;amp; Mogilner, C. (online, 2013). Time, Money, and Morality. &lt;em&gt;Psychological Science&lt;/em&gt;. &lt;a href=&#34;http://pss.sagepub.com/lookup/doi/10.1177/0956797613506438&#34;&gt;DOI: 10.1177/0956797613506438&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;The &lt;em&gt;Time, Money, and Morality&lt;/em&gt; article has been HIBAR-ed on Twitter and the Blogosphere (e.g., by &lt;a href=&#34;http://rolfzwaan.blogspot.nl/2013/12/time-money-and-morality-and-p-hacking.html&#34;&gt;Rolf Zwaan&lt;/a&gt; and &lt;a href=&#34;http://www1.psych.purdue.edu/~gfrancis/Publications/TimeMoneyMorality/&#34;&gt;Greg Francis&lt;/a&gt; ) and the discussion seems to revolve around the validity of the inferences based p-values close to 0.05 (e.g., they raise suspicions of p-hacking).&lt;/p&gt;
+&lt;p&gt;In short, the article reports of 4 Experiments testing 2 core postulates:&lt;br /&gt;
+* Postulate 1: Priming &lt;code&gt;Money&lt;/code&gt; activates self-interest and increases unethical behaviour * Postulate 2: Priming &lt;code&gt;Time&lt;/code&gt; activates self-reflection and decreases unethical behaviour&lt;/p&gt;
+&lt;p&gt;Unethical behaviour is operationalised as taking the opportunity to cheat on a task.&lt;br /&gt;
+Priming methods vary across experiments, so do the tasks that allow for an opportunity to cheat.&lt;br /&gt;
+In Experiment 1 the two postulates are tested, Experiments 2-4 concern an assessment of the role of self-reflection on cheating behaviour and is operationalised differently across experiments.&lt;/p&gt;
+&lt;div id=&#34;hold-on-to-your-p-curves-for-a-moment-back-to-the-basics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Hold on to your P-curves for a moment… Back to the basics!&lt;/h3&gt;
+&lt;p&gt;In this &lt;strong&gt;P&lt;/strong&gt;ost-&lt;strong&gt;P&lt;/strong&gt;ublication &lt;strong&gt;P&lt;/strong&gt;eer-&lt;strong&gt;R&lt;/strong&gt;eview (3PR) I demonstrate that there is indeed some cause for concern about the way these results are presented and interpreted. Was it p-hacking? … I don’t know and maybe I don’t even care. To me this is an example of &lt;strong&gt;sloppy science&lt;/strong&gt;, p-hacked or not, these results were &lt;em&gt;allowed&lt;/em&gt; to be published by expert peers. It is more relevant to discuss the broken system of quality control that should have picked up on at least some of the following issues:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Important information is missing:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;in general (e.g., number of subjects per condition, sample size determination)&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;selectively across experiments (e.g., participants per cell, reporting of effect sizes)&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The analyses used on frequency data are inappropriate&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Invalid or biased inferences and oddities:&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;No adjustments for multiple comparisons&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;“Marginal significance” shifts ad hoc between &lt;code&gt;0.1 &amp;gt; p &amp;gt; 0.05&lt;/code&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Obvious intervening/mediator variable is omitted: Accuracy of performance&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;No explanation of (conflicting) results across experiments (e.g., variation in amount of cheating)&lt;/li&gt;
+&lt;li&gt;No explanation for failing of random assignment to design levels (&lt;strong&gt;none&lt;/strong&gt; of the experiments have equal N samples)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The article under scrutiny is by no means exceptional with respect to such issues, moreover, the way frequency / proportion data are analysed in psychological science is generally awkward and most of the time completely wrong.&lt;/p&gt;
+&lt;p&gt;I will 3PR the data based on the information in the article and comment on the results:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;Analysis of Proportion / frequency data&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Analysis of Extent of Cheating data&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;HAPPE-ing: __H__ypothesing __A__fter __P__ost __P__ublication __E__valuation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The R code used to generate the results (and this page) is available in &lt;a href=&#34;http://fredhasselman.com/main/wp-content/creations/markdown/HIBAR_timemoneymorality_fin.Rmd&#34;&gt;this Markdown&lt;/a&gt; file, and &lt;a href=&#34;http://fredhasselman.com/?p=303&#34;&gt;this post&lt;/a&gt; explains how to post to a WordPress blog.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;i.-analysis-of-proportion-frequency-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;I. Analysis of proportion / frequency data&lt;/h1&gt;
+&lt;p&gt;Some concerns can be raised about the significant differences between various conditions in proportion &lt;code&gt;Cheating&lt;/code&gt; reported in the 4 experiments.&lt;br /&gt;
+First and foremost, no corrections for multiple comparisons are conducted, should one do so, just 2 significant proportion differences remain:&lt;br /&gt;
+&lt;code&gt;Money&lt;/code&gt; vs. &lt;code&gt;Time&lt;/code&gt; in experiment 1 &amp;amp; 4. In Experiment 3, the sample difference &lt;code&gt;No Mirror: Money - Time&lt;/code&gt; was marginally significant in the 2^nd significant digit (original: &lt;code&gt;p = 0.015&lt;/code&gt;, adjusted &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; = 0.013, Bonferroni).&lt;/p&gt;
+&lt;p&gt;Second, no continuity correction is applied, these proportions are calculated from discrete numbers (participants). If a continuity correction is applied, 2-3 significant differences remain, depending on the &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;-level chosen:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;center&#34;&gt;Exp.&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Contrast&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Published&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Continuity corrected&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Bonferroni adjusted&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Money-Time&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;&amp;lt;.001&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;410^{-4}&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;&amp;lt; 0.0167&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Money-Ctrl&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;&amp;lt;.05&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.0894&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0167&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Time-Ctrl&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;&amp;lt;.05&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.0836&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0167&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Int: Money-Time&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;&amp;lt;.01&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.1493&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;em&gt;~ 0.0125&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Per: Money-Time&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&amp;gt;.05&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0125&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Money: Int-Per&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;&amp;lt;.03&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.0856&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0125&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Time: Int-Per&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&amp;gt;.05&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0125&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Mir: Money-Time&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&amp;gt;.05&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.7996&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0125&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NoM: Money-Time&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;&amp;lt;.003&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;0.0293&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;em&gt;~ 0.0125&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Money: Mir-NoM&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&amp;gt;.05&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.0537&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0125&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Time: Mir-NoM&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&amp;gt;.05&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0125&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Money-Time&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;&amp;lt;.001&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;10^{-4}&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;&amp;lt; 0.0167&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Money-Ctrl&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;&amp;lt;.05&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.0522&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0167&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Time-Ctrl&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;&amp;lt;.05&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.0752&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;gt; 0.0167&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;Number sig. results&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;9&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;em&gt;Original:&lt;/em&gt; &lt;strong&gt;4&lt;/strong&gt;, &lt;em&gt;Continuity:&lt;/em&gt; &lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This calls for a more appropriate analysis of frequency data:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Log-linear analysis of observed cell frequencies&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Exact odds ratios of 2x2 sub-tables to test hypotheses using Effect Size CIs&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;(&lt;code&gt;Cheating&lt;/code&gt; can be considered a dichotomous response, so logistic regression could also be used, see III. HAPPE-ing)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;br /&gt;
+Experiment 2 &amp;amp; 3 do not list &lt;em&gt;n&lt;/em&gt; per condition, the most likely values for &lt;em&gt;n&lt;/em&gt; (1. closest to an integer value; 2. as equal as possible; 3. Add to total N) are assumed:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Experiment 2&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;center&#34;&gt;Prime&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Assessment&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Ncond * %Cheat = Ncheat (deviation)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Money&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Personality&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;36 &lt;code&gt;*&lt;/code&gt; 0.2778 &lt;code&gt;=&lt;/code&gt; 10.0008 (810^{-4})&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Time&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Personality&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;35 &lt;code&gt;*&lt;/code&gt; 0.2857 &lt;code&gt;=&lt;/code&gt; 9.9995 (510^{-4})&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Money&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Intelligence&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;38 &lt;code&gt;*&lt;/code&gt; 0.5 &lt;code&gt;=&lt;/code&gt; 19 (0)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Time&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Intelligence&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;33 &lt;code&gt;*&lt;/code&gt; 0.303 &lt;code&gt;=&lt;/code&gt; 9.999 (1010^{-4})&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;Experiment 3&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;center&#34;&gt;Prime&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Assessment&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Ncond * %Cheat = Ncheat (deviation)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Money&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Mirror&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;31 &lt;code&gt;*&lt;/code&gt; 0.387 &lt;code&gt;=&lt;/code&gt; 11.997 (0.003)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Time&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Mirror&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 &lt;code&gt;*&lt;/code&gt; 0.321 &lt;code&gt;=&lt;/code&gt; 8.988 (0.012)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Money&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;No Mirror&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;30 &lt;code&gt;*&lt;/code&gt; 0.667 &lt;code&gt;=&lt;/code&gt; 20.01 (0.01)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Time&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;No Mirror&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;31 &lt;code&gt;*&lt;/code&gt; 0.355 &lt;code&gt;=&lt;/code&gt; 11.005 (0.005)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;log-linear-analysis-of-observed-cell-frequencies&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1. log-linear analysis of observed cell frequencies&lt;/h2&gt;
+&lt;p&gt;Log-linear analysis, or poisson regression using the generalised linear model, can be used to test whether relationships exist among the variables in a multi-way contingency table. Here I analyse the number of participants in each cell of the design: The observed frequencies take the role of the dependent variable and the levels of the design factors such as &lt;code&gt;Mediator&lt;/code&gt;, &lt;code&gt;Prime&lt;/code&gt; and &lt;code&gt;Cheating&lt;/code&gt; are considered the levels of independent variables (another option would have been a logistic / probit regression with &lt;code&gt;Cheating&lt;/code&gt; as the dependent binary / proportion variable).&lt;/p&gt;
+&lt;p&gt;Two types of result given for each experiment:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;First&lt;/em&gt;, a table listing deviance tests for the full (saturated) model. The analysis starts with the NULL model (all frequencies are equal) in the first row. Each subsequent row lists what happens to the deviance (of the model in the previous row) when a factor is added. A significant drop in deviance means adding the factor to the model contributes to predicting the difference between expected and observed frequencies. For hints of corroboration of the hypotheses reported in the paper, significant interactions between a design factor and &lt;code&gt;Cheating&lt;/code&gt; are necessary.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Second&lt;/em&gt;, a mosaic plot is displayed, this is a graphical representation of the conditional cell frequencies. The mosaic plot also indicates which residual frequencies (observed - expected) are significantly below (red) or above (blue) the expected frequencies (residuals are interpretable as a Z-score). The coloured cells contribute most to a high and possibly significant &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; value.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The significance of the change in deviance can depend on the order in which factors are added to the model and is not the same as a significant beta weight in a regression model.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Experiment 1&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; Analysis of Deviance Table
+&amp;gt; 
+&amp;gt; Model: poisson, link: log
+&amp;gt; 
+&amp;gt; Response: Count
+&amp;gt; 
+&amp;gt; Terms added sequentially (first to last)
+&amp;gt; 
+&amp;gt; 
+&amp;gt;                Df Deviance Resid. Df Resid. Dev  Pr(&amp;gt;Chi)    
+&amp;gt; NULL                               5     24.767              
+&amp;gt; Cheating        1   9.3328         4     15.434 0.0022509 ** 
+&amp;gt; Prime           2   0.0205         2     15.414 0.9898129    
+&amp;gt; Cheating:Prime  2  15.4136         0      0.000 0.0004497 ***
+&amp;gt; ---
+&amp;gt; Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Experiment 2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; Analysis of Deviance Table
+&amp;gt; 
+&amp;gt; Model: poisson, link: log
+&amp;gt; 
+&amp;gt; Response: Count
+&amp;gt; 
+&amp;gt; Terms added sequentially (first to last)
+&amp;gt; 
+&amp;gt; 
+&amp;gt;                     Df Deviance Resid. Df Resid. Dev  Pr(&amp;gt;Chi)    
+&amp;gt; NULL                                    7    19.6365              
+&amp;gt; Cheating             1  13.8608         6     5.7757 0.0001969 ***
+&amp;gt; Prime                1   0.2536         5     5.5221 0.6145539    
+&amp;gt; Test                 1   0.0000         4     5.5221 1.0000000    
+&amp;gt; Cheating:Prime       1   1.5057         3     4.0164 0.2197998    
+&amp;gt; Cheating:Test        1   2.5348         2     1.4816 0.1113599    
+&amp;gt; Prime:Test           1   0.0307         1     1.4509 0.8609311    
+&amp;gt; Cheating:Prime:Test  1   1.4509         0     0.0000 0.2283780    
+&amp;gt; ---
+&amp;gt; Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Experiment 3&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; Analysis of Deviance Table
+&amp;gt; 
+&amp;gt; Model: poisson, link: log
+&amp;gt; 
+&amp;gt; Response: Count
+&amp;gt; 
+&amp;gt; Terms added sequentially (first to last)
+&amp;gt; 
+&amp;gt; 
+&amp;gt;                     Df Deviance Resid. Df Resid. Dev Pr(&amp;gt;Chi)  
+&amp;gt; NULL                                    7    11.4971           
+&amp;gt; Cheating             1   2.1397         6     9.3574  0.14353  
+&amp;gt; Prime                1   0.0333         5     9.3241  0.85513  
+&amp;gt; Test                 1   0.0333         4     9.2907  0.85513  
+&amp;gt; Cheating:Prime       1   4.2369         3     5.0538  0.03955 *
+&amp;gt; Cheating:Test        1   2.8451         2     2.2086  0.09165 .
+&amp;gt; Prime:Test           1   0.4973         1     1.7113  0.48069  
+&amp;gt; Cheating:Prime:Test  1   1.7113         0     0.0000  0.19081  
+&amp;gt; ---
+&amp;gt; Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Experiment 4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; Analysis of Deviance Table
+&amp;gt; 
+&amp;gt; Model: poisson, link: log
+&amp;gt; 
+&amp;gt; Response: Count
+&amp;gt; 
+&amp;gt; Terms added sequentially (first to last)
+&amp;gt; 
+&amp;gt; 
+&amp;gt;                Df Deviance Resid. Df Resid. Dev  Pr(&amp;gt;Chi)    
+&amp;gt; NULL                               5     21.269              
+&amp;gt; Cheating        1   4.2195         4     17.049 0.0399621 *  
+&amp;gt; Prime           2   0.2876         2     16.762 0.8660723    
+&amp;gt; Cheating:Prime  2  16.7615         0      0.000 0.0002292 ***
+&amp;gt; ---
+&amp;gt; Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conclusion log-linear analysis:&lt;/strong&gt;&lt;br /&gt;
+This alternative, and in my opinion more appropriate analysis is in agreement with the results after correction for multiple comparisons and continuity:&lt;br /&gt;
+- The mosaic plots show that there may be some unexpected factors driving the “effects” reported in the paper: * In experiment 1 &amp;amp; 4 it is not so much the observed frequency of people that &lt;em&gt;did&lt;/em&gt; cheat, but the number of participants that &lt;em&gt;did not&lt;/em&gt; cheat that deviate from the expected frequencies based on table margins.&lt;br /&gt;
+* The &lt;code&gt;Money&lt;/code&gt; prime caused &lt;em&gt;less&lt;/em&gt; people to &lt;strong&gt;NOT&lt;/strong&gt; cheat, whereas the &lt;code&gt;Time&lt;/code&gt; prime caused &lt;em&gt;more&lt;/em&gt; people to &lt;strong&gt;NOT&lt;/strong&gt; cheat - If there is a difference in amount of &lt;code&gt;Cheating&lt;/code&gt; between samples, it is likely a “main effect” between the &lt;code&gt;Time&lt;/code&gt; and &lt;code&gt;Money&lt;/code&gt; prime (&lt;code&gt;Cheating:Prime&lt;/code&gt; interaction), it is found to cause a significant drop in deviance in Experiments 1, 3 and 4. - Experiment 2 stands out, because observed differences in &lt;code&gt;Cheating&lt;/code&gt; are unlikely due to chance, but none of the other factors contribute to explain differences between expected and observed frequencies.&lt;/p&gt;
+&lt;p&gt;The point about the mosaic plots is not just semantics or methodologists’ nit-picking. What it tells us is that, e.g. in the mosaic plot Table.1.1, among the observed frequencies of &lt;code&gt;CheatYES&lt;/code&gt;, the cell &lt;code&gt;Money&lt;/code&gt; does not stand out much from &lt;code&gt;Time&lt;/code&gt; and &lt;code&gt;Control&lt;/code&gt; from what may be expected by chance, for &lt;code&gt;CheatNO&lt;/code&gt; on the other hand, the cell &lt;code&gt;Money&lt;/code&gt; does stand out as different.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exact-odds-ratios-of-2x2-subtables-to-test-hypotheses-using-effect-size-cis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2. Exact odds ratios of 2x2 subtables to test hypotheses using Effect Size CIs&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Effect Size Confidence Intervals:&lt;/strong&gt;&lt;br /&gt;
+To get a clearer idea about the significance between cell differences I calculate confidence intervals around the effect size associated with contingency tables. The CIs in Figure 1 below are based on the exact Odds Ratio (using the non-central hypergeomteric distribution) for a 2x2 sub-table of the full design obtained from &lt;code&gt;Fisher&#39;s Exact Test&lt;/code&gt;, testing against $ H_0: OR = 1 $.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Figure 1. Exact log Odds Ratio&amp;#39;s of 2x2 tables comparing frequency of Cheating between independent samples in each experiment.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/ChiCIs-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;br /&gt;
+Here, the Confidence Levels have been adjusted to account for the fact that 3 (EXP1&amp;amp;4) and 4 (EXP2&amp;amp;3) subtables of the full design were compared (&lt;code&gt;1-(0.05 / #tests)&lt;/code&gt;). The exact p-value from Fisher’s exact test reported in the Figure was multiplied by the number of comparisons in each experiment.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;conclusion-proportion-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Conclusion Proportion data&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If there is an effect, it exists as a “main-effect” difference between the &lt;code&gt;Money&lt;/code&gt; and &lt;code&gt;Time&lt;/code&gt; primed samples in Experiment 1 and 4.&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;Experiment 3 &lt;code&gt;No Mirror: Money - Time&lt;/code&gt; is a marginal case.&lt;/li&gt;
+&lt;li&gt;Experiment 2 did not yield any substantial effects.&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;4-5 out of 7 statistical inferences in the paper that are made based on proportion data should be considered invalid.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ii.-analysis-of-extent-of-cheating&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;II. Analysis of extent of cheating&lt;/h1&gt;
+&lt;p&gt;The extent of &lt;code&gt;Cheating&lt;/code&gt; concerns the difference between actual accuracy (which is not provided as a result) and reported accuracy by a participant.&lt;br /&gt;
+Experiment 1-3 report analyses of extent of &lt;code&gt;Cheating&lt;/code&gt; including means and SD’s. Sample size assumptions for Experiments 2 and 3 are the same as above.&lt;/p&gt;
+&lt;div id=&#34;compare-cohens-d-cis&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Compare Cohen’s d CIs&lt;/h3&gt;
+&lt;p&gt;I created CIs around the effect sizes based on the means and SD reported for Experiment 1-3 using the &lt;code&gt;R&lt;/code&gt; package &lt;code&gt;MBESS&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Figure 2. Cohen&amp;#39;s d with exact CIs comparing extent of Cheating between independent samples in experiment 1-3.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/ExtCIs-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion-extent-of-cheating&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Conclusion Extent of Cheating&lt;/h3&gt;
+&lt;p&gt;The pattern is the same as the previous analyses: - Experiment 1 shows a clear effect between &lt;code&gt;Money&lt;/code&gt; and &lt;code&gt;Time&lt;/code&gt; samples&lt;br /&gt;
+- Experiment 3 &lt;code&gt;No Mirror: Money - Time&lt;/code&gt; is again a close call&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;iii.-happe-ing-hypothesising-after-post-publication-evaluation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;III. HAPPE-ing (Hypothesising After Post-Publication Evaluation)&lt;/h1&gt;
+&lt;p&gt;Should reviewers have noticed these issues with data analysis?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Yes, they should have!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Even without re-analysing the published data as I have done here, the conclusions by the authors can be questioned based on a comparison of very elementary results:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Across four experiments, using different primes and a variety of measures and tasks, we consistently&lt;br /&gt;
+found that shifting people’s attention to time &lt;strong&gt;decreases dishonesty&lt;/strong&gt;. Priming time makes people reflect&lt;br /&gt;
+on who they are, and this self-reflection &lt;strong&gt;reduces their likelihood of behaving dishonestly&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The clue is to compare the results across the 4 experiments and evaluate whether it is valid to infer that the core postulates have been corroborated. The designs and materials are slightly different each time, but if variation in outcomes (e.g., proportion cheating behaviour) varies systematically with one or more of the experimental differences, there may be another variable at work here.&lt;/p&gt;
+&lt;p&gt;One result that begs explanation is the drop in proportion &lt;code&gt;Cheating&lt;/code&gt; in all the samples of Experiment 2 when compared to the other experiments. What is special about the procedure and methods? Regrettably more than 1 potential intervening factor changes with respect to Experiment 1.&lt;/p&gt;
+&lt;p&gt;A second odd omission in the interpretation of the results is the level of accuracy achieved by participants. In Experiments 1-3, the urge to cheat must have been &lt;em&gt;less&lt;/em&gt; when a participant had achieved 90% accuracy. Experiment 4 is somewhat different in that the cheating opportunity concerns one “bottleneck” problem that is difficult to solve, but has to be correct in order to make other more easily solvable problems count in adding to the final reward. Here, accuracy could have an opposite effect in which less accurate participants cheat less. If 0 or only 1 extra item past the “bottleneck” item were solved, a participant might be less inclined to cheat than a participant who solved every problem except for the “bottleneck” item.&lt;/p&gt;
+&lt;div id=&#34;what-is-mediating-what&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What is mediating what?&lt;/h2&gt;
+&lt;p&gt;The figure below shows the interaction between the maximal financial incentive that could be awarded and the proportion cheating for each prime and experimental condition (indicating whether a mediator variable was manipulated in addition to being exposed to a prime). Note that the &lt;code&gt;Intelligence&lt;/code&gt; and the &lt;code&gt;No Mirror&lt;/code&gt; condition of Experiments 2 and 3 respectively are considered similar to Experiment 1 and 4, that is, they reflect a condition in which &lt;code&gt;Self-reflection&lt;/code&gt; was not induced by any other means than priming:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/Exp2_Reward-1.png&#34; width=&#34;1152&#34; style=&#34;display: block; margin: auto auto auto 0;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This relationship can be tested in a generalised linear model, of course being fully aware that this is &lt;em&gt;exploratory HAPPE-ing&lt;/em&gt;. I assume the samples from each experiment are independent and use the number of cheaters vs. no cheaters as the dependent binomial variable. The model contains only those effects for which data are available (e.g., no interactions with both &lt;code&gt;Prime&lt;/code&gt; and &lt;code&gt;Mediator&lt;/code&gt;)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;br /&gt;
+A generalised linear mixed model (GLMM) with sample ID as a random effect gives similar results.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 
+&amp;gt; Call:
+&amp;gt; glm(formula = cbind(CheatYES, CheatNO) ~ Reward + Prime + Mediator + 
+&amp;gt;     Reward * Prime + Reward * Mediator, family = binomial, data = reward)
+&amp;gt; 
+&amp;gt; Deviance Residuals: 
+&amp;gt;     Min       1Q   Median       3Q      Max  
+&amp;gt; -1.1534  -0.6946  -0.1216   0.2508   1.9564  
+&amp;gt; 
+&amp;gt; Coefficients:
+&amp;gt;                                Estimate Std. Error z value Pr(&amp;gt;|z|)   
+&amp;gt; (Intercept)                    -0.44952    0.21947  -2.048  0.04054 * 
+&amp;gt; Reward                          0.01107    0.02186   0.506  0.61253   
+&amp;gt; PrimeNone                       0.58682    0.39730   1.477  0.13967   
+&amp;gt; PrimeMoney                      0.60398    0.28243   2.139  0.03247 * 
+&amp;gt; MediatorSelf-reflection        -0.81281    0.31474  -2.583  0.00981 **
+&amp;gt; Reward:PrimeNone                0.01672    0.03593   0.465  0.64158   
+&amp;gt; Reward:PrimeMoney               0.06976    0.03270   2.133  0.03291 * 
+&amp;gt; Reward:MediatorSelf-reflection -0.01894    0.04340  -0.436  0.66257   
+&amp;gt; ---
+&amp;gt; Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+&amp;gt; 
+&amp;gt; (Dispersion parameter for binomial family taken to be 1)
+&amp;gt; 
+&amp;gt;     Null deviance: 76.292  on 13  degrees of freedom
+&amp;gt; Residual deviance: 11.035  on  6  degrees of freedom
+&amp;gt; AIC: 82.478
+&amp;gt; 
+&amp;gt; Number of Fisher Scoring iterations: 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Null-model deviance test: p &amp;lt; 1.33525644154704e-11&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the table above the model &lt;code&gt;Intercept&lt;/code&gt; corresponds to the odds of &lt;code&gt;Cheating&lt;/code&gt; compared to the Null-model when the predictors have the values: &lt;code&gt;Prime&lt;/code&gt; = &lt;code&gt;Time&lt;/code&gt;, &lt;code&gt;Mediator&lt;/code&gt; = &lt;code&gt;None&lt;/code&gt; and &lt;code&gt;Reward&lt;/code&gt; = 0. Compared to the overall probability of observing &lt;code&gt;Cheating&lt;/code&gt; behaviour, it thus seems that when the &lt;code&gt;Time&lt;/code&gt; prime is presented without an induction of &lt;code&gt;Self-reflection&lt;/code&gt; and a financial reward incentive, the odds of &lt;code&gt;Cheating&lt;/code&gt; drop.&lt;/p&gt;
+&lt;p&gt;This appears to be a corroboration of the second postulate, but note that in this analysis (just as in the previous analyses), there is no real difference between the &lt;code&gt;Time&lt;/code&gt; prime and prime = &lt;code&gt;None&lt;/code&gt;. The standard errors around these parameters are quite high. A clearer picture emerges when the Intercept is defined as &lt;code&gt;Prime&lt;/code&gt; = &lt;code&gt;None&lt;/code&gt;, &lt;code&gt;Mediator&lt;/code&gt; = &lt;code&gt;None&lt;/code&gt; and &lt;code&gt;Reward&lt;/code&gt; = 0 and the Odds Ratios are compared (exponentiation of the parameter estimates):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Odds Ratios compared to Prime = None, with profile likelihood CI.95&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;                                  OR 2.5 % 97.5 %
+&amp;gt; (Intercept)                    1.15  0.60   2.21
+&amp;gt; Reward                         1.03  0.97   1.09
+&amp;gt; PrimeTime                      0.56  0.25   1.21
+&amp;gt; PrimeMoney                     1.02  0.47   2.21
+&amp;gt; MediatorSelf-reflection        0.44  0.24   0.81
+&amp;gt; Reward:PrimeTime               0.98  0.92   1.05
+&amp;gt; Reward:PrimeMoney              1.05  0.98   1.14
+&amp;gt; Reward:MediatorSelf-reflection 0.98  0.90   1.07&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The odds ratios in the table above are multiplicative changes to the &lt;code&gt;Probability of Cheating&lt;/code&gt; = 1 when the predictor increases by 1 unit. So an OR &amp;lt; 1 will decrease the odds of observing &lt;code&gt;Cheating&lt;/code&gt; behaviour and an OR &amp;gt; 1 will increase it. The 95% CIs are based on the profile likelihood and show that in most cases the effect covers a range below and above 1. The range for the effect of &lt;code&gt;Self-Reflection&lt;/code&gt; is always below 1.&lt;/p&gt;
+&lt;p&gt;One can interpret the modelled relationship between these variables as follows:&lt;br /&gt;
+* There is a weak positive association between the &lt;code&gt;Maximal Financial Reward&lt;/code&gt; and the &lt;code&gt;Probability of Cheating&lt;/code&gt;&lt;br /&gt;
+* The association changes with the value of &lt;code&gt;Prime&lt;/code&gt;, becoming stronger when &lt;code&gt;Money&lt;/code&gt; is primed, weaker when &lt;code&gt;Time&lt;/code&gt; is primed&lt;br /&gt;
+* The induction of &lt;code&gt;Self-reflection&lt;/code&gt; does not cause the association to change, it changes the intercept, the base-line &lt;code&gt;Probability of Cheating&lt;/code&gt; at &lt;code&gt;Reward&lt;/code&gt; = 0&lt;/p&gt;
+&lt;p&gt;A graphical representation of the model predictions more clearly reveals this relationship:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/Exp2_GLM3-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto auto auto 0;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusions-discussion-and-further-happe-ing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conclusions, Discussion and further HAPPE-ing&lt;/h2&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The significant results between &lt;code&gt;Time&lt;/code&gt; and &lt;code&gt;Money&lt;/code&gt; in Experiments 1 and 4 probably arise due to the increase in &lt;code&gt;Probability of Cheating&lt;/code&gt; when there is a financial reward and &lt;code&gt;Money&lt;/code&gt; is primed.&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;It is unlikely there are any other “real” differences in these data except for the induction of &lt;code&gt;Self-reflection&lt;/code&gt;: Model predictions show it decreases the &lt;code&gt;Probability of Cheating&lt;/code&gt; by the same amount for different primes&lt;/li&gt;
+&lt;li&gt;Note that there were no actual data points for &lt;code&gt;None&lt;/code&gt; + &lt;code&gt;Self-reflection&lt;/code&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The missing predictors in the &lt;code&gt;Probability of Cheating&lt;/code&gt; analysis are the actual and reported &lt;em&gt;accuracy&lt;/em&gt; of the performance (amount of correctly solved problems and money received respectively). These values cannot be inferred from the extent of cheating analyses. It seems reasonable to assume in most experiments there was less incentive to engage in &lt;code&gt;Cheating&lt;/code&gt; by participants who were more accurate.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;This brings up the question of whether the effects are driven by some sort of Speed-Accuracy instruction: Naturally, &lt;code&gt;Time = Money&lt;/code&gt;, but taking the time to solve the problems may lead to higher accuracy and less incentive to cheat, likewise a focus on getting as many answers as possible may introduce errors and promote cheating.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In science there is a moral obligation to do the best one can to be as accurate as possible and usually this means it is wise to be as modest as possible about ones’ scientific claims. I am not an expert in this field, but the sheer amount of questions that can be raised about the validity of the inferences made in this paper makes one wonder who the peers were that achieved consensus about the credibility of this research and what their area of expertise was.&lt;/p&gt;
+&lt;p&gt;I am not saying this is irrelevant, or poor research; the two effects that survive the scrutiny of &lt;strong&gt;3PR&lt;/strong&gt; are certainly interesting. I am just a little worried this paper says more about the morality of contemporary scientific publishing than the scientific study of moral behaviour.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;some-notes-about-this-file&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Some notes about this file:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;This file was created using &lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/200552086-Using-R-Markdown&#34;&gt;Markdown&lt;/a&gt; in &lt;a href=&#34;http://www.rstudio.com&#34;&gt;RStudio&lt;/a&gt;: Unless otherwise indicated in the code blocks (e.g., by &lt;strong&gt;require&lt;/strong&gt;), the basic R packages are used.&lt;/li&gt;
+&lt;li&gt;All the analyses are based on results reported in the &lt;a href=&#34;http://pss.sagepub.com/lookup/doi/10.1177/0956797613506438&#34;&gt;publication&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The one true gospel on statistical inference does not exist and more than one approach to analyse these data may be defensible.&lt;/li&gt;
+&lt;li&gt;Therefore: Please be aware these comments and suggestions reflect my own preferences and standards in these matters. If you feel I should change some of my preferences and/or standards please let me know, because I review and adjust them on a regular basis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 </description>
     </item>
     
