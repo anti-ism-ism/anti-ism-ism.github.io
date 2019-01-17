@@ -36,14 +36,20 @@ HUGOMORE42
 &lt;h2&gt;&lt;strong&gt;Generating Order by Constraining Randomness&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about reality to be learned here. Another way of saying &lt;em&gt;constraining randomness by imposing rules&lt;/em&gt; is &lt;em&gt;restricting the degrees of freedom two (sub)systems have for generating behaviour by coupling their dynamics&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Of course the “coupling” here is rather artificial, but one can think of it as giving meaning to the probability of a set of events occurring. Like with models of growth, the rules of the fractal game can be made dependent on other processes or events. A great example are the so-called &lt;a href=&#34;https://en.wikipedia.org/wiki/Fractal_flame&#34;&gt;fractal flames&lt;/a&gt; implemented in a screen-saver called &lt;a href=&#34;http://www.electricsheep.org&#34;&gt;&lt;em&gt;electric sheep&lt;/em&gt;&lt;/a&gt;, which combines genetic algorithms, distributed computing and user input (“likes”) to create intruiging visual patterns on your computer screen.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/d9XCIQK0sK0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;iterated-function-systems-in-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;Iterated Function Systems in R&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;The comment section on the Numberphile video has links to simulations in Geogebra:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Chaos Game Geogebra file: &lt;a href=&#34;https://www.geogebra.org/m/yr2XXPms&#34; class=&#34;uri&#34;&gt;https://www.geogebra.org/m/yr2XXPms&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Barnsley Fern Geogebra file: &lt;a href=&#34;https://www.geogebra.org/m/bQ8ppzRj&#34; class=&#34;uri&#34;&gt;https://www.geogebra.org/m/bQ8ppzRj&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;iterated-function-systems-in-r&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;Iterated Function Systems in R&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Below are examples of so-called &lt;em&gt;Iterated Function Systems&lt;/em&gt;, copy the code and run it in &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Try to understand what is going on in the two examples below:&lt;/p&gt;
 &lt;ul&gt;
