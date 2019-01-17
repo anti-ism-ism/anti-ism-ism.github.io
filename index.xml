@@ -474,17 +474,9 @@ ga &amp;lt;- ggplot(df.ts2,aes(x=Signal,y=NextSignal, frame = Time)) +
   theme_bw() + coord_equal()
 
 gganimate(ga, interval=.2, &amp;quot;returnplot.gif&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-
-
-
-&lt;figure&gt;
-
-&lt;img src=&#34;img/returnplot.gif&#34; /&gt;
-
-
-&lt;/figure&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#htmltools::HTML(&amp;#39;{{&amp;lt; figure src = &amp;quot;returnplot.gif&amp;quot; &amp;gt;}}&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;https://.gif&#34; alt=&#34;returnplot&#34; /&gt;
+&lt;img src=&#34;https://github.com/anti-ism-ism/anti-ism-ism.github.io/blob/master/img/headers/returnplot.gif?raw=true&#34; alt=&#34;returnplot&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;returnplot&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;It is appears to be the case the system is &lt;em&gt;attracted&lt;/em&gt; to specific states. Perhaps the dynamics can be described as transitions between more or less stable states, or stable temporal patterns of recurring states.&lt;/p&gt;
