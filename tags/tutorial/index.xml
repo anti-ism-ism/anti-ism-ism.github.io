@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorial on anti-ism-ism</title>
-    <link>/tags/tutorial/</link>
+    <link>https://anti-ism-ism.com/tags/tutorial/</link>
     <description>Recent content in Tutorial on anti-ism-ism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Fred Hasselman</copyright>
     <lastBuildDate>Tue, 05 May 2015 12:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://anti-ism-ism.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R Effect Size CI tutorial</title>
-      <link>/post/2015-05-05-osc-r-esci-tutorial/</link>
+      <link>https://anti-ism-ism.com/post/2015-05-05-osc-r-esci-tutorial/</link>
       <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
-      <guid>/post/2015-05-05-osc-r-esci-tutorial/</guid>
+      <guid>https://anti-ism-ism.com/post/2015-05-05-osc-r-esci-tutorial/</guid>
       <description>Using R to Compute Effect Size Confidence Intervals This is a demonstration of using R in the context of hypothesis testing by means of Effect Size Confidence Intervals. In other words, we’ll calculate confidence intervals based on the distribution of a test statistic under the assumption that \(H_0\) is false, the noncentral distribution of a test statistic.
 Discrete distributions: Count data and proportions  Discrete CI ≠ Approximately Continuous CI Noncentral CIs around the Odds Ratio of Fisher’s Exact Test Example: Time, Money, and Morality  Continuous distributions: Standardised sample means  Standardised, but on which measure of dispersion?</description>
     </item>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>anti-ism-ism on anti-ism-ism</title>
-    <link>/</link>
+    <link>https://anti-ism-ism.com/</link>
     <description>Recent content in anti-ism-ism on anti-ism-ism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -11,11 +11,156 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>The Chaos GameR</title>
+      <link>https://anti-ism-ism.com/post/the-chaos-gamer/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/post/the-chaos-gamer/</guid>
+      <description>
+
+
+&lt;div id=&#34;the-chaos-game&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;The Chaos Game&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;In this excellent &lt;a href=&#34;https://www.youtube.com/channel/UCoxcjq-8xIDTYp3uz647V5A&#34;&gt;Numberphile&lt;/a&gt; video Ben Sparks demonstrates how to generate a fractal structure (the &lt;a href=&#34;https://en.wikipedia.org/wiki/Sierpinski_triangle&#34;&gt;Sierpinsky Triangle&lt;/a&gt;) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{U}(1,6)\)&lt;/span&gt;.&lt;/p&gt;
+
+
+HUGOMORE42
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/kbKtFN71Lfs&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;generating-order-by-constraining-randomness&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;Generating Order by Constraining Randomness&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about reality to be learned here. Another way of saying &lt;em&gt;constraining randomness by imposing rules&lt;/em&gt; is &lt;em&gt;restricting the degrees of freedom two (sub)systems have for generating behaviour by coupling their dynamics&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Of course the “coupling” here is rather artificial, but one can think of it as giving meaning to the probability of a set of events occurring. Like with models of growth, the rules of the fractal game can be made dependent on other processes or events. A great example are the so-called &lt;a href=&#34;https://en.wikipedia.org/wiki/Fractal_flame&#34;&gt;fractal flames&lt;/a&gt; implemented in a screen-saver called &lt;a href=&#34;http://www.electricsheep.org&#34;&gt;&lt;em&gt;electric sheep&lt;/em&gt;&lt;/a&gt;, which combines genetic algorithms, distributed computing and user input (“likes”) to create intruiging visual patterns on your computer screen.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The comment section on the Numberphile video has links to simulations in Geogebra:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chaos Game Geogebra file: &lt;a href=&#34;https://www.geogebra.org/m/yr2XXPms&#34; class=&#34;uri&#34;&gt;https://www.geogebra.org/m/yr2XXPms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Barnsley Fern Geogebra file: &lt;a href=&#34;https://www.geogebra.org/m/bQ8ppzRj&#34; class=&#34;uri&#34;&gt;https://www.geogebra.org/m/bQ8ppzRj&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;iterated-function-systems-in-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;Iterated Function Systems in R&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Below are examples of so-called &lt;em&gt;Iterated Function Systems&lt;/em&gt;, copy the code and run it in &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Try to understand what is going on in the two examples below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How does the structure come about? (look at the different colours)&lt;/li&gt;
+&lt;li&gt;What’s the difference between the Siepinsky Gasket and the Fern?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;a-triangle&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;A Triangle&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Sierpinski Gasket using Iterated Function Systems
+#
+# RM-course Advanced Data Analysis
+# Module Dynamical and Nonlinear Data analysis and Modeling 
+# 
+# May 2008
+# Fred Hasselman &amp;amp; Ralf Cox
+
+require(dplyr)
+
+x = 0                  # Starting points
+y = 0
+
+# Emppty plot
+plot(x,y, xlim=c(0,2), ylim=c(0,1))
+
+for(i in 1:20000){      # This takes some time: 20.000 iterations
+  
+    coor=runif(1)       # coor becomes a random number between 0 and 1 drawn from the uniform distribution
+    
+    # Equal chances (33%) to perform one of these 3 transformations of x and y
+    if(coor&amp;lt;=0.33){     
+        x=0.5*x
+        y=0.5*y
+        points(x,y,pch=&amp;quot;.&amp;quot;, col=&amp;quot;green&amp;quot;) #plot these points in green
+    }
+
+    if(between(coor,0.33,0.66)){
+        x=0.5*x+0.5
+        y=0.5*y+0.5
+        points(x,y, pch=&amp;quot;.&amp;quot;, col=&amp;quot;blue&amp;quot;) # plot these points in blue
+    }
+
+    if(coor&amp;gt;0.66){
+        x=0.5*x+1
+        y=0.5*y
+        points(x,y, pch=&amp;quot;.&amp;quot;, col=&amp;quot;red&amp;quot;) #plot these points in red
+    }
+} # for ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2019-01-17-the-chaos-gamer_files/figure-html/siepinsky-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-fern&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;A Fern&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Barnsley&amp;#39;s Fern using Iterated Function Systems
+#
+# RM-course Advanced Data Analysis
+# Module Dynamical and Nonlinear Data analysis and Modeling 
+# 
+# May 2008
+# Fred Hasselman &amp;amp; Ralf Cox
+
+require(dplyr)
+
+x = 0                  # Starting points
+y = 0
+
+# Emppty plot
+plot(x,y, pch=&amp;quot;.&amp;quot;, xlim=c(-3,3), ylim=c(0,12))
+
+for(i in 1:50000){      # This takes some time: 20.000 iterations
+  
+    coor=runif(1)       # coor becomes a random number between 0 and 1 drawn from the uniform distribution
+    
+    if(coor&amp;lt;=0.01){                  #This transformation 1% of the time
+        x = 0
+        y = 0.16 * y
+        points(x,y, pch=&amp;quot;.&amp;quot;, col=&amp;quot;brown&amp;quot;) 
+    }
+    
+    if(between(coor,0.01, 0.08)){   #This transformation 7% of the time
+        x = 0.20 * x - 0.26 * y
+        y = 0.23 * x + 0.22 * y + 1.6
+        points(x,y, pch=&amp;quot;.&amp;quot;, col=&amp;quot;olivedrab&amp;quot;) 
+    }
+    
+    if(between(coor,0.08,0.15)){   #This transformation 7% of the time
+        x = -0.15 * x + 0.28 * y
+        y =  0.26 * x + 0.24 * y + 0.44
+       points(x,y, pch=&amp;quot;.&amp;quot;, col=&amp;quot;forestgreen&amp;quot;)
+    }
+    
+    if(coor&amp;gt;0.15){      #This transformation 85% of the time
+        x =  0.85 * x + 0.04 * y
+        y=  -0.04 * x + 0.85 * y + 1.6 
+        points(x,y, pch=&amp;quot;.&amp;quot;, col=&amp;quot;springgreen2&amp;quot;)
+    }
+    
+} # for ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2019-01-17-the-chaos-gamer_files/figure-html/fern-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;These &lt;a href=&#34;https://en.wikipedia.org/wiki/Iterated_function_system&#34;&gt;Iterated Function Systems&lt;/a&gt; also go by the name of ‘the fractal game’ and are used in computer science, the gaming industry, graphic design, etc.&lt;/p&gt;
+&lt;p&gt;This Wikipedia page on &lt;a href=&#34;https://en.wikipedia.org/wiki/Barnsley_fern&#34;&gt;Barnsley’s fern&lt;/a&gt; has some good info on the topic. At the end they display &lt;em&gt;Mutant varieties&lt;/em&gt;. Try to implement them!&lt;/p&gt;
+&lt;p&gt;天&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Use at your own risk! You will find yourself silently staring at the screen for longer periods of time.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Testing assumptions of the data-generating process underlying Experience Sampling</title>
-      <link>/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</link>
+      <link>https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</link>
       <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</guid>
+      <guid>https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
@@ -85,7 +230,7 @@
 beep &amp;lt;- dmy_hms(paste0(df.ts$date,&amp;quot; &amp;quot;,df.ts$beeptime,&amp;quot;:00&amp;quot;),tz = &amp;quot;Europe/Amsterdam&amp;quot;)
 y &amp;lt;- xts(df.ts$mood_down, order.by = beep)
 plot(y, main = &amp;quot;Time series of variable &amp;#39;mood_down&amp;#39;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;test-for-level-and-trend-stationarity&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Test for &lt;strong&gt;level&lt;/strong&gt; and &lt;strong&gt;trend&lt;/strong&gt; stationarity&lt;/h2&gt;
@@ -183,7 +328,7 @@ tseries::kpss.test(na.exclude(df.ts$mood_down), lshort = TRUE, null = &amp;quot;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
 acf(df.ts$mood_down, na.action = na.pass)
 pacf(df.ts$mood_down, na.action = na.pass)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;One could conclude there’s at least &lt;span class=&#34;math inline&#34;&gt;\(AR(3)\)&lt;/span&gt; involved, however there are also possible long-range correlations in these data. I am not an initiate of the &lt;strong&gt;how-to-interpret-&lt;code&gt;(P)ACF&lt;/code&gt;-to-&lt;code&gt;ARfiMA&lt;/code&gt;-orders-cult&lt;/strong&gt;, so let’s do some tests!&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# KEENAN 1-DEGREE TEST OF NONLINEARITY
 # H0: time series follows some AR process
@@ -202,13 +347,13 @@ TSA::Keenan.test(na.exclude(df.ts$mood_down))&lt;/code&gt;&lt;/pre&gt;
 # H0: time series follows some AR process
 # H1: time series cannot be considered some ARCH process
 TSA::McLeod.Li.test(y = df.ts$mood_down, plot = TRUE, omit.initial = TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
 # MCLEOD-LI TEST FOR CONDITIONAL HETEROSCEDASTICITY
 # H0: time series follows some AR process
 # H1: time series cannot be considered some ARiMA process
 TSA::McLeod.Li.test(object = forecast::auto.arima(df.ts$mood_down), plot = TRUE, omit.initial = TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-6-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-6-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This test finds no convincing evidence of the timeseries being either &lt;strong&gt;ARCH&lt;/strong&gt; or &lt;strong&gt;ARiMA&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;structural-decomposition&#34; class=&#34;section level2&#34;&gt;
@@ -220,7 +365,7 @@ TSA::McLeod.Li.test(object = forecast::auto.arima(df.ts$mood_down), plot = TRUE,
 fit&amp;lt;-StructTS(ts0, type=&amp;quot;BSM&amp;quot;)
 par(mfrow = c(4, 1)) # to give appropriate aspect ratio for next plot.
 plot(cbind(fitted(fit), resids=resid(fit)), main= &amp;quot;Basic Structural Model for &amp;#39;mood_down&amp;#39;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;There is a lot going on here, the residuals and level fluctuations show we probably should not assume a linear ergodic stochastic change process.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;conclusions&#34; class=&#34;section level1&#34;&gt;
@@ -299,7 +444,7 @@ ggplot(dftot, aes(xbucket = Signal,
     panel.border = element_blank(), 
     panel.background = element_blank(), 
     panel.grid = element_blank()) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;If we consider the values &lt;span class=&#34;math inline&#34;&gt;\(-3\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(3\)&lt;/span&gt; to span the possibe states the ‘system’ can be in, then a crude way to study the dynamics of the states is to look at a lag-1 &lt;em&gt;return plot&lt;/em&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gganimate)
 
@@ -328,7 +473,7 @@ gganimate(ga, interval=.2, &amp;quot;returnplot.gif&amp;quot;)&lt;/code&gt;&lt;/
 
 &lt;figure&gt;
 
-&lt;img src=&#34;/img/returnplot.gif&#34; /&gt;
+&lt;img src=&#34;https://anti-ism-ism.com/img/returnplot.gif&#34; /&gt;
 
 
 &lt;/figure&gt;
@@ -349,10 +494,10 @@ gganimate(ga, interval=.2, &amp;quot;returnplot.gif&amp;quot;)&lt;/code&gt;&lt;/
     
     <item>
       <title>Reproduce $e$ to $18,457,734,525,360,901,453,873,570$ decimal places!</title>
-      <link>/post/2017-05-09-pandigital-numbers-and-functions/</link>
+      <link>https://anti-ism-ism.com/post/2017-05-09-pandigital-numbers-and-functions/</link>
       <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/post/2017-05-09-pandigital-numbers-and-functions/</guid>
+      <guid>https://anti-ism-ism.com/post/2017-05-09-pandigital-numbers-and-functions/</guid>
       <description>
 
 
@@ -399,10 +544,10 @@ HUGOMORE42
     
     <item>
       <title>Oh right... I used to blog</title>
-      <link>/post/2017-03-02-oh-right-i-used-to-blog/</link>
+      <link>https://anti-ism-ism.com/post/2017-03-02-oh-right-i-used-to-blog/</link>
       <pubDate>Fri, 03 Mar 2017 16:35:02 -0700</pubDate>
       
-      <guid>/post/2017-03-02-oh-right-i-used-to-blog/</guid>
+      <guid>https://anti-ism-ism.com/post/2017-03-02-oh-right-i-used-to-blog/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;A beginning is the time for taking the most delicate care that the balances are correct.&lt;/p&gt;
 
@@ -426,10 +571,10 @@ HUGOMORE42
     
     <item>
       <title>R Effect Size CI tutorial</title>
-      <link>/post/2015-05-05-osc-r-esci-tutorial/</link>
+      <link>https://anti-ism-ism.com/post/2015-05-05-osc-r-esci-tutorial/</link>
       <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
-      <guid>/post/2015-05-05-osc-r-esci-tutorial/</guid>
+      <guid>https://anti-ism-ism.com/post/2015-05-05-osc-r-esci-tutorial/</guid>
       <description>
 
 &lt;div id=&#34;using-r-to-compute-effect-size-confidence-intervals&#34; class=&#34;section level1&#34;&gt;
@@ -470,7 +615,7 @@ in.IT(c(&amp;quot;MBESS&amp;quot;,&amp;quot;metafor&amp;quot;,&amp;quot;plyr&amp
 &lt;p&gt;Many studies in the social sciences compare variables across the levels of a design factor that are discrete in nature. These discrete variables often represent countable units: Participants, behaviours, correctly answered items, etc. At the aggregate level a proportion or percentage is often the object of analysis. It is common practice to disregard the discrete nature of the variable under investigation and assign probabilities to observed events using a continuous distribution function given large enough sample sizes. For example, the test for equality of sample proportions uses the standardised normal distribution (Z-score). In &lt;code&gt;R&lt;/code&gt; this test can be conducted using the function &lt;code&gt;prop.test&lt;/code&gt;, by default, it performs Yates’ continuity correction. Depending on the situation such corrections can be either too lenient or too strict, moreover, calculating a symmetrical, continuous CI around a discrete variable is almost always inaccurate.&lt;/p&gt;
 &lt;p&gt;Let’s review some properties of discrete probability distributions: A distribution function that assigns a probability to the value taken on by a random variable due to the occurrence of a discrete random event is called a &lt;em&gt;Probability Mass Function&lt;/em&gt;. They come in several flavours, the &lt;a href=&#34;http://en.wikipedia.org/wiki/Binomial_distribution&#34;&gt;binomial distribution function&lt;/a&gt; assigns probabilities to events drawn from a finite population &lt;em&gt;with&lt;/em&gt; replacement. The &lt;a href=&#34;http://en.wikipedia.org/wiki/Hypergeometric_distribution&#34;&gt;hypergeometric distribution function&lt;/a&gt; assigns probabilities to events drawn &lt;em&gt;without&lt;/em&gt; replacing them, and the &lt;a href=&#34;http://en.wikipedia.org/wiki/Poisson_distribution&#34;&gt;poisson distribution&lt;/a&gt; describes independent event probabilities based on an expected value of ‘successes’ denoted as &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;These probability mass functions and their cumulative distribution function are shown in the figure below, the value with highest mass is 3 in all cases (the code to generate these figures is available in the &lt;a href=&#34;https://osf.io/vn5dz/&#34;&gt;.Rmarkdown file&lt;/a&gt; that generated this page).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-05-05-OSC-R-ESCI-Tutorial_files/figure-html/PMF-1.png&#34; width=&#34;1056&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-05-05-OSC-R-ESCI-Tutorial_files/figure-html/PMF-1.png&#34; width=&#34;1056&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;It is evident from the figures above that for small sample sizes the CI based on a discrete distribution is not symmetrical: These distributions are zero inflated and depending on the context, can have fat tails when large samples are concerned.&lt;/p&gt;
 &lt;p&gt;Another reason to look for a more accurate CI around a discrete ES is a less than ideal analysis strategy that is often used when there are more than 2 factor levels in the design. One often calculates a &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; statistic for the large design table and subsequently interprets &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; tests on 2X2 partitions of the full design as level or group comparisons, like in a linear model. In my opinion this is an incorrect strategy: A &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; test is a goodness-of-fit test and should not be used to test hypotheses about the effects of a linear predictor on a dependent variable. One should use a generalised linear model with a poisson link (poisson regression, log-linear analysis), or binomial link (logistic, probit regression) function to answer such questions.&lt;/p&gt;
 &lt;p&gt;What options are available if one does not want to embark on a generalised mixed model fitting spree?&lt;/p&gt;
@@ -559,7 +704,7 @@ forest(x=ORcomp$odds.ratio,ci.lb=ORcomp$lo, ci.ub=ORcomp$hi, slab=ORcomp$compari
 text(7.5,(nrow(ORcomp)+1.5),&amp;quot;log OR [CI.9833]&amp;quot;)
 text(-4.4,(nrow(ORcomp)+1.5),&amp;quot;Contrasts comparing Cheating frequency&amp;quot;)
 text(5,(nrow(ORcomp)+1.5),&amp;quot;Adjusted p&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-05-05-OSC-R-ESCI-Tutorial_files/figure-html/ORCI_Forest-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-05-05-OSC-R-ESCI-Tutorial_files/figure-html/ORCI_Forest-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Only the first comparison does not include 0. In the original article, the number of significant contrasts reported in 14 comparisons of occurrence of cheating behaviour conducted in 4 samples, was 9. This was based on a continuous test of sample proportions, without correcting for multiple comparisons. Both in R and in SPSS (for 2x2 tables), this is a deliberate choice, because the default behaviour is to apply Yates’ correction. If the continuous test is continuity corrected and a Bonferroni adjustment is applied, 2 significant results remain in the entire article. The ESCI hypothesis test conducted for all 4 experiments gives the same result: Just 2 intervals remain that do not include log(1)=0.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;/div&gt;
@@ -648,7 +793,7 @@ forest(x=PTcomp$Standardized.Mean, ci.lb=PTcomp$Lower.Conf.Limit.Standardized.Me
 text(2.2,(nrow(PTcomp)+1.5),&amp;quot;adjusted CL&amp;quot;)
 text(3.9,(nrow(PTcomp)+1.5),&amp;quot;Standardised Mean [Low,High]&amp;quot;)
 text(-2.2,(nrow(PTcomp)+1.5),&amp;quot;Dependent samples t-test&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-05-05-OSC-R-ESCI-Tutorial_files/figure-html/SMDCI_plot-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-05-05-OSC-R-ESCI-Tutorial_files/figure-html/SMDCI_plot-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;neural-correlates-of-barely-observable-behavioural-phenomena&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Neural correlates of… barely observable behavioural phenomena?&lt;/h3&gt;
@@ -713,10 +858,10 @@ The first command applies read.spss to all files with a &lt;code&gt;.sav&lt;/cod
     
     <item>
       <title>Time = Money: The Morality of Being Accurate.</title>
-      <link>/post/2015-03-07-time-money-morality/</link>
+      <link>https://anti-ism-ism.com/post/2015-03-07-time-money-morality/</link>
       <pubDate>Sat, 07 Mar 2015 12:00:00 +0000</pubDate>
       
-      <guid>/post/2015-03-07-time-money-morality/</guid>
+      <guid>https://anti-ism-ism.com/post/2015-03-07-time-money-morality/</guid>
       <description>
 
 &lt;div id=&#34;a-post-publication-peer-review-3pr-of&#34; class=&#34;section level1&#34;&gt;
@@ -1036,7 +1181,7 @@ Experiment 2 &amp;amp; 3 do not list &lt;em&gt;n&lt;/em&gt; per condition, the m
 &amp;gt; Cheating:Prime  2  15.4136         0      0.000 0.0004497 ***
 &amp;gt; ---
 &amp;gt; Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Experiment 2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; Analysis of Deviance Table
 &amp;gt; 
@@ -1058,7 +1203,7 @@ Experiment 2 &amp;amp; 3 do not list &lt;em&gt;n&lt;/em&gt; per condition, the m
 &amp;gt; Cheating:Prime:Test  1   1.4509         0     0.0000 0.2283780    
 &amp;gt; ---
 &amp;gt; Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Experiment 3&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; Analysis of Deviance Table
 &amp;gt; 
@@ -1080,7 +1225,7 @@ Experiment 2 &amp;amp; 3 do not list &lt;em&gt;n&lt;/em&gt; per condition, the m
 &amp;gt; Cheating:Prime:Test  1   1.7113         0     0.0000  0.19081  
 &amp;gt; ---
 &amp;gt; Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Experiment 4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; Analysis of Deviance Table
 &amp;gt; 
@@ -1098,7 +1243,7 @@ Experiment 2 &amp;amp; 3 do not list &lt;em&gt;n&lt;/em&gt; per condition, the m
 &amp;gt; Cheating:Prime  2  16.7615         0      0.000 0.0002292 ***
 &amp;gt; ---
 &amp;gt; Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-03-07-Time-Money-Morality_files/figure-html/loglin-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Conclusion log-linear analysis:&lt;/strong&gt;&lt;br /&gt;
 This alternative, and in my opinion more appropriate analysis is in agreement with the results after correction for multiple comparisons and continuity:&lt;br /&gt;
 - The mosaic plots show that there may be some unexpected factors driving the “effects” reported in the paper: * In experiment 1 &amp;amp; 4 it is not so much the observed frequency of people that &lt;em&gt;did&lt;/em&gt; cheat, but the number of participants that &lt;em&gt;did not&lt;/em&gt; cheat that deviate from the expected frequencies based on table margins.&lt;br /&gt;
@@ -1110,7 +1255,7 @@ This alternative, and in my opinion more appropriate analysis is in agreement wi
 &lt;p&gt;&lt;strong&gt;Effect Size Confidence Intervals:&lt;/strong&gt;&lt;br /&gt;
 To get a clearer idea about the significance between cell differences I calculate confidence intervals around the effect size associated with contingency tables. The CIs in Figure 1 below are based on the exact Odds Ratio (using the non-central hypergeomteric distribution) for a 2x2 sub-table of the full design obtained from &lt;code&gt;Fisher&#39;s Exact Test&lt;/code&gt;, testing against $ H_0: OR = 1 $.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Figure 1. Exact log Odds Ratio&amp;#39;s of 2x2 tables comparing frequency of Cheating between independent samples in each experiment.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/ChiCIs-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-03-07-Time-Money-Morality_files/figure-html/ChiCIs-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;br /&gt;
 Here, the Confidence Levels have been adjusted to account for the fact that 3 (EXP1&amp;amp;4) and 4 (EXP2&amp;amp;3) subtables of the full design were compared (&lt;code&gt;1-(0.05 / #tests)&lt;/code&gt;). The exact p-value from Fisher’s exact test reported in the Figure was multiplied by the number of comparisons in each experiment.&lt;/p&gt;
@@ -1136,7 +1281,7 @@ Experiment 1-3 report analyses of extent of &lt;code&gt;Cheating&lt;/code&gt; in
 &lt;h3&gt;Compare Cohen’s d CIs&lt;/h3&gt;
 &lt;p&gt;I created CIs around the effect sizes based on the means and SD reported for Experiment 1-3 using the &lt;code&gt;R&lt;/code&gt; package &lt;code&gt;MBESS&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; [1] &amp;quot;Figure 2. Cohen&amp;#39;s d with exact CIs comparing extent of Cheating between independent samples in experiment 1-3.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/ExtCIs-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-03-07-Time-Money-Morality_files/figure-html/ExtCIs-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;conclusion-extent-of-cheating&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Conclusion Extent of Cheating&lt;/h3&gt;
@@ -1160,7 +1305,7 @@ on who they are, and this self-reflection &lt;strong&gt;reduces their likelihood
 &lt;div id=&#34;what-is-mediating-what&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;What is mediating what?&lt;/h2&gt;
 &lt;p&gt;The figure below shows the interaction between the maximal financial incentive that could be awarded and the proportion cheating for each prime and experimental condition (indicating whether a mediator variable was manipulated in addition to being exposed to a prime). Note that the &lt;code&gt;Intelligence&lt;/code&gt; and the &lt;code&gt;No Mirror&lt;/code&gt; condition of Experiments 2 and 3 respectively are considered similar to Experiment 1 and 4, that is, they reflect a condition in which &lt;code&gt;Self-reflection&lt;/code&gt; was not induced by any other means than priming:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/Exp2_Reward-1.png&#34; width=&#34;1152&#34; style=&#34;display: block; margin: auto auto auto 0;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-03-07-Time-Money-Morality_files/figure-html/Exp2_Reward-1.png&#34; width=&#34;1152&#34; style=&#34;display: block; margin: auto auto auto 0;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This relationship can be tested in a generalised linear model, of course being fully aware that this is &lt;em&gt;exploratory HAPPE-ing&lt;/em&gt;. I assume the samples from each experiment are independent and use the number of cheaters vs. no cheaters as the dependent binomial variable. The model contains only those effects for which data are available (e.g., no interactions with both &lt;code&gt;Prime&lt;/code&gt; and &lt;code&gt;Mediator&lt;/code&gt;)&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;br /&gt;
@@ -1214,7 +1359,7 @@ A generalised linear mixed model (GLMM) with sample ID as a random effect gives 
 * The association changes with the value of &lt;code&gt;Prime&lt;/code&gt;, becoming stronger when &lt;code&gt;Money&lt;/code&gt; is primed, weaker when &lt;code&gt;Time&lt;/code&gt; is primed&lt;br /&gt;
 * The induction of &lt;code&gt;Self-reflection&lt;/code&gt; does not cause the association to change, it changes the intercept, the base-line &lt;code&gt;Probability of Cheating&lt;/code&gt; at &lt;code&gt;Reward&lt;/code&gt; = 0&lt;/p&gt;
 &lt;p&gt;A graphical representation of the model predictions more clearly reveals this relationship:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2015-03-07-Time-Money-Morality_files/figure-html/Exp2_GLM3-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto auto auto 0;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2015-03-07-Time-Money-Morality_files/figure-html/Exp2_GLM3-1.png&#34; width=&#34;960&#34; style=&#34;display: block; margin: auto auto auto 0;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;conclusions-discussion-and-further-happe-ing&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Conclusions, Discussion and further HAPPE-ing&lt;/h2&gt;
@@ -1251,10 +1396,10 @@ A generalised linear mixed model (GLMM) with sample ID as a random effect gives 
     
     <item>
       <title>Slides</title>
-      <link>/slides/example-slides/</link>
+      <link>https://anti-ism-ism.com/slides/example-slides/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/slides/example-slides/</guid>
+      <guid>https://anti-ism-ism.com/slides/example-slides/</guid>
       <description>
 
 &lt;h1 id=&#34;welcome-to-slides&#34;&gt;Welcome to Slides&lt;/h1&gt;

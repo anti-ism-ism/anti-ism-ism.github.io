@@ -4,7 +4,15 @@
     
     <url>
     
-      <loc>/tutorial/</loc>
+      <loc>https://anti-ism-ism.com/post/the-chaos-gamer/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tutorial/</loc>
       <lastmod>2018-09-09T00:00:00+02:00</lastmod>
     </url>
     
@@ -12,7 +20,7 @@
     
     <url>
     
-      <loc>/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</loc>
+      <loc>https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</loc>
       <lastmod>2017-05-19T09:50:02-07:00</lastmod>
     </url>
     
@@ -20,7 +28,7 @@
     
     <url>
     
-      <loc>/post/2017-05-09-pandigital-numbers-and-functions/</loc>
+      <loc>https://anti-ism-ism.com/post/2017-05-09-pandigital-numbers-and-functions/</loc>
       <lastmod>2017-05-09T09:50:02-07:00</lastmod>
     </url>
     
@@ -28,7 +36,7 @@
     
     <url>
     
-      <loc>/post/2017-03-02-oh-right-i-used-to-blog/</loc>
+      <loc>https://anti-ism-ism.com/post/2017-03-02-oh-right-i-used-to-blog/</loc>
       <lastmod>2017-03-03T16:35:02-07:00</lastmod>
     </url>
     
@@ -36,7 +44,7 @@
     
     <url>
     
-      <loc>/post/</loc>
+      <loc>https://anti-ism-ism.com/post/</loc>
       <lastmod>2017-01-01T00:00:00+01:00</lastmod>
     </url>
     
@@ -44,7 +52,7 @@
     
     <url>
     
-      <loc>/publication/</loc>
+      <loc>https://anti-ism-ism.com/publication/</loc>
       <lastmod>2017-01-01T00:00:00+01:00</lastmod>
     </url>
     
@@ -52,7 +60,7 @@
     
     <url>
     
-      <loc>/talk/</loc>
+      <loc>https://anti-ism-ism.com/talk/</loc>
       <lastmod>2017-01-01T00:00:00+01:00</lastmod>
     </url>
     
@@ -60,7 +68,7 @@
     
     <url>
     
-      <loc>/post/2015-05-05-osc-r-esci-tutorial/</loc>
+      <loc>https://anti-ism-ism.com/post/2015-05-05-osc-r-esci-tutorial/</loc>
       <lastmod>2015-05-05T12:00:00+00:00</lastmod>
     </url>
     
@@ -68,7 +76,7 @@
     
     <url>
     
-      <loc>/post/2015-03-07-time-money-morality/</loc>
+      <loc>https://anti-ism-ism.com/post/2015-03-07-time-money-morality/</loc>
       <lastmod>2015-03-07T12:00:00+00:00</lastmod>
     </url>
     
@@ -76,7 +84,7 @@
     
     <url>
     
-      <loc>/tags/3pr/</loc>
+      <loc>https://anti-ism-ism.com/tags/3pr/</loc>
       <lastmod>2015-05-05T12:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -85,7 +93,7 @@
     
     <url>
     
-      <loc>/tags/anomalous-diffusion/</loc>
+      <loc>https://anti-ism-ism.com/tags/anomalous-diffusion/</loc>
       <lastmod>2017-05-19T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -94,7 +102,7 @@
     
     <url>
     
-      <loc>/categories/</loc>
+      <loc>https://anti-ism-ism.com/categories/</loc>
       <priority>0</priority>
     </url>
     
@@ -102,7 +110,16 @@
     
     <url>
     
-      <loc>/tags/esci/</loc>
+      <loc>https://anti-ism-ism.com/tags/chaos-game/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/esci/</loc>
       <lastmod>2015-05-05T12:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -111,7 +128,7 @@
     
     <url>
     
-      <loc>/tags/ergodicity/</loc>
+      <loc>https://anti-ism-ism.com/tags/ergodicity/</loc>
       <lastmod>2017-05-19T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -120,7 +137,25 @@
     
     <url>
     
-      <loc>/categories/hibar/</loc>
+      <loc>https://anti-ism-ism.com/categories/fractals/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/gaussian-self-affinity/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/categories/hibar/</loc>
       <lastmod>2015-05-05T12:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -129,7 +164,7 @@
     
     <url>
     
-      <loc>/tags/hibar/</loc>
+      <loc>https://anti-ism-ism.com/tags/hibar/</loc>
       <lastmod>2015-05-05T12:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -138,7 +173,7 @@
     
     <url>
     
-      <loc>/tags/homogeneity/</loc>
+      <loc>https://anti-ism-ism.com/tags/homogeneity/</loc>
       <lastmod>2017-05-19T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -147,7 +182,34 @@
     
     <url>
     
-      <loc>/tags/ordered-categorical/</loc>
+      <loc>https://anti-ism-ism.com/tags/iterated-function-systems/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/numberphile/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/order-generation/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/ordered-categorical/</loc>
       <lastmod>2015-03-07T12:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -156,7 +218,7 @@
     
     <url>
     
-      <loc>/publication_types/</loc>
+      <loc>https://anti-ism-ism.com/publication_types/</loc>
       <priority>0</priority>
     </url>
     
@@ -164,7 +226,31 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
+      <loc>https://anti-ism-ism.com/categories/r/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/slides/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/slides/example-slides/</loc>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/stationarity/</loc>
       <lastmod>2017-05-19T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -173,22 +259,7 @@
     
     <url>
     
-      <loc>/slides/</loc>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/slides/example-slides/</loc>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/tags/stationarity/</loc>
+      <loc>https://anti-ism-ism.com/tags/structural-decomposition/</loc>
       <lastmod>2017-05-19T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -197,16 +268,7 @@
     
     <url>
     
-      <loc>/tags/structural-decomposition/</loc>
-      <lastmod>2017-05-19T09:50:02-07:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/tags/</loc>
+      <loc>https://anti-ism-ism.com/tags/</loc>
       <lastmod>2015-05-05T12:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -215,7 +277,7 @@
     
     <url>
     
-      <loc>/categories/time-series-analysis/</loc>
+      <loc>https://anti-ism-ism.com/categories/time-series-analysis/</loc>
       <lastmod>2017-05-19T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -224,7 +286,7 @@
     
     <url>
     
-      <loc>/tags/tutorial/</loc>
+      <loc>https://anti-ism-ism.com/tags/tutorial/</loc>
       <lastmod>2015-05-05T12:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -233,8 +295,8 @@
     
     <url>
     
-      <loc>/categories/accidental-mathematician/</loc>
-      <lastmod>2017-05-09T09:50:02-07:00</lastmod>
+      <loc>https://anti-ism-ism.com/categories/accidental-mathematician/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -242,7 +304,7 @@
     
     <url>
     
-      <loc>/</loc>
+      <loc>https://anti-ism-ism.com/</loc>
       <lastmod>2017-10-15T00:00:00+02:00</lastmod>
       <priority>0</priority>
     </url>
@@ -251,7 +313,7 @@
     
     <url>
     
-      <loc>/tags/dont-debate...educate/</loc>
+      <loc>https://anti-ism-ism.com/tags/dont-debate...educate/</loc>
       <lastmod>2017-03-03T16:35:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -260,7 +322,7 @@
     
     <url>
     
-      <loc>/tags/e/</loc>
+      <loc>https://anti-ism-ism.com/tags/e/</loc>
       <lastmod>2017-05-09T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -269,7 +331,7 @@
     
     <url>
     
-      <loc>/tags/joe-rogan/</loc>
+      <loc>https://anti-ism-ism.com/tags/joe-rogan/</loc>
       <lastmod>2017-03-03T16:35:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -278,7 +340,7 @@
     
     <url>
     
-      <loc>/tags/neil-degrasse-tyson/</loc>
+      <loc>https://anti-ism-ism.com/tags/neil-degrasse-tyson/</loc>
       <lastmod>2017-03-03T16:35:02-07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -287,7 +349,7 @@
     
     <url>
     
-      <loc>/tags/pandigital-function/</loc>
+      <loc>https://anti-ism-ism.com/tags/pandigital-function/</loc>
       <lastmod>2017-05-09T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>

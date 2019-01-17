@@ -2,48 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on anti-ism-ism</title>
-    <link>/categories/</link>
+    <link>https://anti-ism-ism.com/categories/</link>
     <description>Recent content in Categories on anti-ism-ism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Fred Hasselman</copyright>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://anti-ism-ism.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Fractals</title>
+      <link>https://anti-ism-ism.com/categories/fractals/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/categories/fractals/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>HIBAR</title>
-      <link>/categories/hibar/</link>
+      <link>https://anti-ism-ism.com/categories/hibar/</link>
       <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
-      <guid>/categories/hibar/</guid>
+      <guid>https://anti-ism-ism.com/categories/hibar/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/categories/r/</link>
-      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
+      <link>https://anti-ism-ism.com/categories/r/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/r/</guid>
+      <guid>https://anti-ism-ism.com/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Time Series Analysis</title>
-      <link>/categories/time-series-analysis/</link>
+      <link>https://anti-ism-ism.com/categories/time-series-analysis/</link>
       <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/categories/time-series-analysis/</guid>
+      <guid>https://anti-ism-ism.com/categories/time-series-analysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>accidental mathematician</title>
-      <link>/categories/accidental-mathematician/</link>
-      <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
+      <link>https://anti-ism-ism.com/categories/accidental-mathematician/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/accidental-mathematician/</guid>
+      <guid>https://anti-ism-ism.com/categories/accidental-mathematician/</guid>
       <description></description>
     </item>
     

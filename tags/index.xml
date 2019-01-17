@@ -2,148 +2,193 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on anti-ism-ism</title>
-    <link>/tags/</link>
+    <link>https://anti-ism-ism.com/tags/</link>
     <description>Recent content in Tags on anti-ism-ism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Fred Hasselman</copyright>
     <lastBuildDate>Tue, 05 May 2015 12:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://anti-ism-ism.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>3PR</title>
-      <link>/tags/3pr/</link>
+      <link>https://anti-ism-ism.com/tags/3pr/</link>
       <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
-      <guid>/tags/3pr/</guid>
+      <guid>https://anti-ism-ism.com/tags/3pr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Anomalous Diffusion</title>
-      <link>/tags/anomalous-diffusion/</link>
+      <link>https://anti-ism-ism.com/tags/anomalous-diffusion/</link>
       <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/tags/anomalous-diffusion/</guid>
+      <guid>https://anti-ism-ism.com/tags/anomalous-diffusion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chaos Game</title>
+      <link>https://anti-ism-ism.com/tags/chaos-game/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/chaos-game/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ESCI</title>
-      <link>/tags/esci/</link>
+      <link>https://anti-ism-ism.com/tags/esci/</link>
       <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
-      <guid>/tags/esci/</guid>
+      <guid>https://anti-ism-ism.com/tags/esci/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ergodicity</title>
-      <link>/tags/ergodicity/</link>
+      <link>https://anti-ism-ism.com/tags/ergodicity/</link>
       <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/tags/ergodicity/</guid>
+      <guid>https://anti-ism-ism.com/tags/ergodicity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gaussian Self-Affinity</title>
+      <link>https://anti-ism-ism.com/tags/gaussian-self-affinity/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/gaussian-self-affinity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HIBAR</title>
-      <link>/tags/hibar/</link>
+      <link>https://anti-ism-ism.com/tags/hibar/</link>
       <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
-      <guid>/tags/hibar/</guid>
+      <guid>https://anti-ism-ism.com/tags/hibar/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Homogeneity</title>
-      <link>/tags/homogeneity/</link>
+      <link>https://anti-ism-ism.com/tags/homogeneity/</link>
       <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/tags/homogeneity/</guid>
+      <guid>https://anti-ism-ism.com/tags/homogeneity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iterated Function Systems</title>
+      <link>https://anti-ism-ism.com/tags/iterated-function-systems/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/iterated-function-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Numberphile</title>
+      <link>https://anti-ism-ism.com/tags/numberphile/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/numberphile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Order Generation</title>
+      <link>https://anti-ism-ism.com/tags/order-generation/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/order-generation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ordered Categorical</title>
-      <link>/tags/ordered-categorical/</link>
+      <link>https://anti-ism-ism.com/tags/ordered-categorical/</link>
       <pubDate>Sat, 07 Mar 2015 12:00:00 +0000</pubDate>
       
-      <guid>/tags/ordered-categorical/</guid>
+      <guid>https://anti-ism-ism.com/tags/ordered-categorical/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Stationarity</title>
-      <link>/tags/stationarity/</link>
+      <link>https://anti-ism-ism.com/tags/stationarity/</link>
       <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/tags/stationarity/</guid>
+      <guid>https://anti-ism-ism.com/tags/stationarity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Structural Decomposition</title>
-      <link>/tags/structural-decomposition/</link>
+      <link>https://anti-ism-ism.com/tags/structural-decomposition/</link>
       <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/tags/structural-decomposition/</guid>
+      <guid>https://anti-ism-ism.com/tags/structural-decomposition/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tutorial</title>
-      <link>/tags/tutorial/</link>
+      <link>https://anti-ism-ism.com/tags/tutorial/</link>
       <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
-      <guid>/tags/tutorial/</guid>
+      <guid>https://anti-ism-ism.com/tags/tutorial/</guid>
       <description></description>
     </item>
     
     <item>
       <title>don&#39;t debate...educate!</title>
-      <link>/tags/dont-debate...educate/</link>
+      <link>https://anti-ism-ism.com/tags/dont-debate...educate/</link>
       <pubDate>Fri, 03 Mar 2017 16:35:02 -0700</pubDate>
       
-      <guid>/tags/dont-debate...educate/</guid>
+      <guid>https://anti-ism-ism.com/tags/dont-debate...educate/</guid>
       <description></description>
     </item>
     
     <item>
       <title>e</title>
-      <link>/tags/e/</link>
+      <link>https://anti-ism-ism.com/tags/e/</link>
       <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/tags/e/</guid>
+      <guid>https://anti-ism-ism.com/tags/e/</guid>
       <description></description>
     </item>
     
     <item>
       <title>joe rogan</title>
-      <link>/tags/joe-rogan/</link>
+      <link>https://anti-ism-ism.com/tags/joe-rogan/</link>
       <pubDate>Fri, 03 Mar 2017 16:35:02 -0700</pubDate>
       
-      <guid>/tags/joe-rogan/</guid>
+      <guid>https://anti-ism-ism.com/tags/joe-rogan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>neil degrasse tyson</title>
-      <link>/tags/neil-degrasse-tyson/</link>
+      <link>https://anti-ism-ism.com/tags/neil-degrasse-tyson/</link>
       <pubDate>Fri, 03 Mar 2017 16:35:02 -0700</pubDate>
       
-      <guid>/tags/neil-degrasse-tyson/</guid>
+      <guid>https://anti-ism-ism.com/tags/neil-degrasse-tyson/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pandigital function</title>
-      <link>/tags/pandigital-function/</link>
+      <link>https://anti-ism-ism.com/tags/pandigital-function/</link>
       <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/tags/pandigital-function/</guid>
+      <guid>https://anti-ism-ism.com/tags/pandigital-function/</guid>
       <description></description>
     </item>
     

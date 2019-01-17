@@ -2,22 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>accidental mathematician on anti-ism-ism</title>
-    <link>/categories/accidental-mathematician/</link>
+    <link>https://anti-ism-ism.com/categories/accidental-mathematician/</link>
     <description>Recent content in accidental mathematician on anti-ism-ism</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Fred Hasselman</copyright>
-    <lastBuildDate>Tue, 09 May 2017 09:50:02 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/accidental-mathematician/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://anti-ism-ism.com/categories/accidental-mathematician/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>The Chaos GameR</title>
+      <link>https://anti-ism-ism.com/post/the-chaos-gamer/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/post/the-chaos-gamer/</guid>
+      <description>The Chaos Game In this excellent Numberphile video Ben Sparks demonstrates how to generate a fractal structure (the Sierpinsky Triangle) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from \(\mathcal{U}(1,6)\).
+HUGOMORE42    Generating Order by Constraining Randomness This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about reality to be learned here.</description>
+    </item>
+    
+    <item>
       <title>Reproduce $e$ to $18,457,734,525,360,901,453,873,570$ decimal places!</title>
-      <link>/post/2017-05-09-pandigital-numbers-and-functions/</link>
+      <link>https://anti-ism-ism.com/post/2017-05-09-pandigital-numbers-and-functions/</link>
       <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>/post/2017-05-09-pandigital-numbers-and-functions/</guid>
+      <guid>https://anti-ism-ism.com/post/2017-05-09-pandigital-numbers-and-functions/</guid>
       <description>Why?
 No reason, this is the accidental mathematician category.
 Pandigital numbers Pandigital numbers aren’t that special, it’s a number that has all digits from 1-9, or, 0-9 in it.
