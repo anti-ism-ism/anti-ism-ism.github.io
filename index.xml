@@ -34,8 +34,12 @@ HUGOMORE42
 &lt;/div&gt;
 &lt;div id=&#34;generating-order-by-constraining-randomness&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;strong&gt;Generating Order by Constraining Randomness&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about reality to be learned here. Another way of saying &lt;em&gt;constraining randomness by imposing rules&lt;/em&gt; is &lt;em&gt;restricting the degrees of freedom two (sub)systems have for generating behaviour by coupling their dynamics&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Of course the “coupling” here is rather artificial, but one can think of it as giving meaning to the probability of a set of events occurring. Like with models of growth, the rules of the fractal game can be made dependent on other processes or events. A great example are the so-called &lt;a href=&#34;https://en.wikipedia.org/wiki/Fractal_flame&#34;&gt;fractal flames&lt;/a&gt; implemented in a screen-saver called &lt;a href=&#34;http://www.electricsheep.org&#34;&gt;&lt;em&gt;electric sheep&lt;/em&gt;&lt;/a&gt;, which combines genetic algorithms, distributed computing and user input (“likes”) to create intruiging visual patterns on your computer screen.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about structure of reality to be uncovered here. Another way of saying &lt;em&gt;constraining randomness by imposing rules&lt;/em&gt; is &lt;em&gt;restricting the degrees of freedom each individual system has for generating behaviour, by coupling their dynamics&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Of course the “coupling” here is rather artificial, and it is not strictly the case that each system is constrained in their behaviour (e.g. the die will still generate uniformly distributed 1,2,3,4,5,6 events). One can think of it as giving meaning to the probability of a set of events occurring by introducing an association (a redundancy)&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; to the occurrence of phenomena in “another world”. In this case the other world is a 2D plane upon which dots can appear and the Sierpinsky Triangle is an expression of the association that was introduced by the coupling of the “different worlds”. This is often referred to as the emergence of order:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“order is essentially the arrival of redundancy in a system, a reduction of possibilities” - von Foerster (2003)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Like with models of growth, the rules of the Chaos Game can be made dependent on other processes or events to make them less of an abstraction, or, to increase the complexity of the outcome. A great example of the latter are the so-called &lt;a href=&#34;https://en.wikipedia.org/wiki/Fractal_flame&#34;&gt;fractal flames&lt;/a&gt; implemented in a screen-saver called &lt;a href=&#34;http://www.electricsheep.org&#34;&gt;&lt;em&gt;electric sheep&lt;/em&gt;&lt;/a&gt;, which combines genetic algorithms, distributed computing and user input (“likes”) to create intruiging visual patterns on your computer screen.&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;!--more--&gt;
 
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
@@ -50,11 +54,11 @@ HUGOMORE42
 &lt;li&gt;Chaos Game Geogebra file: &lt;a href=&#34;https://www.geogebra.org/m/yr2XXPms&#34; class=&#34;uri&#34;&gt;https://www.geogebra.org/m/yr2XXPms&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Barnsley Fern Geogebra file: &lt;a href=&#34;https://www.geogebra.org/m/bQ8ppzRj&#34; class=&#34;uri&#34;&gt;https://www.geogebra.org/m/bQ8ppzRj&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Below are examples of so-called &lt;em&gt;Iterated Function Systems&lt;/em&gt;, copy the code and run it in &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Below are examples of so-called &lt;em&gt;Iterated Function Systems&lt;/em&gt; implemented in &lt;code&gt;R&lt;/code&gt;, just copy the code and run!&lt;/p&gt;
 &lt;p&gt;Try to understand what is going on in the two examples below:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;How does the structure come about? (look at the different colours)&lt;/li&gt;
-&lt;li&gt;What’s the difference between the Siepinsky Gasket and the Fern?&lt;/li&gt;
+&lt;li&gt;What is creating the structure at the level of the whole? (also look at the different colours)&lt;/li&gt;
+&lt;li&gt;What’s the difference between the Siepinsky Gasket and the Fern? (if any)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;a-triangle&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;A Triangle&lt;/h3&gt;
@@ -147,7 +151,7 @@ for(i in 1:50000){      # This takes some time: 20.000 iterations
     
 } # for ...&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://anti-ism-ism.com/post/2019-01-17-the-chaos-gamer_files/figure-html/fern-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;These &lt;a href=&#34;https://en.wikipedia.org/wiki/Iterated_function_system&#34;&gt;Iterated Function Systems&lt;/a&gt; also go by the name of ‘the fractal game’ and are used in computer science, the gaming industry, graphic design, etc.&lt;/p&gt;
+&lt;p&gt;These &lt;a href=&#34;https://en.wikipedia.org/wiki/Iterated_function_system&#34;&gt;Iterated Function Systems&lt;/a&gt; also go by the name of &lt;em&gt;the Fractal Game&lt;/em&gt; and are used in computer science, the gaming industry, graphic design, etc.&lt;/p&gt;
 &lt;p&gt;This Wikipedia page on &lt;a href=&#34;https://en.wikipedia.org/wiki/Barnsley_fern&#34;&gt;Barnsley’s fern&lt;/a&gt; has some good info on the topic. At the end they display &lt;em&gt;Mutant varieties&lt;/em&gt;. Try to implement them!&lt;/p&gt;
 &lt;p&gt;天&lt;/p&gt;
 &lt;/div&gt;
@@ -155,7 +159,8 @@ for(i in 1:50000){      # This takes some time: 20.000 iterations
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Use at your own risk! You will find yourself silently staring at the screen for longer periods of time.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Whether one calls this a rule, a reducndancy, a correlation, an association, a coupling, an interaction, etc. is irrelvant. These words express that distinct aspects of reality are to some extent similar in structure and/or behaviour&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Use at your own risk! You will find yourself silently staring at the screen for longer periods of time.&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>

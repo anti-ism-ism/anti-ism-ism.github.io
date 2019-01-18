@@ -16,7 +16,7 @@
     
   
   <meta name="description" content="The Chaos Game In this excellent Numberphile video Ben Sparks demonstrates how to generate a fractal structure (the Sierpinsky Triangle) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from \(\mathcal{U}(1,6)\).
-HUGOMORE42    Generating Order by Constraining Randomness This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about reality to be learned here.">
+HUGOMORE42    Generating Order by Constraining Randomness This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about structure of reality to be uncovered here.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://anti-ism-ism.com/post/the-chaos-gamer/">
@@ -108,7 +108,7 @@ HUGOMORE42    Generating Order by Constraining Randomness This result may seem l
   <meta property="og:url" content="https://anti-ism-ism.com/post/the-chaos-gamer/">
   <meta property="og:title" content="The Chaos GameR | anti-ism-ism">
   <meta property="og:description" content="The Chaos Game In this excellent Numberphile video Ben Sparks demonstrates how to generate a fractal structure (the Sierpinsky Triangle) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from \(\mathcal{U}(1,6)\).
-HUGOMORE42    Generating Order by Constraining Randomness This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about reality to be learned here."><meta property="og:image" content="https://anti-ism-ism.com/img/headers/chaosgame.png">
+HUGOMORE42    Generating Order by Constraining Randomness This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about structure of reality to be uncovered here."><meta property="og:image" content="https://anti-ism-ism.com/img/headers/chaosgame.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-01-17T00:00:00&#43;00:00">
@@ -429,8 +429,12 @@ HUGOMORE42
 </div>
 <div id="generating-order-by-constraining-randomness" class="section level2">
 <h2><strong>Generating Order by Constraining Randomness</strong></h2>
-<p>This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about reality to be learned here. Another way of saying <em>constraining randomness by imposing rules</em> is <em>restricting the degrees of freedom two (sub)systems have for generating behaviour by coupling their dynamics</em>.</p>
-<p>Of course the “coupling” here is rather artificial, but one can think of it as giving meaning to the probability of a set of events occurring. Like with models of growth, the rules of the fractal game can be made dependent on other processes or events. A great example are the so-called <a href="https://en.wikipedia.org/wiki/Fractal_flame">fractal flames</a> implemented in a screen-saver called <a href="http://www.electricsheep.org"><em>electric sheep</em></a>, which combines genetic algorithms, distributed computing and user input (“likes”) to create intruiging visual patterns on your computer screen.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about structure of reality to be uncovered here. Another way of saying <em>constraining randomness by imposing rules</em> is <em>restricting the degrees of freedom each individual system has for generating behaviour, by coupling their dynamics</em>.</p>
+<p>Of course the “coupling” here is rather artificial, and it is not strictly the case that each system is constrained in their behaviour (e.g. the die will still generate uniformly distributed 1,2,3,4,5,6 events). One can think of it as giving meaning to the probability of a set of events occurring by introducing an association (a redundancy)<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> to the occurrence of phenomena in “another world”. In this case the other world is a 2D plane upon which dots can appear and the Sierpinsky Triangle is an expression of the association that was introduced by the coupling of the “different worlds”. This is often referred to as the emergence of order:</p>
+<blockquote>
+<p>“order is essentially the arrival of redundancy in a system, a reduction of possibilities” - von Foerster (2003)</p>
+</blockquote>
+<p>Like with models of growth, the rules of the Chaos Game can be made dependent on other processes or events to make them less of an abstraction, or, to increase the complexity of the outcome. A great example of the latter are the so-called <a href="https://en.wikipedia.org/wiki/Fractal_flame">fractal flames</a> implemented in a screen-saver called <a href="http://www.electricsheep.org"><em>electric sheep</em></a>, which combines genetic algorithms, distributed computing and user input (“likes”) to create intruiging visual patterns on your computer screen.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
 <!--more-->
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -445,11 +449,11 @@ HUGOMORE42
 <li>Chaos Game Geogebra file: <a href="https://www.geogebra.org/m/yr2XXPms" class="uri">https://www.geogebra.org/m/yr2XXPms</a></li>
 <li>Barnsley Fern Geogebra file: <a href="https://www.geogebra.org/m/bQ8ppzRj" class="uri">https://www.geogebra.org/m/bQ8ppzRj</a></li>
 </ul>
-<p>Below are examples of so-called <em>Iterated Function Systems</em>, copy the code and run it in <code>R</code></p>
+<p>Below are examples of so-called <em>Iterated Function Systems</em> implemented in <code>R</code>, just copy the code and run!</p>
 <p>Try to understand what is going on in the two examples below:</p>
 <ul>
-<li>How does the structure come about? (look at the different colours)</li>
-<li>What’s the difference between the Siepinsky Gasket and the Fern?</li>
+<li>What is creating the structure at the level of the whole? (also look at the different colours)</li>
+<li>What’s the difference between the Siepinsky Gasket and the Fern? (if any)</li>
 </ul>
 <div id="a-triangle" class="section level3">
 <h3>A Triangle</h3>
@@ -542,7 +546,7 @@ for(i in 1:50000){      # This takes some time: 20.000 iterations
     
 } # for ...</code></pre>
 <p><img src="/post/2019-01-17-the-chaos-gamer_files/figure-html/fern-1.png" width="384" /></p>
-<p>These <a href="https://en.wikipedia.org/wiki/Iterated_function_system">Iterated Function Systems</a> also go by the name of ‘the fractal game’ and are used in computer science, the gaming industry, graphic design, etc.</p>
+<p>These <a href="https://en.wikipedia.org/wiki/Iterated_function_system">Iterated Function Systems</a> also go by the name of <em>the Fractal Game</em> and are used in computer science, the gaming industry, graphic design, etc.</p>
 <p>This Wikipedia page on <a href="https://en.wikipedia.org/wiki/Barnsley_fern">Barnsley’s fern</a> has some good info on the topic. At the end they display <em>Mutant varieties</em>. Try to implement them!</p>
 <p>天</p>
 </div>
@@ -550,7 +554,8 @@ for(i in 1:50000){      # This takes some time: 20.000 iterations
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Use at your own risk! You will find yourself silently staring at the screen for longer periods of time.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Whether one calls this a rule, a reducndancy, a correlation, an association, a coupling, an interaction, etc. is irrelvant. These words express that distinct aspects of reality are to some extent similar in structure and/or behaviour<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Use at your own risk! You will find yourself silently staring at the screen for longer periods of time.<a href="#fnref2">↩</a></p></li>
 </ol>
 </div>
 
