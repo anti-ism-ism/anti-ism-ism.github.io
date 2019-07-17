@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>anti-ism-ism on anti-ism-ism</title>
@@ -7,7 +6,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Fred Hasselman</copyright>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jan 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -16,21 +15,7 @@
       <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://anti-ism-ism.com/post/the-chaos-gamer/</guid>
-      <description>
-
-
-&lt;div id=&#34;the-chaos-game&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;The Chaos Game&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;In this excellent &lt;a href=&#34;https://www.youtube.com/channel/UCoxcjq-8xIDTYp3uz647V5A&#34;&gt;Numberphile&lt;/a&gt; video Ben Sparks demonstrates how to generate a fractal structure (the &lt;a href=&#34;https://en.wikipedia.org/wiki/Sierpinski_triangle&#34;&gt;Sierpinsky Triangle&lt;/a&gt;) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{U}(1,6)\)&lt;/span&gt;.&lt;/p&gt;
-
-
-HUGOMORE42
-
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/kbKtFN71Lfs&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
+      <description>{{&lt; youtube kbKtFN71Lfs &gt;}}
 &lt;/div&gt;
 &lt;div id=&#34;generating-order-by-constraining-randomness&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;strong&gt;Generating Order by Constraining Randomness&lt;/strong&gt;&lt;/h2&gt;
@@ -41,11 +26,7 @@ HUGOMORE42
 &lt;/blockquote&gt;
 &lt;p&gt;Like with models of growth, the rules of the Chaos Game can be made dependent on other processes or events to make them less of an abstraction, or, to increase the complexity of the outcome. A great example of the latter are the so-called &lt;a href=&#34;https://en.wikipedia.org/wiki/Fractal_flame&#34;&gt;fractal flames&lt;/a&gt; implemented in a screen-saver called &lt;a href=&#34;http://www.electricsheep.org&#34;&gt;&lt;em&gt;electric sheep&lt;/em&gt;&lt;/a&gt;, which combines genetic algorithms, distributed computing and user input (“likes”) to create intruiging visual patterns on your computer screen.&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;!--more--&gt;
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/d9XCIQK0sK0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
+{{&lt; youtube d9XCIQK0sK0 &gt;}}
 &lt;/div&gt;
 &lt;div id=&#34;iterated-function-systems-in-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;strong&gt;Iterated Function Systems in R&lt;/strong&gt;&lt;/h2&gt;
@@ -223,11 +204,10 @@ for(i in 1:50000){      # This takes some time: 20.000 iterations
 &lt;/blockquote&gt;
 &lt;p&gt;To summarise, when non-ergodicity, non-stationarity and ageing play a role in the timeseries measurements of variables of interest, one cannot rely on ensemble statistics to yield valid inferences, in fact they should be considered &lt;strong&gt;treacherous&lt;/strong&gt;, and individual time series averages are &lt;strong&gt;irreproducible&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;What follows are some tests that have been developped (in different scientific disciplines) to check assumptions of non-stationarity (and more).&lt;/p&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;p&gt;This is by no means an exhaustive account of tests (or even a strategy that I would use myself, but that is for another post).&lt;/p&gt;
-
+&lt;p&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
+   This is by no means an exhaustive account of tests (or even a strategy that I would use myself, but that is for another post). 
 &lt;/div&gt;
-
+&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;a-timeseries-of-daily-mood-down&#34; class=&#34;section level2&#34;&gt;
@@ -392,11 +372,10 @@ plot(cbind(fitted(fit), resids=resid(fit)), main= &amp;quot;Basic Structural Mod
 &lt;li&gt;Upward Trend (which is stationary)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This is likely a violation of the strong ergodic condition / strong memorylessness property:&lt;/p&gt;
-&lt;div class=&#34;alert alert-warning&#34;&gt;
-  &lt;p&gt;The statistical properties of a between-individual cross-sectional sample of the same theoretical process will be very different from a within-individual sample in a non-trivial way if the process can be considered to be some form of anomalous diffusion.&lt;/p&gt;
-
+&lt;p&gt;&lt;div class=&#34;alert alert-warning&#34;&gt;
+   The statistical properties of a between-individual cross-sectional sample of the same theoretical process will be very different from a within-individual sample in a non-trivial way if the process can be considered to be some form of anomalous diffusion. 
 &lt;/div&gt;
-
+&lt;/p&gt;
 &lt;p&gt;So, &lt;strong&gt;do not&lt;/strong&gt; use any analytic techniques that depend on the ESM data and underlying process to be stationary and ergodic if these tests indicate the assumptions are violated.&lt;/p&gt;
 &lt;div id=&#34;next-dynamics-in-state-space&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;strong&gt;NEXT: Dynamics in state space&lt;/strong&gt;&lt;/h2&gt;
@@ -505,45 +484,7 @@ gganimate(ga, interval=.2, &amp;quot;returnplot.gif&amp;quot;)&lt;/code&gt;&lt;/
       <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
       
       <guid>https://anti-ism-ism.com/post/2017-05-09-pandigital-numbers-and-functions/</guid>
-      <description>
-
-
-&lt;p&gt;Why?&lt;/p&gt;
-&lt;p&gt;No reason, this is the &lt;code&gt;accidental mathematician&lt;/code&gt; category.&lt;/p&gt;
-&lt;div id=&#34;pandigital-numbers&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Pandigital numbers&lt;/h2&gt;
-&lt;p&gt;Pandigital numbers aren’t that special, it’s a number that has all digits from 1-9, or, 0-9 in it.&lt;/p&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;p&gt;For example: 381654729 is a pandigital number (with some &lt;a href=&#34;https://youtu.be/gaVMrqzb91w?t=46s&#34;&gt;extra properties&lt;/a&gt;)&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div id=&#34;pandigital-functions&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Pandigital functions&lt;/h2&gt;
-&lt;p&gt;As Complexity Scientists (and musicians and artists in general) know:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Interesting things will happen when the degrees of freedom available to a system to generate its behaviour, are reduced.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Now, the pandigital constraint can become very interesting when applied to functions, or rather, mathematical operators. The rules are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Take a &lt;em&gt;pandigital&lt;/em&gt; number&lt;/li&gt;
-&lt;li&gt;Stick any mathematical operator between any cluster of digits&lt;/li&gt;
-&lt;li&gt;Attempt to get an interesting outcome&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Turns out such a pandigital formula is able to approximate the trancendental number &lt;span class=&#34;math inline&#34;&gt;\(e\)&lt;/span&gt; with uncanny precision!&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[e\approx\left (1 + 9^{-4^{6*7}} \right)^{3^{2^{85}}}\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;It was discovered by &lt;a href=&#34;http://www2.stetson.edu/~efriedma/mathmagic/0804.html&#34;&gt;Richard Sabey in 2004&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The &lt;strong&gt;Numberphile&lt;/strong&gt; channel has a great video on it:&lt;/p&gt;
-
-
-HUGOMORE42
-
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/xgBGibfLD-U&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
+      <description>{{&lt; youtube xgBGibfLD-U &gt;}}
 &lt;p&gt;天&lt;/p&gt;
 &lt;/div&gt;
 </description>
@@ -1480,14 +1421,14 @@ $$&lt;/p&gt;
 
 &lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&#34;fragment &#34; &gt;
-  One
+&lt;p&gt;&lt;span class=&#34;fragment &#34; &gt;&lt;br /&gt;
+   One&lt;br /&gt;
 &lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-  &lt;strong&gt;Two&lt;/strong&gt;
+&lt;span class=&#34;fragment &#34; &gt;&lt;br /&gt;
+   &lt;strong&gt;Two&lt;/strong&gt;&lt;br /&gt;
 &lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-  Three
+&lt;span class=&#34;fragment &#34; &gt;&lt;br /&gt;
+   Three&lt;br /&gt;
 &lt;/span&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1519,7 +1460,6 @@ $$&lt;/p&gt;
 &lt;li&gt;Only the speaker can read these notes&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;/aside&gt;
 
 &lt;hr /&gt;

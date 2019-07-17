@@ -1,108 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     
     <url>
     
-      <loc>https://anti-ism-ism.com/post/the-chaos-gamer/</loc>
-      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/tutorial/</loc>
-      <lastmod>2018-09-09T00:00:00+02:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</loc>
-      <lastmod>2017-05-19T09:50:02-07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/post/2017-05-09-pandigital-numbers-and-functions/</loc>
-      <lastmod>2017-05-09T09:50:02-07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/post/2017-03-02-oh-right-i-used-to-blog/</loc>
-      <lastmod>2017-03-03T16:35:02-07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/post/</loc>
-      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/publication/</loc>
-      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/talk/</loc>
-      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/post/2015-05-05-osc-r-esci-tutorial/</loc>
-      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/post/2015-03-07-time-money-morality/</loc>
-      <lastmod>2015-03-07T12:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/tags/3pr/</loc>
-      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/tags/anomalous-diffusion/</loc>
-      <lastmod>2017-05-19T09:50:02-07:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://anti-ism-ism.com/categories/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -112,24 +14,6 @@
     
       <loc>https://anti-ism-ism.com/tags/chaos-game/</loc>
       <lastmod>2019-01-17T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/tags/esci/</loc>
-      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/tags/ergodicity/</loc>
-      <lastmod>2017-05-19T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -148,33 +32,6 @@
     
       <loc>https://anti-ism-ism.com/tags/gaussian-self-affinity/</loc>
       <lastmod>2019-01-17T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/tags/hibar/</loc>
-      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/categories/hibar/</loc>
-      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/tags/homogeneity/</loc>
-      <lastmod>2017-05-19T09:50:02-07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -209,23 +66,6 @@
     
     <url>
     
-      <loc>https://anti-ism-ism.com/tags/ordered-categorical/</loc>
-      <lastmod>2015-03-07T12:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/publication_types/</loc>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://anti-ism-ism.com/categories/r/</loc>
       <lastmod>2019-01-17T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -235,7 +75,8 @@
     
     <url>
     
-      <loc>https://anti-ism-ism.com/slides/</loc>
+      <loc>https://anti-ism-ism.com/tags/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -243,7 +84,61 @@
     
     <url>
     
-      <loc>https://anti-ism-ism.com/slides/example-slides/</loc>
+      <loc>https://anti-ism-ism.com/post/the-chaos-gamer/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/categories/accidental-mathematician/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/</loc>
+      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tutorial/</loc>
+      <lastmod>2018-09-09T00:00:00+02:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/anomalous-diffusion/</loc>
+      <lastmod>2017-05-19T09:50:02-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/ergodicity/</loc>
+      <lastmod>2017-05-19T09:50:02-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/homogeneity/</loc>
+      <lastmod>2017-05-19T09:50:02-07:00</lastmod>
+      <priority>0</priority>
     </url>
     
   
@@ -268,9 +163,8 @@
     
     <url>
     
-      <loc>https://anti-ism-ism.com/tags/</loc>
-      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
-      <priority>0</priority>
+      <loc>https://anti-ism-ism.com/post/2017-05-19-testing-assumptions-of-the-data-generating-process-underlying-experience-sampling/</loc>
+      <lastmod>2017-05-19T09:50:02-07:00</lastmod>
     </url>
     
   
@@ -286,36 +180,8 @@
     
     <url>
     
-      <loc>https://anti-ism-ism.com/tags/tutorial/</loc>
-      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/categories/accidental-mathematician/</loc>
-      <lastmod>2019-01-17T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/</loc>
-      <lastmod>2017-10-15T00:00:00+02:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://anti-ism-ism.com/tags/dont-debate...educate/</loc>
-      <lastmod>2017-03-03T16:35:02-07:00</lastmod>
-      <priority>0</priority>
+      <loc>https://anti-ism-ism.com/post/2017-05-09-pandigital-numbers-and-functions/</loc>
+      <lastmod>2017-05-09T09:50:02-07:00</lastmod>
     </url>
     
   
@@ -324,6 +190,32 @@
     
       <loc>https://anti-ism-ism.com/tags/e/</loc>
       <lastmod>2017-05-09T09:50:02-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/pandigital-function/</loc>
+      <lastmod>2017-05-09T09:50:02-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/post/2017-03-02-oh-right-i-used-to-blog/</loc>
+      <lastmod>2017-03-03T16:35:02-07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/dont-debate...educate/</loc>
+      <lastmod>2017-03-03T16:35:02-07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -349,9 +241,117 @@
     
     <url>
     
-      <loc>https://anti-ism-ism.com/tags/pandigital-function/</loc>
-      <lastmod>2017-05-09T09:50:02-07:00</lastmod>
+      <loc>https://anti-ism-ism.com/post/</loc>
+      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/publication/</loc>
+      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/talk/</loc>
+      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/3pr/</loc>
+      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
       <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/esci/</loc>
+      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/categories/hibar/</loc>
+      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/hibar/</loc>
+      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/post/2015-05-05-osc-r-esci-tutorial/</loc>
+      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/tutorial/</loc>
+      <lastmod>2015-05-05T12:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/tags/ordered-categorical/</loc>
+      <lastmod>2015-03-07T12:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/post/2015-03-07-time-money-morality/</loc>
+      <lastmod>2015-03-07T12:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/publication_types/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/slides/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://anti-ism-ism.com/slides/example-slides/</loc>
     </url>
     
   

@@ -18,8 +18,13 @@
       <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://anti-ism-ism.com/post/the-chaos-gamer/</guid>
-      <description>The Chaos Game In this excellent Numberphile video Ben Sparks demonstrates how to generate a fractal structure (the Sierpinsky Triangle) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from \(\mathcal{U}(1,6)\).
-HUGOMORE42    Generating Order by Constraining Randomness This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about structure of reality to be uncovered here.</description>
+      <description>
+
+
+&lt;div id=&#34;the-chaos-game&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;The Chaos Game&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;In this excellent &lt;a href=&#34;https://www.youtube.com/channel/UCoxcjq-8xIDTYp3uz647V5A&#34;&gt;Numberphile&lt;/a&gt; video Ben Sparks demonstrates how to generate a fractal structure (the &lt;a href=&#34;https://en.wikipedia.org/wiki/Sierpinski_triangle&#34;&gt;Sierpinsky Triangle&lt;/a&gt;) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{U}(1,6)\)&lt;/span&gt;.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

@@ -18,8 +18,13 @@
       <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://anti-ism-ism.com/post/the-chaos-gamer/</guid>
-      <description>The Chaos Game In this excellent Numberphile video Ben Sparks demonstrates how to generate a fractal structure (the Sierpinsky Triangle) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from \(\mathcal{U}(1,6)\).
-HUGOMORE42    Generating Order by Constraining Randomness This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about structure of reality to be uncovered here.</description>
+      <description>
+
+
+&lt;div id=&#34;the-chaos-game&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;The Chaos Game&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;In this excellent &lt;a href=&#34;https://www.youtube.com/channel/UCoxcjq-8xIDTYp3uz647V5A&#34;&gt;Numberphile&lt;/a&gt; video Ben Sparks demonstrates how to generate a fractal structure (the &lt;a href=&#34;https://en.wikipedia.org/wiki/Sierpinski_triangle&#34;&gt;Sierpinsky Triangle&lt;/a&gt;) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{U}(1,6)\)&lt;/span&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -37,8 +42,7 @@ HUGOMORE42    Generating Order by Constraining Randomness This result may seem l
       <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
       <guid>https://anti-ism-ism.com/post/2015-05-05-osc-r-esci-tutorial/</guid>
-      <description>Using R to Compute Effect Size Confidence Intervals This is a demonstration of using R in the context of hypothesis testing by means of Effect Size Confidence Intervals. In other words, we’ll calculate confidence intervals based on the distribution of a test statistic under the assumption that \(H_0\) is false, the noncentral distribution of a test statistic.
-Discrete distributions: Count data and proportions  Discrete CI ≠ Approximately Continuous CI Noncentral CIs around the Odds Ratio of Fisher’s Exact Test Example: Time, Money, and Morality  Continuous distributions: Standardised sample means  Standardised, but on which measure of dispersion?</description>
+      <description>This is a demonstration of using &lt;code&gt;R&lt;/code&gt; in the context of hypothesis testing by means of Effect Size Confidence Intervals.</description>
     </item>
     
   </channel>

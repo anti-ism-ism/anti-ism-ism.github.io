@@ -7,28 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Fred Hasselman</copyright>
-    <lastBuildDate>Tue, 05 May 2015 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://anti-ism-ism.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>3PR</title>
-      <link>https://anti-ism-ism.com/tags/3pr/</link>
-      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://anti-ism-ism.com/tags/3pr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Anomalous Diffusion</title>
-      <link>https://anti-ism-ism.com/tags/anomalous-diffusion/</link>
-      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
-      
-      <guid>https://anti-ism-ism.com/tags/anomalous-diffusion/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Chaos Game</title>
@@ -40,47 +22,11 @@
     </item>
     
     <item>
-      <title>ESCI</title>
-      <link>https://anti-ism-ism.com/tags/esci/</link>
-      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://anti-ism-ism.com/tags/esci/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ergodicity</title>
-      <link>https://anti-ism-ism.com/tags/ergodicity/</link>
-      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
-      
-      <guid>https://anti-ism-ism.com/tags/ergodicity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Gaussian Self-Affinity</title>
       <link>https://anti-ism-ism.com/tags/gaussian-self-affinity/</link>
       <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://anti-ism-ism.com/tags/gaussian-self-affinity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HIBAR</title>
-      <link>https://anti-ism-ism.com/tags/hibar/</link>
-      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://anti-ism-ism.com/tags/hibar/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Homogeneity</title>
-      <link>https://anti-ism-ism.com/tags/homogeneity/</link>
-      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
-      
-      <guid>https://anti-ism-ism.com/tags/homogeneity/</guid>
       <description></description>
     </item>
     
@@ -112,11 +58,29 @@
     </item>
     
     <item>
-      <title>Ordered Categorical</title>
-      <link>https://anti-ism-ism.com/tags/ordered-categorical/</link>
-      <pubDate>Sat, 07 Mar 2015 12:00:00 +0000</pubDate>
+      <title>Anomalous Diffusion</title>
+      <link>https://anti-ism-ism.com/tags/anomalous-diffusion/</link>
+      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>https://anti-ism-ism.com/tags/ordered-categorical/</guid>
+      <guid>https://anti-ism-ism.com/tags/anomalous-diffusion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ergodicity</title>
+      <link>https://anti-ism-ism.com/tags/ergodicity/</link>
+      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/ergodicity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Homogeneity</title>
+      <link>https://anti-ism-ism.com/tags/homogeneity/</link>
+      <pubDate>Fri, 19 May 2017 09:50:02 -0700</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/homogeneity/</guid>
       <description></description>
     </item>
     
@@ -139,11 +103,20 @@
     </item>
     
     <item>
-      <title>Tutorial</title>
-      <link>https://anti-ism-ism.com/tags/tutorial/</link>
-      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
+      <title>e</title>
+      <link>https://anti-ism-ism.com/tags/e/</link>
+      <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
       
-      <guid>https://anti-ism-ism.com/tags/tutorial/</guid>
+      <guid>https://anti-ism-ism.com/tags/e/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandigital function</title>
+      <link>https://anti-ism-ism.com/tags/pandigital-function/</link>
+      <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/pandigital-function/</guid>
       <description></description>
     </item>
     
@@ -153,15 +126,6 @@
       <pubDate>Fri, 03 Mar 2017 16:35:02 -0700</pubDate>
       
       <guid>https://anti-ism-ism.com/tags/dont-debate...educate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>e</title>
-      <link>https://anti-ism-ism.com/tags/e/</link>
-      <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
-      
-      <guid>https://anti-ism-ism.com/tags/e/</guid>
       <description></description>
     </item>
     
@@ -184,11 +148,47 @@
     </item>
     
     <item>
-      <title>pandigital function</title>
-      <link>https://anti-ism-ism.com/tags/pandigital-function/</link>
-      <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
+      <title>3PR</title>
+      <link>https://anti-ism-ism.com/tags/3pr/</link>
+      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
       
-      <guid>https://anti-ism-ism.com/tags/pandigital-function/</guid>
+      <guid>https://anti-ism-ism.com/tags/3pr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ESCI</title>
+      <link>https://anti-ism-ism.com/tags/esci/</link>
+      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/esci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HIBAR</title>
+      <link>https://anti-ism-ism.com/tags/hibar/</link>
+      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/hibar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>https://anti-ism-ism.com/tags/tutorial/</link>
+      <pubDate>Tue, 05 May 2015 12:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ordered Categorical</title>
+      <link>https://anti-ism-ism.com/tags/ordered-categorical/</link>
+      <pubDate>Sat, 07 Mar 2015 12:00:00 +0000</pubDate>
+      
+      <guid>https://anti-ism-ism.com/tags/ordered-categorical/</guid>
       <description></description>
     </item>
     

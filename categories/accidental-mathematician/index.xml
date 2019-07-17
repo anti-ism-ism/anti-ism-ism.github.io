@@ -18,8 +18,13 @@
       <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://anti-ism-ism.com/post/the-chaos-gamer/</guid>
-      <description>The Chaos Game In this excellent Numberphile video Ben Sparks demonstrates how to generate a fractal structure (the Sierpinsky Triangle) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from \(\mathcal{U}(1,6)\).
-HUGOMORE42    Generating Order by Constraining Randomness This result may seem like a nice mathematical/statistical oddity, but there is some potentially deep knowledge about structure of reality to be uncovered here.</description>
+      <description>
+
+
+&lt;div id=&#34;the-chaos-game&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;The Chaos Game&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;In this excellent &lt;a href=&#34;https://www.youtube.com/channel/UCoxcjq-8xIDTYp3uz647V5A&#34;&gt;Numberphile&lt;/a&gt; video Ben Sparks demonstrates how to generate a fractal structure (the &lt;a href=&#34;https://en.wikipedia.org/wiki/Sierpinski_triangle&#34;&gt;Sierpinsky Triangle&lt;/a&gt;) by putting constraints (or rules) on a random process. The random process in this case is rolling a die, or, equivalently, drawing a random number from &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{U}(1,6)\)&lt;/span&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -28,12 +33,33 @@ HUGOMORE42    Generating Order by Constraining Randomness This result may seem l
       <pubDate>Tue, 09 May 2017 09:50:02 -0700</pubDate>
       
       <guid>https://anti-ism-ism.com/post/2017-05-09-pandigital-numbers-and-functions/</guid>
-      <description>Why?
-No reason, this is the accidental mathematician category.
-Pandigital numbers Pandigital numbers aren’t that special, it’s a number that has all digits from 1-9, or, 0-9 in it.
-For example: 381654729 is a pandigital number (with some extra properties)
-  Pandigital functions As Complexity Scientists (and musicians and artists in general) know:
- Interesting things will happen when the degrees of freedom available to a system to generate its behaviour, are reduced.</description>
+      <description>
+
+
+&lt;p&gt;Why?&lt;/p&gt;
+&lt;p&gt;No reason, this is the &lt;code&gt;accidental mathematician&lt;/code&gt; category.&lt;/p&gt;
+&lt;div id=&#34;pandigital-numbers&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pandigital numbers&lt;/h2&gt;
+&lt;p&gt;Pandigital numbers aren’t that special, it’s a number that has all digits from 1-9, or, 0-9 in it.&lt;/p&gt;
+&lt;p&gt;{{% alert note %}} For example: 381654729 is a pandigital number (with some &lt;a href=&#34;https://youtu.be/gaVMrqzb91w?t=46s&#34;&gt;extra properties&lt;/a&gt;) {{% /alert %}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pandigital-functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pandigital functions&lt;/h2&gt;
+&lt;p&gt;As Complexity Scientists (and musicians and artists in general) know:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Interesting things will happen when the degrees of freedom available to a system to generate its behaviour, are reduced.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now, the pandigital constraint can become very interesting when applied to functions, or rather, mathematical operators. The rules are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Take a &lt;em&gt;pandigital&lt;/em&gt; number&lt;/li&gt;
+&lt;li&gt;Stick any mathematical operator between any cluster of digits&lt;/li&gt;
+&lt;li&gt;Attempt to get an interesting outcome&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Turns out such a pandigital formula is able to approximate the trancendental number &lt;span class=&#34;math inline&#34;&gt;\(e\)&lt;/span&gt; with uncanny precision!&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[e\approx\left (1 + 9^{-4^{6*7}} \right)^{3^{2^{85}}}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;It was discovered by &lt;a href=&#34;http://www2.stetson.edu/~efriedma/mathmagic/0804.html&#34;&gt;Richard Sabey in 2004&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Numberphile&lt;/strong&gt; channel has a great video on it:&lt;/p&gt;
+</description>
     </item>
     
   </channel>

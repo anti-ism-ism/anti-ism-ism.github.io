@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 3.2.0">
-  <meta name="generator" content="Hugo 0.52" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="author" content="Fred Hasselman">
 
   
@@ -331,7 +331,7 @@
     
     <a href="/categories/r/">R</a>, 
     
-    <a href="/categories/time-series-analysis/">Time Series Analysis</a>
+    <a href="">Time Series Analysis</a>
     
   </span>
   
@@ -458,11 +458,10 @@
 </blockquote>
 <p>To summarise, when non-ergodicity, non-stationarity and ageing play a role in the timeseries measurements of variables of interest, one cannot rely on ensemble statistics to yield valid inferences, in fact they should be considered <strong>treacherous</strong>, and individual time series averages are <strong>irreproducible</strong>.</p>
 <p>What follows are some tests that have been developped (in different scientific disciplines) to check assumptions of non-stationarity (and more).</p>
-<div class="alert alert-note">
-  <p>This is by no means an exhaustive account of tests (or even a strategy that I would use myself, but that is for another post).</p>
-
+<p><div class="alert alert-note">
+   This is by no means an exhaustive account of tests (or even a strategy that I would use myself, but that is for another post). 
 </div>
-
+</p>
 </div>
 </div>
 <div id="a-timeseries-of-daily-mood-down" class="section level2">
@@ -627,11 +626,10 @@ plot(cbind(fitted(fit), resids=resid(fit)), main= &quot;Basic Structural Model f
 <li>Upward Trend (which is stationary)</li>
 </ul>
 <p>This is likely a violation of the strong ergodic condition / strong memorylessness property:</p>
-<div class="alert alert-warning">
-  <p>The statistical properties of a between-individual cross-sectional sample of the same theoretical process will be very different from a within-individual sample in a non-trivial way if the process can be considered to be some form of anomalous diffusion.</p>
-
+<p><div class="alert alert-warning">
+   The statistical properties of a between-individual cross-sectional sample of the same theoretical process will be very different from a within-individual sample in a non-trivial way if the process can be considered to be some form of anomalous diffusion. 
 </div>
-
+</p>
 <p>So, <strong>do not</strong> use any analytic techniques that depend on the ESM data and underlying process to be stationary and ergodic if these tests indicate the assumptions are violated.</p>
 <div id="next-dynamics-in-state-space" class="section level2">
 <h2><strong>NEXT: Dynamics in state space</strong></h2>
@@ -741,13 +739,13 @@ gganimate(ga, interval=.2, &quot;returnplot.gif&quot;)</code></pre>
   
   <a class="badge badge-light" href="/tags/ergodicity/">Ergodicity</a>
   
-  <a class="badge badge-light" href="/tags/structural-decomposition/">Structural Decomposition</a>
+  <a class="badge badge-light" href="">Structural Decomposition</a>
   
   <a class="badge badge-light" href="/tags/homogeneity/">Homogeneity</a>
   
   <a class="badge badge-light" href="/tags/stationarity/">Stationarity</a>
   
-  <a class="badge badge-light" href="/tags/anomalous-diffusion/">Anomalous Diffusion</a>
+  <a class="badge badge-light" href="">Anomalous Diffusion</a>
   
 </div>
 
